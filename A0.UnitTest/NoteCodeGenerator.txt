@@ -1,0 +1,149 @@
+﻿[완]텍스트 박스 드래그 안 됨(Sub Panel 일 때)
+[완]부모를 벗어날 Padding 때 틀어짐
+[완]채널 마우스 오버시 최초 X 버튼 나타나지 않음
+
+! 작업중
+	반복 블럭의 텍스트 간격을 맞춤.
+	커스텀한 결과를 저장, 불러오는 기능.
+
+	
+	
+	[완?]graphic 버튼 그룹화 구현 후 버튼 visible 옵션 추가
+	[완?]변수 자동 완성 구현
+	함수 및 변수 색상 구현
+		SQL 색상 구현?
+		SQL 자동 완성 구현?
+		블록 주석 구현?
+	코드 형식(c#, sql) 드랍 다운 버튼 추가?(vs의 빌드와 비슷한 느낌)
+	[90%]generate 오류 처리
+		autocomplate 에서 오류 발생시 현재는 리스트에 보이지 않게 처리. 변경?
+	tab 패널 커스터마이징?
+
+	GraphicControl 마우스 다운 색상 처리
+
+! Error
+	[완]o/ id: 위치 esc 눌로도 계속 자동완성 뜸
+	[완]2번째 줄 시작 위치에서 자동완성 안 뜸
+	[완]자동완성 항목 키보드로 이동 시 에디터의 스크롤바로 포커스가 이동됨
+		-> ActiveControl = null;
+
+	protected override CreateParams CreateParams
+		위 코드 사용시 화면과 호환되는 비트맵을 만들 수 없다는 오류 발생
+
+기능
+	[보류]ctrl + tab
+	[90%]ctrl + pageup, ctrl + pagedown
+		탭 이동 시 이전에 포커스를 가지고 있었던 editor로 이동되지 않음
+	이벤트 및 입출력 구현
+		LoadButton, SaveButton, 
+		ExecuteButton, HistoryButton
+	[완]탭 닫기 컨펌 필요
+		
+
+	템플릿 가져오기(멀티 기능 필요)
+	템플릿 편집
+	템플릿 공유
+		파일 저장 또는 온라인 공유 기능
+			공유를 위한 컬럼 노드 설명 기능 필요
+
+	Query 텍스트 박스에 컬럼 툴팁을 컬럼의 코멘트로(테이블도)
+
+
+
+
+[완]AutoCompleteList 최초 스크롤 위치 수정 필요
+
+[완]탭 이름 변경
+[완]삭제
+
+[완]필드로 {} 입력
+필드 자동 완성?
+
+TemplateProcessor
+	option 생성 부분 수정?
+
+[완]UserListView pageup, pagedown 구현 필요
+
+
+
+
+------------- Temp
+
+확인
+	일치 및 앞 뒤로 키워드 명의 연장인지 확인(_, 1 제외 전부?)
+	첫 줄의 시작만 적용되는지 확인
+
+탭 설정 추가(sql, c#, java) / 해당 설정은 탭에 표시됨
+
+{
+	codeGejerator: {
+		keyword1: {
+			words: "o/ s/ b/ e/"
+			, caseSensitive: true
+			, firstWordInLine : true
+			, color: "128 128 128"
+			, backColor : "215 215 215"
+		}
+	}
+}
+
+
+{
+	sql: {
+		keyword1: {
+			words: "if else"
+			, caseSensitive: false
+			, color: "0 0 0"
+			, bold : false
+			, italic : false
+			, underline : false
+		}
+		keyword2: {
+			words: "if else"
+			, caseSensitive: false
+			, color: "0 0 0"
+			, bold : false
+			, italic : false
+			, underline : false
+		}
+		function: {
+		
+		}
+		commentLine: {
+			word: "--"
+			, color: "0 128 0"
+		}
+		commentBlock: {
+			, startWord: "*/"
+			, endWord: "/*"
+			, color: "0 128 0"
+		}
+	}
+}
+
+
+{
+	cs: {
+		keyword: {
+			words: "if else"
+			, color: "0 0 0"
+			, backColor : "255 255 255"
+			, bold : false
+			, italic : false
+			, underline : false
+		}
+		commentLine: {
+			word: "//"
+			, color: "0 128 0"
+		}
+		commentBlock: {
+			, startWord: "*/"
+			, endWord: "/*"
+			, color: "0 128 0"
+		}
+	}
+}
+
+java: {
+	
+}

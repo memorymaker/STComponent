@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5CDC7AE7-60F0-42DA-A000-B7303EE3DF69}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST.CodeGenerator</RootNamespace>
+    <AssemblyName>ST.CodeGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\03.ST.Controls\Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\EditorStyle.cs" />
+    <Compile Include="Main\CodeGenerator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorEditorStyle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorGraphicControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorDraw.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorIGraphicControlParent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeGeneratorResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TabModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tab\TabEditorStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tab\TabEventArgs.cs" />
+    <Compile Include="TemplateProcessor\TemplateProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tab\TabDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tab\TabGraphicControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tab\TabInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tab\TabMainSpllit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tab\Tab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tab\TabControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TemplateProcessor\TemplateProcessorDeclaration.cs" />
+    <Compile Include="TemplateProcessor\TemplateProcessorException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Main\CodeGeneratorResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CodeGeneratorResource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ST.CodeGenerator</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tab\Tab.resx">
+      <DependentUpon>Tab.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\Icon_File.png" />
+    <None Include="Styles\cs.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Styles\sql.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CollapseOpenWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CollapseCloseWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01.ST.Core\01.ST.Core.csproj">
+      <Project>{03df736f-6325-4cd5-82ec-91abcf3fab4c}</Project>
+      <Name>01.ST.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\03.ST.Controls\03.ST.Controls.csproj">
+      <Project>{736515a6-f208-47ec-a82e-5f91c48d6150}</Project>
+      <Name>03.ST.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties styles_4cs_1json__JsonSchema="https://cdn.subsquid.io/schemas/squid_manifest.json" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

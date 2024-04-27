@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1A39601-437C-4510-A91A-676F21265B9C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST.DataModeler</RootNamespace>
+    <AssemblyName>ST.DataModeler</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="Common\RelationControlEventHandler.cs" />
+    <Compile Include="Common\GraphicControlEventHandler.cs" />
+    <Compile Include="Common\SimpleGraphicControl.cs" />
+    <Compile Include="Common\GraphicMouseAction.cs" />
+    <Compile Include="GraphicControls\Base\GraphicControl.cs" />
+    <Compile Include="GraphicControls\Base\GraphicControlCollection.cs" />
+    <Compile Include="GraphicControls\Base\GraphicControlGraphics.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditor.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorAutoComplete.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorData.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorDraw.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorExtensions.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorLineStyle.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorRangeStyle.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorScreen.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorSelection.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorStyle.cs" />
+    <Compile Include="GraphicControls\GraphicEditor\GraphicEditorUnredo.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListView.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewColumn.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewDraw.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewEnums.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewEventArgs.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewInput.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewIScaleControl.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewItem.cs" />
+    <Compile Include="GraphicControls\GraphicListView\GraphicListViewUI.cs" />
+    <Compile Include="GraphicControls\GraphicPanel\GraphicPanelEventArgs.cs" />
+    <Compile Include="GraphicControls\GraphicPanel\GraphicPanelDraw.cs" />
+    <Compile Include="GraphicControls\GraphicPanel\GraphicPanelIScaleControl.cs" />
+    <Compile Include="GraphicControls\GraphicPanel\GraphicPanelInput.cs" />
+    <Compile Include="GraphicControls\GraphicPanel\GraphicPanel.cs" />
+    <Compile Include="GraphicControls\GraphicScrollBar\GraphicScrollBar.cs" />
+    <Compile Include="GraphicControls\GraphicScrollBar\GraphicScrollBarDraw.cs" />
+    <Compile Include="GraphicControls\GraphicScrollBar\GraphicScrollBarEventArgs.cs" />
+    <Compile Include="GraphicControls\GraphicScrollBar\GraphicScrollBarInput.cs" />
+    <Compile Include="GraphicControls\GraphicScrollBar\GraphicScrollBarObject.cs" />
+    <Compile Include="Interface\IRelationControlParent.cs" />
+    <Compile Include="Interface\IGraphicControlParent.cs" />
+    <Compile Include="Interface\IGraphicMouseActionTarget.cs" />
+    <Compile Include="Interface\IScaleControl.cs" />
+    <Compile Include="Main\DataModelerEnums.cs" />
+    <Compile Include="Main\DataModelerIGraphicControlParent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModelerIRelationControlParent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModeler.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModelerDraw.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModelerInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModelerRelation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModelerMinimapControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Main\DataModelerStruct.cs" />
+    <Compile Include="Modal\Modals\ModalColumnToTableRelationEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalColumnToTableRelationEditor.Designer.cs">
+      <DependentUpon>ModalColumnToTableRelationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalImageSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalImageSave.Designer.cs">
+      <DependentUpon>ModalImageSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalUserColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalUserColumn.Designer.cs">
+      <DependentUpon>ModalUserColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalRelationEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Modals\ModalRelationEditor.Designer.cs">
+      <DependentUpon>ModalRelationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nodes\Base\NodeEnums.cs" />
+    <Compile Include="Nodes\Base\NodeBase.cs" />
+    <Compile Include="Nodes\Base\NodeModels.cs" />
+    <Compile Include="Nodes\ColumnNode\ColumnNode.cs" />
+    <Compile Include="Nodes\ColumnNode\ColumnNodeDraw.cs" />
+    <Compile Include="Nodes\ColumnNode\ColumnNodeInput.cs" />
+    <Compile Include="Nodes\MemoNode\MemoNodeDraw.cs" />
+    <Compile Include="Nodes\MemoNode\MemoNodeInput.cs" />
+    <Compile Include="Nodes\MemoNode\MemoNode.cs" />
+    <Compile Include="Nodes\TableNode\TableNodeInput.cs" />
+    <Compile Include="Nodes\TableNode\TableNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\ST.DataModeler.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ST.DataModeler.settings</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Relations\Base\RelationControlDraw.cs" />
+    <Compile Include="Relations\Base\RelationControlInput.cs" />
+    <Compile Include="Relations\Base\RelationControlCollection.cs" />
+    <Compile Include="Relations\Base\RelationControlEnums.cs" />
+    <Compile Include="Relations\Base\RelationModels.cs" />
+    <Compile Include="Relations\Base\RelationControl.cs" />
+    <Compile Include="Relations\Relation\Relation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01.ST.Core\01.ST.Core.csproj">
+      <Project>{03df736f-6325-4cd5-82ec-91abcf3fab4c}</Project>
+      <Name>01.ST.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\03.ST.Controls\03.ST.Controls.csproj">
+      <Project>{736515a6-f208-47ec-a82e-5f91c48d6150}</Project>
+      <Name>03.ST.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Modal\Modals\ModalColumnToTableRelationEditor.resx">
+      <DependentUpon>ModalColumnToTableRelationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal\Modals\ModalImageSave.resx">
+      <DependentUpon>ModalImageSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal\Modals\ModalUserColumn.resx">
+      <DependentUpon>ModalUserColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal\Modals\ModalRelationEditor.resx">
+      <DependentUpon>ModalRelationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Nodes\TextNode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\ST.DataModeler.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ST.DataModeler.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

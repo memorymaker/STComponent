@@ -1,0 +1,49 @@
+{
+  "Name": "C#",
+  "Sort": 2,
+  "Content": [
+    {
+      "Name": "ControlStatement",
+      "Regex": "(^|(?<=[^\\w]))(if|else|for|foreach|continue|break|do|while|goto|try|catch|finally|switch|case|default|return|throw)((?=[^\\w])|$)",
+      "CaseSensitive": true,
+      "MultiLine": false,
+      "LineColor": null,
+      "FontColor": "143 8 196",
+      "BackColor": null,
+      "Bold": false,
+      "Italic": false,
+      "Underline": false
+    },
+    {
+      "Name": "Keyword",
+      "Regex": "(^|(?<=[^\\w]))(abstract|as|base|bool|byte|char|checked|class|const|decimal|delegate|double|enum|event|explicit|extern|false|fixed|float|implicit|in|int|interface|internal|is|lock|long|namespace|new|null|object|operator|out|override|params|private|protected|public|readonly|ref|sbyte|sealed|short|sizeof|stackalloc|static|string|struct|this|true|typeof|uint|ulong|unchecked|unsafe|ushort|using|virtual|void|volatile|add|and|alias|ascending|args|async|await|by|descending|dynamic|equals|file|from|get|global|group|init|into|join|let|managed|nameof|nint|not|notnull|nuint|on|or|orderby|partial|record|remove|required|scoped|select|set|unmanaged|value|var|when|where|with|yield)((?=[^\\w])|$)",
+      "CaseSensitive": true,
+      "MultiLine": false,
+      "LineColor": null,
+      "FontColor": "0 0 255",
+      "BackColor": null,
+      "Bold": false,
+      "Italic": false,
+      "Underline": false
+    },
+    {
+      "Name": "Class",
+      "Regex": "(^|(?<=[^\\w]))(DataRow|DataTable|DataSet|List|KeyValuePair|Dictionary|Exception|Console|EventArgs)((?=[^\\w])|$)",
+      "CaseSensitive": true,
+      "MultiLine": false,
+      "LineColor": null,
+      "FontColor": "43 145 175",
+      "BackColor": null,
+      "Bold": false,
+      "Italic": false,
+      "Underline": false
+    },
+    {
+      "Name": "Comment",
+      "MultiLineStartingText": "/*",
+      "MultiLineEndText": "*/",
+      "SingleLineText": "//",
+      "FontColor": "0 128 0"
+    }
+  ]
+}

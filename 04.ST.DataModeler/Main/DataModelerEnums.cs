@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ST.DataModeler
+{
+    public enum RefreshType
+    {
+        All = 0, This
+    }
+}

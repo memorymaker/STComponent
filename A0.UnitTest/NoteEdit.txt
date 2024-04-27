@@ -1,0 +1,59 @@
+﻿        // Class Divide (partial?
+        //  ... Draw 
+        //
+        // SB Controller
+        // SB Info?
+        //   SB Get Something(info?)
+        //   SB Set Something
+        // Shift + Delete ... need to append
+;
+ctrl + arrow / space
+
+
+Insert
+
+Delete
+Backspace
+
+           Default       Ctrl				  Shift            Ctrl + Shift		  Alt								    Alt + Shift
+KeyUp	  :             : ScrollUp			: Selection		 : -				: LineMove(Selected Line or Currrent) : Vertical Select
+KeyDown	  :             : ScrollDown		: Selection		 : -				: LineMove(Selected Line or Currrent) : Vertical Select
+KeyLeft	  :             : WordLeft			: Selection		 : Selection(Ctrl)	: -									  : Vertical Select
+KeyRight  :             : WordRight			: Selection	 	 : Selection(Ctrl)	: -									  : Vertical Select
+PageUp	  :             : -Fnc.TabChange	: Selection		 : -Fnc.TabMove		: -									  : Vertical Select
+PageDown  :             : -Fnc.TabChange	: Selection		 : -Fnc.TabMove		: -									  : Vertical Select
+Home	  :             : First Index		: Selection		 : Selection(Ctrl)	: -									  : Vertical Select
+End		  :             : Last Index		: Selection		 : Selection(Ctrl)	: -									  : Vertical Select
+		  
+MouseDown :									: Selection To This					: -									  : Vertical Select To This
+MouseMove :									: Selection							: Vertical Select					  : Vertical Select
+
+Etc
+VS
+Ctrl + Alt + KeyDown  : Windows Select Box
+Ctrl + Alt + PageUp   : -Fnc.TabChange
+Ctrl + Alt + PageDown : -Fnc.TabChange
+Ctrl + Alt + Home     : -Fnc.TabChange(To First)
+Ctrl + Alt + End      : -Fnc.TabChange(To Last)
+
+Ctrl + Alt : X
+Ctrl + Alt + Shift : 
+
+Value
+int CursorIndexReference
+int CursorLeftReference
+string ReturnText = "\r\n";
+string TextSplitter = "`~!@#$%^&*()-+=[]{}\\|;:'\",.<>/?\t\r\n ";
+
+
+-- KeyDown
+// Start   / Find Start Index
+targetIndex = Fnc1(KeyCode, Selection.Start, Selection.Length, CursorIndexReference)
+// Keydown / Find New Index
+newIndex   = Fnc2(KeyCode, targetIndex, Selection.Start, Selection.Length , CursorLeftReference, Ctrl, Alt, ReturnText, TextSplitter)
+// Execute
+			 Fnc3(KeyCode, newIndex, CursorIndexReference, Shift, ref Selection.Start, ref Selection.Length)
+
+-- MouseDown, MouseMove
+// Execute
+			 Fnc4(Selection.Start, Selection.Length, CursorIndexReference)

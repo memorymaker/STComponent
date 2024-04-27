@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{736515A6-F208-47EC-A82E-5F91C48D6150}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST.Controls</RootNamespace>
+    <AssemblyName>ST.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\WindowsBase.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\GraphicControl.cs" />
+    <Compile Include="Inheritance\DrawingPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inheritance\UserScaleControlWarpPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Inheritance\UserScaleControlWarpPanelMinimap.cs" />
+    <Compile Include="Inheritance\UserSplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interface\IGraphicControlParent.cs" />
+    <Compile Include="Interface\IScaleControl.cs" />
+    <Compile Include="Modal\Base\ModalBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Base\ModalBase.Designer.cs">
+      <DependentUpon>ModalBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal\Base\ModalBaseBorderlessWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Buttons\ModalButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modal\MessageBox\ModalMessageBox.cs" />
+    <Compile Include="Modal\MessageBox\ModalMessageBoxForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\MessageBox\ModalMessageBoxForm.Designer.cs">
+      <DependentUpon>ModalMessageBoxForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditor\UserEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditor.designer.cs">
+      <DependentUpon>UserEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorRangeStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorExtensions.cs" />
+    <Compile Include="UserEditor\UserEditorLineStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserEditor\UserEditorUnredo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserListView\UserListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserListView\UserListView.designer.cs">
+      <DependentUpon>UserListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserListView\UserListViewColumn.cs" />
+    <Compile Include="UserListView\UserListViewDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserListView\UserListViewEventArgs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserListView\UserListViewEnums.cs" />
+    <Compile Include="UserListView\UserListViewInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserListView\UserListViewIScaleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserListView\UserListViewItem.cs" />
+    <Compile Include="UserListView\UserListViewUI.cs" />
+    <Compile Include="Interface\IMouseActionTarget.cs" />
+    <Compile Include="UserEditor\UserEditorAutoComplete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserPanel.Common.cs" />
+    <Compile Include="UserPanel\UserPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserPanel.Designer.cs" />
+    <Compile Include="UserPanel\UserPanelContextMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\MouseAction.cs" />
+    <Compile Include="UserPanel\UserPanelDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserPanelEnumNClass.cs" />
+    <Compile Include="UserPanel\UserPanelGraphicControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserPanelInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserPanelOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserPanel\UserPanelEventArgs.cs" />
+    <Compile Include="UserPanel\UserWrapPanelForUserPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserScrollBar\UserScrollBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserScrollBar\UserScrollBar.designer.cs">
+      <DependentUpon>UserScrollBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserScrollBar\UserScrollBarDraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserScrollBar\UserScrollBarEventArgs.cs" />
+    <Compile Include="UserScrollBar\UserScrollBarInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserScrollBar\UserScrollBarObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserForms\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Library\Newtonsoft.Json.dll" />
+    <Content Include="Library\PresentationCore.dll" />
+    <Content Include="Library\WindowsBase.dll" />
+    <None Include="Resources\ErrorIcon.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Modal\Base\ModalBase.resx">
+      <DependentUpon>ModalBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal\MessageBox\ModalMessageBoxForm.resx">
+      <DependentUpon>ModalMessageBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPanel\UserPanel.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\01.ST.Core\01.ST.Core.csproj">
+      <Project>{03df736f-6325-4cd5-82ec-91abcf3fab4c}</Project>
+      <Name>01.ST.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
