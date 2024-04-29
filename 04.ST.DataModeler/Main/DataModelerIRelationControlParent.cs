@@ -72,7 +72,7 @@ namespace ST.DataModeler
                             }
                         );
 
-                        if (!NodeRelationsContains(relation))
+                        if (!ContainsRelation(relation))
                         {
                             Relations.Add(relation);
                         }
@@ -107,7 +107,7 @@ namespace ST.DataModeler
                         };
 
                         RelationControl relation = new RelationControl(this, relationModel);
-                        if (!NodeRelationsContains(relation))
+                        if (!ContainsRelation(relation))
                         {
                             Relations.Add(relation);
                         }
@@ -163,18 +163,18 @@ namespace ST.DataModeler
             }
         }
 
-        private bool NodeRelationsContains(RelationControl relationControl)
+        private bool ContainsRelation(RelationControl relationControl)
         {
             bool rsContains = false;
             foreach (RelationControl nodeRelation in Relations)
             {
-                if (nodeRelation.Model.NODE_ID1 == relationControl.Model.NODE_ID1
-                && nodeRelation.Model.NODE_SEQ1 == relationControl.Model.NODE_SEQ1
-                && nodeRelation.Model.NODE_DETAIL_ID1 == relationControl.Model.NODE_DETAIL_ID1
+                if (nodeRelation.Model.NODE_ID1        == relationControl.Model.NODE_ID1
+                && nodeRelation.Model.NODE_SEQ1        == relationControl.Model.NODE_SEQ1
+                && nodeRelation.Model.NODE_DETAIL_ID1  == relationControl.Model.NODE_DETAIL_ID1
                 && nodeRelation.Model.NODE_DETAIL_SEQ1 == relationControl.Model.NODE_DETAIL_SEQ1
-                && nodeRelation.Model.NODE_ID2 == relationControl.Model.NODE_ID2
-                && nodeRelation.Model.NODE_SEQ2 == relationControl.Model.NODE_SEQ2
-                && nodeRelation.Model.NODE_DETAIL_ID2 == relationControl.Model.NODE_DETAIL_ID2
+                && nodeRelation.Model.NODE_ID2         == relationControl.Model.NODE_ID2
+                && nodeRelation.Model.NODE_SEQ2        == relationControl.Model.NODE_SEQ2
+                && nodeRelation.Model.NODE_DETAIL_ID2  == relationControl.Model.NODE_DETAIL_ID2
                 && nodeRelation.Model.NODE_DETAIL_SEQ2 == relationControl.Model.NODE_DETAIL_SEQ2)
                 {
                     rsContains = true;
@@ -184,7 +184,7 @@ namespace ST.DataModeler
             return rsContains;
         }
 
-        public bool RelationContains(RelationModel relationModel)
+        public bool ContainsRelation(RelationModel relationModel)
         {
             bool rsContains = false;
             foreach (RelationControl nodeRelation in Relations)

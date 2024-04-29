@@ -23,7 +23,7 @@ namespace Sample
             // Form7 UserScrollBar
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form2());
+            Application.Run(new Form3());
         }
     }
 }

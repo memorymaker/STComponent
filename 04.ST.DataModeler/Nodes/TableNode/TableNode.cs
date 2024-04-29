@@ -73,13 +73,7 @@ namespace ST.DataModeler
             }
         }
 
-        public ObservableCollection<GraphicListViewItem> Items
-        {
-            get
-            {
-                return InnerListView.Items;
-            }
-        }
+        public ObservableCollection<GraphicListViewItem> Items => InnerListView.Items;
         #endregion
 
         #region Load

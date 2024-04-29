@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\03.ST.Controls\Library\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="ST.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -106,6 +110,15 @@
     <EmbeddedResource Include="Form2_DataModeler.resx">
       <DependentUpon>Form2_DataModeler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form3_CodeGenerator.resx">
+      <DependentUpon>Form3_CodeGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4_UserEditor.resx">
+      <DependentUpon>Form4_UserEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5_UserPanel.resx">
+      <DependentUpon>Form5_UserPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -132,6 +145,10 @@
     <ProjectReference Include="..\04.ST.DataModeler\04.ST.DataModeler.csproj">
       <Project>{A1A39601-437C-4510-A91A-676F21265B9C}</Project>
       <Name>04.ST.DataModeler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\05.ST.CodeGenerator\05.ST.CodeGenerator.csproj">
+      <Project>{5CDC7AE7-60F0-42DA-A000-B7303EE3DF69}</Project>
+      <Name>05.ST.CodeGenerator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

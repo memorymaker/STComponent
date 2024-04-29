@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ST.DataModeler
 {
@@ -459,6 +460,72 @@ namespace ST.DataModeler
         public void MimimapRefresh()
         {
             Minimap.Draw();
+        }
+
+        public bool ContainsNode(NodeBase node)
+        {
+            bool rs = false;
+            foreach (GraphicControl control in Controls)
+            {
+                NodeBase contolsNode = control as NodeBase;
+                if (node != null && contolsNode.ID == node.ID && contolsNode.SEQ == node.SEQ)
+                {
+                    rs = true;
+                    break;
+                }
+            }
+            return rs;
+        }
+
+        public bool CanBeAddedRelation(RelationControl relation)
+        {
+            bool[] rs = new bool[2] { false, false };
+
+            foreach (GraphicControl control in Controls)
+            {
+                TableNode node = control as TableNode;
+                if (node != null)
+                {
+                    if (node.ID == relation.Model.NODE_ID1 && node.SEQ == relation.Model.NODE_DETAIL_SEQ1)
+                    {
+                        foreach (GraphicListViewItem item in node.Items)
+                        {
+                            if (item.Row["NODE_DETAIL_ID"].ToString() == relation.Model.NODE_DETAIL_ID1
+                            && item.Row["NODE_DETAIL_SEQ"].ToInt() == relation.Model.NODE_DETAIL_SEQ1)
+                            {
+                                rs[0] = true;
+                                break;
+                            }
+                        }
+                    }
+                    else if (node.ID == relation.Model.NODE_ID2 && node.SEQ == relation.Model.NODE_DETAIL_SEQ2)
+                    {
+                        if (string.IsNullOrWhiteSpace(relation.Model.NODE_DETAIL_ID2))
+                        {
+                            rs[1] = true;
+                        }
+                        else
+                        {
+                            foreach (GraphicListViewItem item in node.Items)
+                            {
+                                if (item.Row["NODE_DETAIL_ID"].ToString() == relation.Model.NODE_DETAIL_ID2
+                                && item.Row["NODE_DETAIL_SEQ"].ToInt() == relation.Model.NODE_DETAIL_SEQ2)
+                                {
+                                    rs[1] = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    if (rs[0] && rs[1])
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return rs[0] && rs[1];
         }
         #endregion
 

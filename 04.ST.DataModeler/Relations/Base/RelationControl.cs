@@ -135,6 +135,29 @@ namespace ST.DataModeler
                 , NODE_DETAIL_ORDER2 = Model.NODE_DETAIL_ORDER2
 			};
         }
+
+        public bool EqualsData(RelationControl relationControl)
+        {
+            bool rs = false;
+            if (Model.RELATION_TYPE      == relationControl.Model.RELATION_TYPE
+            &&  Model.RELATION_OPERATOR  == relationControl.Model.RELATION_OPERATOR
+            &&  Model.RELATION_VALUE     == relationControl.Model.RELATION_VALUE
+            &&  Model.RELATION_NOTE      == relationControl.Model.RELATION_NOTE
+            &&  Model.NODE_ID1           == relationControl.Model.NODE_ID1
+            &&  Model.NODE_SEQ1          == relationControl.Model.NODE_SEQ1
+            &&  Model.NODE_DETAIL_ID1    == relationControl.Model.NODE_DETAIL_ID1
+            &&  Model.NODE_DETAIL_SEQ1   == relationControl.Model.NODE_DETAIL_SEQ1
+            &&  Model.NODE_DETAIL_ORDER1 == relationControl.Model.NODE_DETAIL_ORDER1
+            &&  Model.NODE_ID2           == relationControl.Model.NODE_ID2
+            &&  Model.NODE_SEQ2          == relationControl.Model.NODE_SEQ2
+            &&  Model.NODE_DETAIL_ID2    == relationControl.Model.NODE_DETAIL_ID2
+            &&  Model.NODE_DETAIL_SEQ2   == relationControl.Model.NODE_DETAIL_SEQ2
+            &&  Model.NODE_DETAIL_ORDER2 == relationControl.Model.NODE_DETAIL_ORDER2)
+            {
+                rs = true;
+            }
+            return rs;
+        }
         #endregion
 
         #region OnEvent Method

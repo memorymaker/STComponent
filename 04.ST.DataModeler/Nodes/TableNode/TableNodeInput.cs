@@ -105,7 +105,7 @@ namespace ST.DataModeler
                     NODE_DETAIL_SEQ2 = 0,
                 };
 
-                if (!Target.RelationContains(model))
+                if (!Target.ContainsRelation(model))
                 {
                     var modal = new ModalColumnToTableRelationEditor(model);
                     if (modal.ShowDialog() == DialogResult.OK)

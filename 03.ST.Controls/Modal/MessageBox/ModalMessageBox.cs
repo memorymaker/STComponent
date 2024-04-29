@@ -22,13 +22,13 @@ namespace ST.Controls
             return modal.ShowDialog();
         }
 
-        public static DialogResult Show(IWin32Window owner, string text, string caption = "", MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1, StartPosition position = StartPosition.Cursor)
+        public static DialogResult Show(IWin32Window owner, string text, string caption = "", MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1, StartPosition position = StartPosition.CenterParent)
         {
             var modal = new ModalMessageBoxForm(text, caption, buttons, defaultButton, MessageBoxIcon.None, position);
             return modal.ShowDialog(owner);
         }
 
-        public static DialogResult ShowError(IWin32Window owner, string text, string caption = "", MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1, StartPosition position = StartPosition.Cursor)
+        public static DialogResult ShowError(IWin32Window owner, string text, string caption = "", MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1, StartPosition position = StartPosition.CenterParent)
         {
             var modal = new ModalMessageBoxForm(text, caption, buttons, defaultButton, MessageBoxIcon.Error, position);
             return modal.ShowDialog(owner);

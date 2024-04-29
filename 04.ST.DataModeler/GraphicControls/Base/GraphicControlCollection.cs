@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.Layout;
 using System.Windows.Forms;
+using ST.Core;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ST.DataModeler
 {

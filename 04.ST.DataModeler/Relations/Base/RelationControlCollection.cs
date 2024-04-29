@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.Layout;
 using System.Windows.Forms;
+using ST.Core;
 
 namespace ST.DataModeler
 {
@@ -43,7 +44,17 @@ namespace ST.DataModeler
 
         public void Add(RelationControl value)
         {
+            DataModeler parent = _Owner as DataModeler;
+
             if (value == null || InnerList.Contains(value))
+            {
+                return;
+            }
+            else if (parent.ContainsRelation(value.Model))
+            {
+                return;
+            }
+            else if (!parent.CanBeAddedRelation(value))
             {
                 return;
             }
@@ -53,7 +64,6 @@ namespace ST.DataModeler
                 value.Parent.Relations.Remove(value);
             }
 
-            DataModeler parent = _Owner as DataModeler;
             value.Parent = parent;
 
             string valueStringForSorting = value.Model.GetSortingString();
