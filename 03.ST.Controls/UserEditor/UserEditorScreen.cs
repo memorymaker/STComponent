@@ -69,7 +69,12 @@ namespace ST.Controls
                 if (_ShowSelectoinInfo != value)
                 {
                     _ShowSelectoinInfo = value;
+                    HScroll.Width = _ShowSelectoinInfo
+                        ? Width - Draw.SelectionInfoWidth
+                        : Width;
+
                     Draw.Draw();
+                    HScroll.Draw();
                 }
             }
         }

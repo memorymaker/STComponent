@@ -26,6 +26,11 @@ namespace ST.Core
         {
             if (!control.IsDisposed)
             {
+                if (!BeginControlUpdateList.Contains(control))
+                {
+                    BeginControlUpdateList.Add(control);
+                }
+
                 Message msgSuspendUpdate = Message.Create(control.Handle, WM_SETREDRAW, IntPtr.Zero,
                       IntPtr.Zero);
 
@@ -42,6 +47,11 @@ namespace ST.Core
         {
             if (!control.IsDisposed)
             {
+                if (BeginControlUpdateList.Contains(control))
+                {
+                    BeginControlUpdateList.Remove(control);
+                }
+
                 // Create a C "true" boolean as an IntPtr
                 IntPtr wparam = new IntPtr(1);
                 Message msgResumeUpdate = Message.Create(control.Handle, WM_SETREDRAW, wparam,
@@ -55,6 +65,13 @@ namespace ST.Core
                     control.Refresh();
                 }
             }
+        }
+
+        private static List<Control> BeginControlUpdateList = new List<Control>();
+
+        public static bool IsBeginControlUpdate(this Control control)
+        {
+            return BeginControlUpdateList.Contains(control);
         }
     }
 }

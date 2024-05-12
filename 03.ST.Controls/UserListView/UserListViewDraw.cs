@@ -303,7 +303,7 @@ namespace ST.Controls
                                 float topRevision = 2 * ScaleValue;
                                 RectangleF stringRectangle = new RectangleF(
                                       Math.Max(minLeft, nXStart), nYStart + scaleTop + topRevision
-                                    , Math.Min(itemNodeRectangle.Width, linePixelSize.Width), linePixelSize.Height);
+                                    , Math.Min(itemNodeRectangle.Width, linePixelSize.Width + 0.5f), linePixelSize.Height);
                                 StringFormat stringFormat = new StringFormat();
                                 stringFormat.Trimming = StringTrimming.EllipsisCharacter;
                                 SolidBrush stringBrush = i == SelectedItemIndex

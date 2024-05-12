@@ -621,7 +621,7 @@ namespace ST.Controls
             {
                 Invoke(new Action(delegate ()
                 {
-                    if (Focused && Visible && Width > 0 && Height > 0)
+                    if (Focused && Visible && Width > 0 && Height > 0 && !IsDisposed)
                     {
                         Draw.Draw();
                         Draw.DrawCursor = !Draw.DrawCursor;

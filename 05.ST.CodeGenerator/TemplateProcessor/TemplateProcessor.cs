@@ -1238,7 +1238,7 @@ namespace ST.CodeGenerator
             DataTable rsRelationData = relationTable.Clone();
 
             // from Proc
-            Regex regx = new Regex("{ *from *id *: *([A-Za-z0-9]*) *}");
+            Regex regx = new Regex("{ *from *id *: *([A-Za-z0-9_]*) *}");
             Match match = regx.Match(content);
             do
             {

@@ -613,7 +613,7 @@ namespace ST.CodeGenerator
             {
                 parentTab.Visible = true;
             }
-            this.EndControlUpdate(false);
+            this.EndControlUpdate();
         }
 
         public void Clear()

@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.codeGenerator = new ST.CodeGenerator.CodeGenerator();
             this.btGetMainData = new ST.Controls.Modal.ModalButton();
             this.btGetRelationData = new ST.Controls.Modal.ModalButton();
             this.btGetNodeData = new ST.Controls.Modal.ModalButton();
-            this.btScaleMinus = new ST.Controls.Modal.ModalButton();
-            this.btScalePlus = new ST.Controls.Modal.ModalButton();
+            this.btAddTab = new ST.Controls.Modal.ModalButton();
+            this.btSetSplitter = new ST.Controls.Modal.ModalButton();
             this.btToggleEnabled = new ST.Controls.Modal.ModalButton();
-            this.btAddRelation = new ST.Controls.Modal.ModalButton();
+            this.btGetData = new ST.Controls.Modal.ModalButton();
             this.btClear = new ST.Controls.Modal.ModalButton();
-            this.btAddTableNode = new ST.Controls.Modal.ModalButton();
+            this.btLoadData = new ST.Controls.Modal.ModalButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +58,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.codeGenerator);
             // 
             // splitContainer1.Panel2
             // 
@@ -62,15 +66,46 @@
             this.splitContainer1.Panel2.Controls.Add(this.btGetMainData);
             this.splitContainer1.Panel2.Controls.Add(this.btGetRelationData);
             this.splitContainer1.Panel2.Controls.Add(this.btGetNodeData);
-            this.splitContainer1.Panel2.Controls.Add(this.btScaleMinus);
-            this.splitContainer1.Panel2.Controls.Add(this.btScalePlus);
+            this.splitContainer1.Panel2.Controls.Add(this.btAddTab);
+            this.splitContainer1.Panel2.Controls.Add(this.btSetSplitter);
             this.splitContainer1.Panel2.Controls.Add(this.btToggleEnabled);
-            this.splitContainer1.Panel2.Controls.Add(this.btAddRelation);
+            this.splitContainer1.Panel2.Controls.Add(this.btGetData);
             this.splitContainer1.Panel2.Controls.Add(this.btClear);
-            this.splitContainer1.Panel2.Controls.Add(this.btAddTableNode);
-            this.splitContainer1.Size = new System.Drawing.Size(1077, 575);
-            this.splitContainer1.SplitterDistance = 495;
+            this.splitContainer1.Panel2.Controls.Add(this.btLoadData);
+            this.splitContainer1.Size = new System.Drawing.Size(1077, 875);
+            this.splitContainer1.SplitterDistance = 795;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // codeGenerator
+            // 
+            this.codeGenerator.BackColor = System.Drawing.Color.White;
+            this.codeGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.codeGenerator.Location = new System.Drawing.Point(0, 0);
+            this.codeGenerator.MainSplitSplitterDistance = 74;
+            this.codeGenerator.Name = "codeGenerator";
+            this.codeGenerator.NodeData = ((System.Collections.Generic.Dictionary<string, System.Data.DataTable>)(resources.GetObject("codeGenerator.NodeData")));
+            this.codeGenerator.NodeFieldName_Column = null;
+            this.codeGenerator.NodeFieldName_Option = null;
+            this.codeGenerator.NodeFieldName_Table = null;
+            this.codeGenerator.NodeFieldName_TableAlias = null;
+            this.codeGenerator.NodeFieldName_TableSeq = null;
+            this.codeGenerator.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.codeGenerator.ReadOnly = false;
+            this.codeGenerator.RelationData = null;
+            this.codeGenerator.RelationFieldName_DestinationColumn = null;
+            this.codeGenerator.RelationFieldName_DestinationColumnOrder = null;
+            this.codeGenerator.RelationFieldName_DestinationTable = null;
+            this.codeGenerator.RelationFieldName_DestinationTableAlias = null;
+            this.codeGenerator.RelationFieldName_DestinationTableSeq = null;
+            this.codeGenerator.RelationFieldName_JoinOperator = null;
+            this.codeGenerator.RelationFieldName_JoinType = null;
+            this.codeGenerator.RelationFieldName_JoinValue = null;
+            this.codeGenerator.RelationFieldName_OriginColumn = null;
+            this.codeGenerator.RelationFieldName_OriginTable = null;
+            this.codeGenerator.RelationFieldName_OriginTableAlias = null;
+            this.codeGenerator.RelationFieldName_OriginTableSeq = null;
+            this.codeGenerator.Size = new System.Drawing.Size(1077, 795);
+            this.codeGenerator.TabIndex = 0;
             // 
             // btGetMainData
             // 
@@ -83,7 +118,7 @@
             this.btGetMainData.Name = "btGetMainData";
             this.btGetMainData.Size = new System.Drawing.Size(108, 26);
             this.btGetMainData.TabIndex = 11;
-            this.btGetMainData.Text = "Get MainData";
+            this.btGetMainData.Text = "...";
             this.btGetMainData.UseVisualStyleBackColor = false;
             // 
             // btGetRelationData
@@ -97,7 +132,7 @@
             this.btGetRelationData.Name = "btGetRelationData";
             this.btGetRelationData.Size = new System.Drawing.Size(108, 26);
             this.btGetRelationData.TabIndex = 12;
-            this.btGetRelationData.Text = "Get RelationData";
+            this.btGetRelationData.Text = "...";
             this.btGetRelationData.UseVisualStyleBackColor = false;
             // 
             // btGetNodeData
@@ -111,36 +146,38 @@
             this.btGetNodeData.Name = "btGetNodeData";
             this.btGetNodeData.Size = new System.Drawing.Size(108, 26);
             this.btGetNodeData.TabIndex = 10;
-            this.btGetNodeData.Text = "Get NodeData";
+            this.btGetNodeData.Text = "...";
             this.btGetNodeData.UseVisualStyleBackColor = false;
             // 
-            // btScaleMinus
+            // btAddTab
             // 
-            this.btScaleMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btScaleMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btScaleMinus.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btScaleMinus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btScaleMinus.Location = new System.Drawing.Point(578, 8);
-            this.btScaleMinus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btScaleMinus.Name = "btScaleMinus";
-            this.btScaleMinus.Size = new System.Drawing.Size(108, 26);
-            this.btScaleMinus.TabIndex = 4;
-            this.btScaleMinus.Text = "Scale - 10%";
-            this.btScaleMinus.UseVisualStyleBackColor = false;
+            this.btAddTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btAddTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddTab.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btAddTab.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btAddTab.Location = new System.Drawing.Point(578, 8);
+            this.btAddTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAddTab.Name = "btAddTab";
+            this.btAddTab.Size = new System.Drawing.Size(108, 26);
+            this.btAddTab.TabIndex = 4;
+            this.btAddTab.Text = "Add Tab";
+            this.btAddTab.UseVisualStyleBackColor = false;
+            this.btAddTab.Click += new System.EventHandler(this.btAddTab_Click);
             // 
-            // btScalePlus
+            // btSetSplitter
             // 
-            this.btScalePlus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btScalePlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btScalePlus.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btScalePlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btScalePlus.Location = new System.Drawing.Point(464, 8);
-            this.btScalePlus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btScalePlus.Name = "btScalePlus";
-            this.btScalePlus.Size = new System.Drawing.Size(108, 26);
-            this.btScalePlus.TabIndex = 5;
-            this.btScalePlus.Text = "Scale + 10%";
-            this.btScalePlus.UseVisualStyleBackColor = false;
+            this.btSetSplitter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btSetSplitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSetSplitter.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btSetSplitter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btSetSplitter.Location = new System.Drawing.Point(464, 8);
+            this.btSetSplitter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btSetSplitter.Name = "btSetSplitter";
+            this.btSetSplitter.Size = new System.Drawing.Size(108, 26);
+            this.btSetSplitter.TabIndex = 5;
+            this.btSetSplitter.Text = "Set Splitter";
+            this.btSetSplitter.UseVisualStyleBackColor = false;
+            this.btSetSplitter.Click += new System.EventHandler(this.btSetSplitter_Click);
             // 
             // btToggleEnabled
             // 
@@ -155,20 +192,22 @@
             this.btToggleEnabled.TabIndex = 6;
             this.btToggleEnabled.Text = "Toggle Enabled";
             this.btToggleEnabled.UseVisualStyleBackColor = false;
+            this.btToggleEnabled.Click += new System.EventHandler(this.btToggleEnabled_Click);
             // 
-            // btAddRelation
+            // btGetData
             // 
-            this.btAddRelation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btAddRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddRelation.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btAddRelation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btAddRelation.Location = new System.Drawing.Point(236, 8);
-            this.btAddRelation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btAddRelation.Name = "btAddRelation";
-            this.btAddRelation.Size = new System.Drawing.Size(108, 26);
-            this.btAddRelation.TabIndex = 7;
-            this.btAddRelation.Text = "Add Relation";
-            this.btAddRelation.UseVisualStyleBackColor = false;
+            this.btGetData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btGetData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGetData.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btGetData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btGetData.Location = new System.Drawing.Point(236, 8);
+            this.btGetData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btGetData.Name = "btGetData";
+            this.btGetData.Size = new System.Drawing.Size(108, 26);
+            this.btGetData.TabIndex = 7;
+            this.btGetData.Text = "Get Data";
+            this.btGetData.UseVisualStyleBackColor = false;
+            this.btGetData.Click += new System.EventHandler(this.btGetData_Click);
             // 
             // btClear
             // 
@@ -183,29 +222,32 @@
             this.btClear.TabIndex = 8;
             this.btClear.Text = "Clear";
             this.btClear.UseVisualStyleBackColor = false;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
-            // btAddTableNode
+            // btLoadData
             // 
-            this.btAddTableNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btAddTableNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddTableNode.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btAddTableNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btAddTableNode.Location = new System.Drawing.Point(122, 8);
-            this.btAddTableNode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btAddTableNode.Name = "btAddTableNode";
-            this.btAddTableNode.Size = new System.Drawing.Size(108, 26);
-            this.btAddTableNode.TabIndex = 9;
-            this.btAddTableNode.Text = "Add TableNode";
-            this.btAddTableNode.UseVisualStyleBackColor = false;
+            this.btLoadData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btLoadData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btLoadData.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btLoadData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btLoadData.Location = new System.Drawing.Point(122, 8);
+            this.btLoadData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btLoadData.Name = "btLoadData";
+            this.btLoadData.Size = new System.Drawing.Size(108, 26);
+            this.btLoadData.TabIndex = 9;
+            this.btLoadData.Text = "Load Data";
+            this.btLoadData.UseVisualStyleBackColor = false;
+            this.btLoadData.Click += new System.EventHandler(this.btLoadData_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 575);
+            this.ClientSize = new System.Drawing.Size(1077, 875);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -218,11 +260,12 @@
         private ST.Controls.Modal.ModalButton btGetMainData;
         private ST.Controls.Modal.ModalButton btGetRelationData;
         private ST.Controls.Modal.ModalButton btGetNodeData;
-        private ST.Controls.Modal.ModalButton btScaleMinus;
-        private ST.Controls.Modal.ModalButton btScalePlus;
+        private ST.Controls.Modal.ModalButton btAddTab;
+        private ST.Controls.Modal.ModalButton btSetSplitter;
         private ST.Controls.Modal.ModalButton btToggleEnabled;
-        private ST.Controls.Modal.ModalButton btAddRelation;
+        private ST.Controls.Modal.ModalButton btGetData;
         private ST.Controls.Modal.ModalButton btClear;
-        private ST.Controls.Modal.ModalButton btAddTableNode;
+        private ST.Controls.Modal.ModalButton btLoadData;
+        private ST.CodeGenerator.CodeGenerator codeGenerator;
     }
 }

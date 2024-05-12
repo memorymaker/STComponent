@@ -32,13 +32,13 @@
             this.dataModeler = new ST.DataModeler.DataModeler();
             this.btGetMainData = new ST.Controls.Modal.ModalButton();
             this.btGetRelationData = new ST.Controls.Modal.ModalButton();
+            this.btClear = new ST.Controls.Modal.ModalButton();
             this.btGetNodeData = new ST.Controls.Modal.ModalButton();
+            this.btAddTableNode = new ST.Controls.Modal.ModalButton();
             this.btScaleMinus = new ST.Controls.Modal.ModalButton();
+            this.btAddRelation = new ST.Controls.Modal.ModalButton();
             this.btScalePlus = new ST.Controls.Modal.ModalButton();
             this.btToggleEnabled = new ST.Controls.Modal.ModalButton();
-            this.btAddRelation = new ST.Controls.Modal.ModalButton();
-            this.btClear = new ST.Controls.Modal.ModalButton();
-            this.btAddTableNode = new ST.Controls.Modal.ModalButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -122,6 +122,21 @@
             this.btGetRelationData.UseVisualStyleBackColor = false;
             this.btGetRelationData.Click += new System.EventHandler(this.btGetRelationData_Click);
             // 
+            // btClear
+            // 
+            this.btClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btClear.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btClear.Location = new System.Drawing.Point(8, 8);
+            this.btClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(108, 26);
+            this.btClear.TabIndex = 1;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = false;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            // 
             // btGetNodeData
             // 
             this.btGetNodeData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
@@ -137,6 +152,21 @@
             this.btGetNodeData.UseVisualStyleBackColor = false;
             this.btGetNodeData.Click += new System.EventHandler(this.btGetNodeData_Click);
             // 
+            // btAddTableNode
+            // 
+            this.btAddTableNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btAddTableNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddTableNode.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btAddTableNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btAddTableNode.Location = new System.Drawing.Point(122, 8);
+            this.btAddTableNode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAddTableNode.Name = "btAddTableNode";
+            this.btAddTableNode.Size = new System.Drawing.Size(108, 26);
+            this.btAddTableNode.TabIndex = 1;
+            this.btAddTableNode.Text = "Add TableNode";
+            this.btAddTableNode.UseVisualStyleBackColor = false;
+            this.btAddTableNode.Click += new System.EventHandler(this.btAddTableNode_Click);
+            // 
             // btScaleMinus
             // 
             this.btScaleMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
@@ -151,6 +181,21 @@
             this.btScaleMinus.Text = "Scale - 10%";
             this.btScaleMinus.UseVisualStyleBackColor = false;
             this.btScaleMinus.Click += new System.EventHandler(this.btScaleMinus_Click);
+            // 
+            // btAddRelation
+            // 
+            this.btAddRelation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btAddRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddRelation.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btAddRelation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btAddRelation.Location = new System.Drawing.Point(236, 8);
+            this.btAddRelation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAddRelation.Name = "btAddRelation";
+            this.btAddRelation.Size = new System.Drawing.Size(108, 26);
+            this.btAddRelation.TabIndex = 1;
+            this.btAddRelation.Text = "Add Relation";
+            this.btAddRelation.UseVisualStyleBackColor = false;
+            this.btAddRelation.Click += new System.EventHandler(this.btAddRelation_Click);
             // 
             // btScalePlus
             // 
@@ -181,51 +226,6 @@
             this.btToggleEnabled.Text = "Toggle Enabled";
             this.btToggleEnabled.UseVisualStyleBackColor = false;
             this.btToggleEnabled.Click += new System.EventHandler(this.btToggleEnabled_Click);
-            // 
-            // btAddRelation
-            // 
-            this.btAddRelation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btAddRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddRelation.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btAddRelation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btAddRelation.Location = new System.Drawing.Point(236, 8);
-            this.btAddRelation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btAddRelation.Name = "btAddRelation";
-            this.btAddRelation.Size = new System.Drawing.Size(108, 26);
-            this.btAddRelation.TabIndex = 1;
-            this.btAddRelation.Text = "Add Relation";
-            this.btAddRelation.UseVisualStyleBackColor = false;
-            this.btAddRelation.Click += new System.EventHandler(this.btAddRelation_Click);
-            // 
-            // btClear
-            // 
-            this.btClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btClear.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btClear.Location = new System.Drawing.Point(8, 8);
-            this.btClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btClear.Name = "btClear";
-            this.btClear.Size = new System.Drawing.Size(108, 26);
-            this.btClear.TabIndex = 1;
-            this.btClear.Text = "Clear";
-            this.btClear.UseVisualStyleBackColor = false;
-            this.btClear.Click += new System.EventHandler(this.btClear_Click);
-            // 
-            // btAddTableNode
-            // 
-            this.btAddTableNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btAddTableNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddTableNode.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btAddTableNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btAddTableNode.Location = new System.Drawing.Point(122, 8);
-            this.btAddTableNode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btAddTableNode.Name = "btAddTableNode";
-            this.btAddTableNode.Size = new System.Drawing.Size(108, 26);
-            this.btAddTableNode.TabIndex = 1;
-            this.btAddTableNode.Text = "Add TableNode";
-            this.btAddTableNode.UseVisualStyleBackColor = false;
-            this.btAddTableNode.Click += new System.EventHandler(this.btAddTableNode_Click);
             // 
             // Form2
             // 

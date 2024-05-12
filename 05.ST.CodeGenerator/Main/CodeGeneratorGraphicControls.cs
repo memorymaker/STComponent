@@ -229,7 +229,14 @@ namespace ST.CodeGenerator
         #region Function
         public Tab AddNewTab()
         {
-            return AddTab(AddNewTab_GetNewTabTitle(), AddNewTab_GetNewTabGUID());
+            bool controlUpdate = this.IsBeginControlUpdate();
+            if (!controlUpdate) { this.BeginControlUpdate(); }
+
+            Tab tab = AddTab(AddNewTab_GetNewTabTitle(), AddNewTab_GetNewTabGUID());
+
+            if (!controlUpdate) { this.EndControlUpdate(); }
+
+            return tab;
         }
 
         private Tab AddTab(string title, string guid, string tamplateEditorText = null, string resultEditorText = null, string templateStyle = null, bool visible = true)

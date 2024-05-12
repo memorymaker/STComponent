@@ -159,7 +159,7 @@ namespace Sample
                 };
 
                 RelationControl relationControl = new RelationControl(dataModeler, model);
-                dataModeler.Relations.Add(new RelationControl(dataModeler, model));
+                dataModeler.Relations.Add(relationControl);
             }
 
             dataModeler.Refresh();
