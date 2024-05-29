@@ -75,7 +75,7 @@ namespace ST.Controls
         }
         private bool _UsingAwaysOnTopMenuButton = true;
 
-        public bool UsingTitleSlider { get; set; } = false;
+        public bool UsingTitleSlider { get; set; } = true;
 
         public bool UsingTitleRename { get; set; } = false;
 

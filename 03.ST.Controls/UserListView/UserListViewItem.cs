@@ -24,6 +24,15 @@ namespace ST.Controls
         }
         private UserListView _Parent = null;
 
+        public Dictionary<object, UserListViewSubItem> SubItems
+        {
+            get
+            {
+                return _SubItems;
+            }
+        }
+        private Dictionary<object, UserListViewSubItem> _SubItems = new Dictionary<object, UserListViewSubItem>();
+
         public bool IsSelected
         {
             get
@@ -103,12 +112,6 @@ namespace ST.Controls
         }
         private DataRow _Row = null;
 
-        public UserListViewItem(UserListView parent, DataRow row)
-        {
-            _Parent = parent;
-            _Row = row;
-        }
-
         public object Tag;
 
         public string Text
@@ -173,6 +176,91 @@ namespace ST.Controls
                     }
                 }
             }
+        }
+
+        public UserListViewItem(UserListView parent, DataRow row)
+        {
+            _Parent = parent;
+            _Row = row;
+            for(int i = 0; i < row.Table.Columns.Count; i++)
+            {
+                UserListViewSubItem subItem = new UserListViewSubItem(this);
+                _SubItems.Add(i, subItem);
+                _SubItems.Add(row.Table.Columns[i].ColumnName, subItem);
+            }
+        }
+    }
+
+    public class UserListViewSubItem
+    {
+        public UserListViewItem Parent
+        {
+            get
+            {
+                return _Parent;
+            }
+        }
+        private UserListViewItem _Parent = null;
+
+        public Color BackColor
+        {
+            get
+            {
+                return _BackColor;
+            }
+            set
+            {
+                _BackColor = value;
+                Parent?.Parent?.Draw();
+            }
+        }
+        private Color _BackColor = Color.Empty;
+
+        public Font Font
+        {
+            get
+            {
+                return _Font;
+            }
+            set
+            {
+                _Font = value;
+                Parent?.Parent?.Draw();
+            }
+        }
+        private Font _Font = null;
+
+        public Color ForeColor
+        {
+            get
+            {
+                return _ForeColor;
+            }
+            set
+            {
+                _ForeColor = value;
+                Parent?.Parent?.Draw();
+            }
+        }
+        private Color _ForeColor = Color.Empty;
+
+        public UserListAlignType Align
+        {
+            get
+            {
+                return _Align;
+            }
+            set
+            {
+                _Align = value;
+                Parent?.Parent?.Draw();
+            }
+        }
+        private UserListAlignType _Align = UserListAlignType.None;
+
+        public UserListViewSubItem(UserListViewItem parent)
+        {
+            _Parent = parent;
         }
     }
 }

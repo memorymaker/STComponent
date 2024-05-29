@@ -119,6 +119,12 @@
     <EmbeddedResource Include="Form5_UserPanel.resx">
       <DependentUpon>Form5_UserPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form6_UserListView.resx">
+      <DependentUpon>Form6_UserListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form7_UserScrollBar.resx">
+      <DependentUpon>Form7_UserScrollBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

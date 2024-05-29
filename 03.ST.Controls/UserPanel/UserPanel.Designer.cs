@@ -32,12 +32,8 @@
             // 
             // UserPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "UserPanel";
-            this.Load += new System.EventHandler(this.UserPanel_Load);
             this.ResumeLayout(false);
-
         }
 
         #endregion

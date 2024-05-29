@@ -276,9 +276,10 @@ namespace ST.Controls
             {
                 _AutoSizingType = value;
                 SetAutoSize(_AutoSizingType);
+                Draw();
             }
         }
-        private UserListAutoSizeType _AutoSizingType = UserListAutoSizeType.None;
+        private UserListAutoSizeType _AutoSizingType = UserListAutoSizeType.LeftFirst;
 
         new public bool Enabled
         {
@@ -471,6 +472,11 @@ namespace ST.Controls
             }
             Data = null;
             _Items = new ObservableCollection<UserListViewItem>();
+
+            SelectedItemIndexList.Clear();
+            SelectedItemIndex = -1;
+            
+            Draw();
         }
 
         public void AddColumn(UserListViewColumn userListViewColumn)
@@ -583,6 +589,7 @@ namespace ST.Controls
 
         private void SetAutoSize(UserListAutoSizeType type)
         {
+            var t1 = this.Width;
             int widthRevision = 6;
 
             switch (type)
@@ -640,14 +647,19 @@ namespace ST.Controls
                         for (int i = 0; i < columnsCount; i++)
                         {
                             int nodeWidth = widthArr[i] + widthRevision;
-                            if (Width - ScrollBarVertical.Width < nodeWidth + widthAppend)
+                            int originalScrollBarVerticalWidth = (ScrollBarVertical.Width * (1 / ScaleValue)).ToInt();
+                            int originalWidth = ScaleValue == 1f && OriginalWidth == 0 && Width != 0
+                                ? Width
+                                : OriginalWidth;
+
+                            if (originalWidth - originalScrollBarVerticalWidth < nodeWidth + widthAppend)
                             {
-                                nodeWidth = Math.Max(0, Width - ScrollBarVertical.Width - widthAppend);
+                                nodeWidth = Math.Max(0, originalWidth - originalScrollBarVerticalWidth - widthAppend);
                             }
 
-                            if (i == columnsCount - 1 && nodeWidth + widthAppend < Width - ScrollBarVertical.Width)
+                            if (i == columnsCount - 1 && nodeWidth + widthAppend < originalWidth - originalScrollBarVerticalWidth)
                             {
-                                nodeWidth = Width - ScrollBarVertical.Width - widthAppend;
+                                nodeWidth = originalWidth - originalScrollBarVerticalWidth - widthAppend;
                             }
 
                             targetColumns[i].Width = nodeWidth;

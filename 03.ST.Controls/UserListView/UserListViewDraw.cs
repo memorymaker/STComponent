@@ -177,7 +177,7 @@ namespace ST.Controls
 
                     // Set nXStart, nYStart(Used in Draw String)
                     // Scale
-                    Font scaleColumnFont = new Font(column.Font.FontFamily, column.Font.Size * ScaleValue);
+                    Font scaleColumnFont = new Font(column.Font.FontFamily, column.Font.Size * ScaleValue, column.Font.Style);
                     SizeF scaleLinePixelSize = g.MeasureString(column.Text, scaleColumnFont);
 
                     // Scale
@@ -266,29 +266,47 @@ namespace ST.Controls
 
                         for (int k = 0; k < itemColumnsDrawBounds.Length; k++)
                         {
-                            Font scaleItemFont = new Font(item.Font.FontFamily, item.Font.Size * ScaleValue);
+                            int subItemIndex = dicColumnsMapper[k];
+                            UserListViewSubItem subItem = item.SubItems[subItemIndex];
+
+                            // Get scaleItemFont
+                            Font scaleItemFont = subItem.Font != null
+                                ? new Font(subItem.Font.FontFamily, subItem.Font.Size * ScaleValue, subItem.Font.Style)
+                                : new Font(item.Font.FontFamily, item.Font.Size * ScaleValue, item.Font.Style);
 
                             Rectangle itemBounds = itemColumnsDrawBounds[k];
 
                             if (dicColumnsMapper[k] >= 0)
                             {
                                 // Block(Default or Selected)
-                                SolidBrush backBrush = SelectedItemIndexList.Contains(i)
-                                    ? new SolidBrush(SelectedItemBackColor)
-                                    : new SolidBrush(item.BackColor);
+                                SolidBrush backBrush;
+                                if (SelectedItemIndexList.Contains(i))
+                                {
+                                    backBrush = new SolidBrush(SelectedItemBackColor);
+                                }
+                                else
+                                {
+                                    backBrush = subItem.BackColor != Color.Empty
+                                        ? new SolidBrush(subItem.BackColor)
+                                        : new SolidBrush(item.BackColor);
+                                }
                                 Rectangle itemNodeRectangle = new Rectangle(itemBounds.Left, (scaleColumnHeight + i * drawHeightRef) - ScrollTop + scaleTop, itemBounds.Width, scaleItemHeight);
                                 g.FillRectangle(backBrush, itemNodeRectangle);
 
                                 // Scale
                                 int scaleItemPaddingLeft = (int)Math.Round(ItemPadding.Left * ScaleValue);
                                 int scaleItemPaddingRight = (int)Math.Round(ItemPadding.Right * ScaleValue);
-                                // Set value, nXStart, nYStart(Used in next block // Draw String)
+                                
+                                // Get value, nXStart, nYStart(Used in next block // Draw String)
                                 string value = item.Row[dicColumnsMapper[k]].ToString();
                                 SizeF linePixelSize = g.MeasureString(value, scaleItemFont);
                                 int nXStart;
-                                var itemAlign = item.Align == UserListAlignType.None
-                                    ? targetColumns[k].ItemAlign
-                                    : item.Align;
+
+                                // Get itemAlign
+                                UserListAlignType itemAlign = subItem.Align != UserListAlignType.None
+                                    ? subItem.Align
+                                    : (item.Align != UserListAlignType.None
+                                        ? item.Align : targetColumns[k].ItemAlign);
                                 switch (itemAlign)
                                 {
                                     case UserListAlignType.Left: nXStart = itemBounds.Left + scaleItemPaddingLeft; break;
@@ -296,6 +314,7 @@ namespace ST.Controls
                                     case UserListAlignType.Center: nXStart = (int)Math.Round(itemBounds.Left + itemBounds.Width / 2 - linePixelSize.Width / 2); break;
                                     default: nXStart = itemBounds.Left + scaleItemPaddingLeft; break;
                                 }
+
                                 int nYStart = (int)Math.Round((scaleColumnHeight + i * drawHeightRef + scaleItemHeight / 2 - linePixelSize.Height / 2) - ScrollTop);
 
                                 // Draw String
@@ -307,8 +326,8 @@ namespace ST.Controls
                                 StringFormat stringFormat = new StringFormat();
                                 stringFormat.Trimming = StringTrimming.EllipsisCharacter;
                                 SolidBrush stringBrush = i == SelectedItemIndex
-                                    ? new SolidBrush(item.ForeColor)
-                                    : new SolidBrush(item.ForeColor);
+                                    ? new SolidBrush(subItem.ForeColor != Color.Empty ? subItem.ForeColor : item.ForeColor)
+                                    : new SolidBrush(subItem.ForeColor != Color.Empty ? subItem.ForeColor : item.ForeColor);
                                 g.DrawString(value, scaleItemFont, stringBrush, stringRectangle, stringFormat);
                             }
                         }

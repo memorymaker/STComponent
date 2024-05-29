@@ -29,18 +29,28 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.btGetMainData = new ST.Controls.Modal.ModalButton();
-            this.btGetRelationData = new ST.Controls.Modal.ModalButton();
-            this.btGetNodeData = new ST.Controls.Modal.ModalButton();
+            this.userPanel3 = new ST.Controls.UserPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.userPanel1 = new ST.Controls.UserPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.userPanel2 = new ST.Controls.UserPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.btScaleMinus = new ST.Controls.Modal.ModalButton();
             this.btScalePlus = new ST.Controls.Modal.ModalButton();
             this.btToggleEnabled = new ST.Controls.Modal.ModalButton();
             this.btAddRelation = new ST.Controls.Modal.ModalButton();
             this.btClear = new ST.Controls.Modal.ModalButton();
-            this.btAddTableNode = new ST.Controls.Modal.ModalButton();
+            this.btAddPanel = new ST.Controls.Modal.ModalButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.userPanel3.SuspendLayout();
+            this.userPanel1.SuspendLayout();
+            this.userPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -55,64 +65,140 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel1.Controls.Add(this.userPanel3);
+            this.splitContainer1.Panel1.Controls.Add(this.userPanel1);
+            this.splitContainer1.Panel1.Controls.Add(this.userPanel2);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel2.Controls.Add(this.btGetMainData);
-            this.splitContainer1.Panel2.Controls.Add(this.btGetRelationData);
-            this.splitContainer1.Panel2.Controls.Add(this.btGetNodeData);
             this.splitContainer1.Panel2.Controls.Add(this.btScaleMinus);
             this.splitContainer1.Panel2.Controls.Add(this.btScalePlus);
             this.splitContainer1.Panel2.Controls.Add(this.btToggleEnabled);
             this.splitContainer1.Panel2.Controls.Add(this.btAddRelation);
             this.splitContainer1.Panel2.Controls.Add(this.btClear);
-            this.splitContainer1.Panel2.Controls.Add(this.btAddTableNode);
+            this.splitContainer1.Panel2.Controls.Add(this.btAddPanel);
             this.splitContainer1.Size = new System.Drawing.Size(1077, 575);
             this.splitContainer1.SplitterDistance = 495;
             this.splitContainer1.TabIndex = 3;
             // 
-            // btGetMainData
+            // userPanel3
             // 
-            this.btGetMainData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btGetMainData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetMainData.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btGetMainData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetMainData.Location = new System.Drawing.Point(692, 8);
-            this.btGetMainData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btGetMainData.Name = "btGetMainData";
-            this.btGetMainData.Size = new System.Drawing.Size(108, 26);
-            this.btGetMainData.TabIndex = 11;
-            this.btGetMainData.Text = "Get MainData";
-            this.btGetMainData.UseVisualStyleBackColor = false;
+            this.userPanel3.AwaysOnTop = false;
+            this.userPanel3.BackColor = System.Drawing.Color.White;
+            this.userPanel3.Controls.Add(this.label1);
+            this.userPanel3.Controls.Add(this.button3);
+            this.userPanel3.Location = new System.Drawing.Point(704, 12);
+            this.userPanel3.Name = "userPanel3";
+            this.userPanel3.Padding = new System.Windows.Forms.Padding(2, 23, 2, 2);
+            this.userPanel3.Size = new System.Drawing.Size(340, 200);
+            this.userPanel3.TabIndex = 12;
+            this.userPanel3.TabStop = true;
+            this.userPanel3.Title = "Title3";
+            this.userPanel3.TitleStartIndex = 0;
+            this.userPanel3.UsingAwaysOnTopMenuButton = true;
+            this.userPanel3.UsingMaximize = true;
+            this.userPanel3.UsingPanelMerge = false;
+            this.userPanel3.UsingTitleRename = false;
+            this.userPanel3.UsingTitleSlider = false;
+            this.userPanel3.UsingViewContextMenuButton = true;
             // 
-            // btGetRelationData
+            // label1
             // 
-            this.btGetRelationData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btGetRelationData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetRelationData.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btGetRelationData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetRelationData.Location = new System.Drawing.Point(920, 8);
-            this.btGetRelationData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btGetRelationData.Name = "btGetRelationData";
-            this.btGetRelationData.Size = new System.Drawing.Size(108, 26);
-            this.btGetRelationData.TabIndex = 12;
-            this.btGetRelationData.Text = "Get RelationData";
-            this.btGetRelationData.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 12);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "UsingPanelMerge = false";
             // 
-            // btGetNodeData
+            // button3
             // 
-            this.btGetNodeData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btGetNodeData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetNodeData.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btGetNodeData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetNodeData.Location = new System.Drawing.Point(806, 8);
-            this.btGetNodeData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btGetNodeData.Name = "btGetNodeData";
-            this.btGetNodeData.Size = new System.Drawing.Size(108, 26);
-            this.btGetNodeData.TabIndex = 10;
-            this.btGetNodeData.Text = "Get NodeData";
-            this.btGetNodeData.UseVisualStyleBackColor = false;
+            this.button3.Location = new System.Drawing.Point(5, 157);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // userPanel1
+            // 
+            this.userPanel1.AwaysOnTop = false;
+            this.userPanel1.BackColor = System.Drawing.Color.White;
+            this.userPanel1.Controls.Add(this.label3);
+            this.userPanel1.Controls.Add(this.button1);
+            this.userPanel1.Location = new System.Drawing.Point(12, 12);
+            this.userPanel1.Name = "userPanel1";
+            this.userPanel1.Padding = new System.Windows.Forms.Padding(2, 23, 2, 2);
+            this.userPanel1.Size = new System.Drawing.Size(340, 200);
+            this.userPanel1.TabIndex = 11;
+            this.userPanel1.TabStop = true;
+            this.userPanel1.Title = "Title1";
+            this.userPanel1.TitleStartIndex = 0;
+            this.userPanel1.UsingAwaysOnTopMenuButton = true;
+            this.userPanel1.UsingMaximize = true;
+            this.userPanel1.UsingPanelMerge = false;
+            this.userPanel1.UsingTitleRename = false;
+            this.userPanel1.UsingTitleSlider = false;
+            this.userPanel1.UsingViewContextMenuButton = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(86, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 12);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "UsingPanelMerge = true";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(5, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // userPanel2
+            // 
+            this.userPanel2.AwaysOnTop = false;
+            this.userPanel2.BackColor = System.Drawing.Color.White;
+            this.userPanel2.Controls.Add(this.label2);
+            this.userPanel2.Controls.Add(this.button2);
+            this.userPanel2.Location = new System.Drawing.Point(358, 12);
+            this.userPanel2.Name = "userPanel2";
+            this.userPanel2.Padding = new System.Windows.Forms.Padding(2, 23, 2, 2);
+            this.userPanel2.Size = new System.Drawing.Size(340, 200);
+            this.userPanel2.TabIndex = 1;
+            this.userPanel2.TabStop = true;
+            this.userPanel2.Title = "Title2";
+            this.userPanel2.TitleStartIndex = 0;
+            this.userPanel2.UsingAwaysOnTopMenuButton = true;
+            this.userPanel2.UsingMaximize = true;
+            this.userPanel2.UsingPanelMerge = false;
+            this.userPanel2.UsingTitleRename = false;
+            this.userPanel2.UsingTitleSlider = false;
+            this.userPanel2.UsingViewContextMenuButton = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 12);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "UsingPanelMerge = true";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(5, 116);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // btScaleMinus
             // 
@@ -120,12 +206,12 @@
             this.btScaleMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btScaleMinus.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btScaleMinus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btScaleMinus.Location = new System.Drawing.Point(578, 8);
+            this.btScaleMinus.Location = new System.Drawing.Point(612, 8);
             this.btScaleMinus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btScaleMinus.Name = "btScaleMinus";
             this.btScaleMinus.Size = new System.Drawing.Size(108, 26);
             this.btScaleMinus.TabIndex = 4;
-            this.btScaleMinus.Text = "Scale - 10%";
+            this.btScaleMinus.Text = "...";
             this.btScaleMinus.UseVisualStyleBackColor = false;
             // 
             // btScalePlus
@@ -134,12 +220,12 @@
             this.btScalePlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btScalePlus.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btScalePlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btScalePlus.Location = new System.Drawing.Point(464, 8);
+            this.btScalePlus.Location = new System.Drawing.Point(498, 8);
             this.btScalePlus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btScalePlus.Name = "btScalePlus";
             this.btScalePlus.Size = new System.Drawing.Size(108, 26);
             this.btScalePlus.TabIndex = 5;
-            this.btScalePlus.Text = "Scale + 10%";
+            this.btScalePlus.Text = "...";
             this.btScalePlus.UseVisualStyleBackColor = false;
             // 
             // btToggleEnabled
@@ -148,13 +234,14 @@
             this.btToggleEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btToggleEnabled.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btToggleEnabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btToggleEnabled.Location = new System.Drawing.Point(350, 8);
+            this.btToggleEnabled.Location = new System.Drawing.Point(236, 8);
             this.btToggleEnabled.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btToggleEnabled.Name = "btToggleEnabled";
-            this.btToggleEnabled.Size = new System.Drawing.Size(108, 26);
+            this.btToggleEnabled.Size = new System.Drawing.Size(142, 26);
             this.btToggleEnabled.TabIndex = 6;
-            this.btToggleEnabled.Text = "Toggle Enabled";
+            this.btToggleEnabled.Text = "Toggle Enabled(Title1)";
             this.btToggleEnabled.UseVisualStyleBackColor = false;
+            this.btToggleEnabled.Click += new System.EventHandler(this.btToggleEnabled_Click);
             // 
             // btAddRelation
             // 
@@ -162,12 +249,12 @@
             this.btAddRelation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btAddRelation.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btAddRelation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btAddRelation.Location = new System.Drawing.Point(236, 8);
+            this.btAddRelation.Location = new System.Drawing.Point(384, 8);
             this.btAddRelation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btAddRelation.Name = "btAddRelation";
             this.btAddRelation.Size = new System.Drawing.Size(108, 26);
             this.btAddRelation.TabIndex = 7;
-            this.btAddRelation.Text = "Add Relation";
+            this.btAddRelation.Text = "...";
             this.btAddRelation.UseVisualStyleBackColor = false;
             // 
             // btClear
@@ -183,20 +270,22 @@
             this.btClear.TabIndex = 8;
             this.btClear.Text = "Clear";
             this.btClear.UseVisualStyleBackColor = false;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
-            // btAddTableNode
+            // btAddPanel
             // 
-            this.btAddTableNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btAddTableNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btAddTableNode.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btAddTableNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btAddTableNode.Location = new System.Drawing.Point(122, 8);
-            this.btAddTableNode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btAddTableNode.Name = "btAddTableNode";
-            this.btAddTableNode.Size = new System.Drawing.Size(108, 26);
-            this.btAddTableNode.TabIndex = 9;
-            this.btAddTableNode.Text = "Add TableNode";
-            this.btAddTableNode.UseVisualStyleBackColor = false;
+            this.btAddPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btAddPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddPanel.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btAddPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btAddPanel.Location = new System.Drawing.Point(122, 8);
+            this.btAddPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAddPanel.Name = "btAddPanel";
+            this.btAddPanel.Size = new System.Drawing.Size(108, 26);
+            this.btAddPanel.TabIndex = 9;
+            this.btAddPanel.Text = "Add Panel";
+            this.btAddPanel.UseVisualStyleBackColor = false;
+            this.btAddPanel.Click += new System.EventHandler(this.btAddPanel_Click);
             // 
             // Form5
             // 
@@ -206,9 +295,16 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form5";
             this.Text = "Form5";
+            this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.userPanel3.ResumeLayout(false);
+            this.userPanel3.PerformLayout();
+            this.userPanel1.ResumeLayout(false);
+            this.userPanel1.PerformLayout();
+            this.userPanel2.ResumeLayout(false);
+            this.userPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -216,14 +312,20 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private ST.Controls.Modal.ModalButton btGetMainData;
-        private ST.Controls.Modal.ModalButton btGetRelationData;
-        private ST.Controls.Modal.ModalButton btGetNodeData;
         private ST.Controls.Modal.ModalButton btScaleMinus;
         private ST.Controls.Modal.ModalButton btScalePlus;
         private ST.Controls.Modal.ModalButton btToggleEnabled;
         private ST.Controls.Modal.ModalButton btAddRelation;
         private ST.Controls.Modal.ModalButton btClear;
-        private ST.Controls.Modal.ModalButton btAddTableNode;
+        private ST.Controls.Modal.ModalButton btAddPanel;
+        private ST.Controls.UserPanel userPanel2;
+        private ST.Controls.UserPanel userPanel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private ST.Controls.UserPanel userPanel3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

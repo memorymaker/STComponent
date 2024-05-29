@@ -150,27 +150,26 @@
     <Compile Include="UserEditor\UserEditorAutoComplete.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserPanel\UserPanel.Common.cs" />
     <Compile Include="UserPanel\UserPanel.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserPanel\UserPanel.Designer.cs" />
     <Compile Include="UserPanel\UserPanelContextMenu.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Common\MouseAction.cs" />
     <Compile Include="UserPanel\UserPanelDraw.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserPanel\UserPanelEnumNClass.cs" />
     <Compile Include="UserPanel\UserPanelGraphicControls.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserPanel\UserPanelInput.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserPanel\UserPanelOption.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UserPanel\UserPanelEventArgs.cs" />
     <Compile Include="UserPanel\UserWrapPanelForUserPanel.cs">
@@ -213,7 +212,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserPanel\UserPanel.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\01.ST.Core\01.ST.Core.csproj">

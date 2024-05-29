@@ -20,9 +20,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ST.Controls
 {
-    public partial class UserPanel : UserControl, IMouseActionTarget
+    public partial class UserPanel : Panel, IMouseActionTarget
     {
-        // test
+        // Test
         int cnt = 0;
 
         // ------------ Option
@@ -122,6 +122,17 @@ namespace ST.Controls
             {
                 return base.Padding;
             }
+            set
+            {
+                if (value.Left != UserPadding.Left
+                ||  value.Top != TitleHeight
+                ||  value.Right != UserPadding.Right
+                ||  value.Bottom != UserPadding.Bottom)
+                {
+                    UserPadding = value;
+                    base.Padding = value;
+                }
+            }
         }
 
         public int TitleHeight
@@ -201,7 +212,10 @@ namespace ST.Controls
                         base.Padding = new Padding(UserPadding.Left, TitleHeight, UserPadding.Right, UserPadding.Bottom);
                         foreach (Control control in Controls)
                         {
-                            control.Top += TitleHeight;
+                            if (!(control is Label))
+                            {
+                                control.Top += TitleHeight;
+                            }
                         }
                         Draw();
                     }
@@ -211,7 +225,10 @@ namespace ST.Controls
                         base.Padding = new Padding(0);
                         foreach (Control control in Controls)
                         {
-                            control.Top -= TitleHeight;
+                            if (!(control is Label))
+                            {
+                                control.Top -= TitleHeight;
+                            }
                         }
                         CreateGraphics().Clear(BackColor);
                     }
@@ -237,6 +254,7 @@ namespace ST.Controls
             //SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             //UpdateStyles();
             _GUID = Guid.NewGuid().ToString();
+            _Title = "New Panel";
 
             LoadThis();
             LoadGraphicControls();
@@ -252,6 +270,7 @@ namespace ST.Controls
             //SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             //UpdateStyles();
             _GUID = guid;
+            _Title = "New Panel";
 
             LoadThis();
             LoadGraphicControls();
@@ -267,6 +286,7 @@ namespace ST.Controls
             //SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             //UpdateStyles();
             _GUID = panelInfo.GUID;
+            _Title = "New Panel";
 
             LoadThis();
             LoadGraphicControls(); 
@@ -1373,11 +1393,6 @@ namespace ST.Controls
                 panel.LoadPanelInfo(panelInfo);
                 parent.Controls.Add(panel);
             }
-        }
-
-        private void UserPanel_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void SetNboundsNPosotionInfo(Size wrapPanelSize, Control parent)

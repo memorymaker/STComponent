@@ -93,6 +93,10 @@ namespace ST.Controls
             // Clear
             ClearMouseEventRef();
 
+            // BringToFront
+            Focus();
+            BringToFrontCustom();
+
             // Title
             if (TitleVisable && e.Y < TitleHeight)
             {
@@ -183,7 +187,6 @@ namespace ST.Controls
 
         private void UserPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            
             if (e.Button == MouseButtons.Left)
             {
                 // Title Area
@@ -267,7 +270,10 @@ namespace ST.Controls
                                                     && 0 < panelMousePoint.X + MergeRevisionX && panelMousePoint.X < panel.GetTitleRectangle().Right + revisionTitleWidth)
                                                 {
                                                     int sort = GetTitleSortToBeAdded(panelMousePoint.X, revisionTitleWidth);
-                                                    panel.AddPanel(this, sort);
+                                                    if (panel.UsingPanelMerge)
+                                                    {
+                                                        panel.AddPanel(this, sort);
+                                                    }
                                                     break;
                                                 }
                                             }
