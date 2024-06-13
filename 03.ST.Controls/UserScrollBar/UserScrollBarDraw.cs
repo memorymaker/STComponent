@@ -20,24 +20,176 @@ namespace ST.Controls
         public float DisableBrightnessColorPoint = -0.1f;
 
         // Buttons
-        private Color DecrementButtonColor = Color.FromArgb(134, 137, 153);
-        private Color EncrementButtonColor = Color.FromArgb(134, 137, 153);
-        private Color ScrollButtonColor = Color.FromArgb(194, 195, 201);
+        public Color DecrementButtonColor
+        {
+            get
+            {
+                return _DecrementButtonColor;
+            }
+            set
+            {
+                _DecrementButtonColor = value;
+                Draw();
+            }
+        }
+        private Color _DecrementButtonColor = Color.FromArgb(134, 137, 153);
+
+        public Color EncrementButtonColor
+        {
+            get
+            {
+                return _EncrementButtonColor;
+            }
+            set
+            {
+                _EncrementButtonColor = value;
+                Draw();
+            }
+        }
+        private Color _EncrementButtonColor = Color.FromArgb(134, 137, 153);
+
+        public Color ScrollButtonColor
+        {
+            get
+            {
+                return _ScrollButtonColor;
+            }
+            set
+            {
+                _ScrollButtonColor = value;
+                Draw();
+            }
+        }
+        private Color _ScrollButtonColor = Color.FromArgb(194, 195, 201);
 
         // Buttons Over
-        private Color DecrementButtonOverColor = Color.FromArgb(73, 113, 185);
-        private Color EncrementButtonOverColor = Color.FromArgb(73, 113, 185);
-        private Color ScrollButtonOverColor = Color.FromArgb(104, 104, 104);
+        public Color DecrementButtonOverColor
+        {
+            get
+            {
+                return _DecrementButtonOverColor;
+            }
+            set
+            {
+                _DecrementButtonOverColor = value;
+                Draw();
+            }
+        }
+        private Color _DecrementButtonOverColor = Color.FromArgb(73, 113, 185);
+
+        public Color EncrementButtonOverColor
+        {
+            get
+            {
+                return _EncrementButtonOverColor;
+            }
+            set
+            {
+                _EncrementButtonOverColor = value;
+                Draw();
+            }
+        }
+        private Color _EncrementButtonOverColor = Color.FromArgb(73, 113, 185);
+
+        public Color ScrollButtonOverColor
+        {
+            get
+            {
+                return _ScrollButtonOverColor;
+            }
+            set
+            {
+                _ScrollButtonOverColor = value;
+                Draw();
+            }
+        }
+        private Color _ScrollButtonOverColor = Color.FromArgb(104, 104, 104);
 
         // Buttons MouseDown
-        private Color DecrementButtonMouseDownColor = Color.FromArgb(30, 79, 151);
-        private Color EncrementButtonMouseDownColor = Color.FromArgb(30, 79, 151);
-        private Color ScrollButtonMouseDownColor = Color.FromArgb(91, 91, 91);
+        public Color DecrementButtonMouseDownColor
+        {
+            get
+            {
+                return _DecrementButtonMouseDownColor;
+            }
+            set
+            {
+                _DecrementButtonMouseDownColor = value;
+                Draw();
+            }
+        }
+        private Color _DecrementButtonMouseDownColor = Color.FromArgb(30, 79, 151);
+
+        public Color EncrementButtonMouseDownColor
+        {
+            get
+            {
+                return _EncrementButtonMouseDownColor;
+            }
+            set
+            {
+                _EncrementButtonMouseDownColor = value;
+                Draw();
+            }
+        }
+        private Color _EncrementButtonMouseDownColor = Color.FromArgb(30, 79, 151);
+
+        public Color ScrollButtonMouseDownColor
+        {
+            get
+            {
+                return _ScrollButtonMouseDownColor;
+            }
+            set
+            {
+                _ScrollButtonMouseDownColor = value;
+                Draw();
+            }
+        }
+        private Color _ScrollButtonMouseDownColor = Color.FromArgb(91, 91, 91);
 
         // Buttons Disabled
-        private Color DecrementButtonDisabledColor = Color.FromArgb(190, 192, 201);
-        private Color EncrementButtonDisabledColor = Color.FromArgb(190, 192, 201);
-        private Color ScrollButtonDisabledColor = Color.FromArgb(220, 221, 224);
+        public Color DecrementButtonDisabledColor
+        {
+            get
+            {
+                return _DecrementButtonDisabledColor;
+            }
+            set
+            {
+                _DecrementButtonDisabledColor = value;
+                Draw();
+            }
+        }
+        private Color _DecrementButtonDisabledColor = Color.FromArgb(190, 192, 201);
+
+        public Color EncrementButtonDisabledColor
+        {
+            get
+            {
+                return _EncrementButtonDisabledColor;
+            }
+            set
+            {
+                _EncrementButtonDisabledColor = value;
+                Draw();
+            }
+        }
+        private Color _EncrementButtonDisabledColor = Color.FromArgb(190, 192, 201);
+
+        public Color ScrollButtonDisabledColor
+        {
+            get
+            {
+                return _ScrollButtonDisabledColor;
+            }
+            set
+            {
+                _ScrollButtonDisabledColor = value;
+                Draw();
+            }
+        }
+        private Color _ScrollButtonDisabledColor = Color.FromArgb(220, 221, 224);
 
         public void Draw(Color scrollBarColor = default)
         {
@@ -56,7 +208,9 @@ namespace ST.Controls
                 BufferedGraphics bufferedGraphics = context.Allocate(graphics, new Rectangle(0, 0, ClientRectangle.Width, ClientRectangle.Height));
                 Graphics g = bufferedGraphics.Graphics;
 
-                Color backColor = SystemColors.Control.GetColor(!Parent.Enabled, DisableBrightnessColorPoint);
+                Color backColor = Parent == null
+                    ? BackColor
+                    : BackColor.GetColor(!Parent.Enabled, DisableBrightnessColorPoint);
                 g.Clear(backColor);
 
                 if (_IncreaseDecreaseButtonVisible)
