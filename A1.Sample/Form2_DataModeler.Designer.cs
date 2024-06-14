@@ -234,6 +234,7 @@
             this.ClientSize = new System.Drawing.Size(1077, 575);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

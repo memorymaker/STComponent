@@ -32,5 +32,13 @@ namespace Sample
         {
             userScrollBar1.Value = 50;
         }
+
+        private void btSetConfig_Click(object sender, EventArgs e)
+        {
+            userScrollBar1.Maximum = 200;
+            userScrollBar1.LargeChange = 20;
+            userScrollBar1.SmallChange = 2;
+            userScrollBar1.Value = 0;
+        }
     }
 }

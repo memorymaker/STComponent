@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.userScrollBar4 = new ST.Controls.UserScrollBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.userScrollBar2 = new ST.Controls.UserScrollBar();
             this.userScrollBar5 = new ST.Controls.UserScrollBar();
             this.userScrollBar3 = new ST.Controls.UserScrollBar();
             this.userScrollBar1 = new ST.Controls.UserScrollBar();
             this.btSetValue50 = new ST.Controls.Modal.ModalButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.userScrollBar4 = new ST.Controls.UserScrollBar();
+            this.btSetConfig = new ST.Controls.Modal.ModalButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,10 +65,45 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel2.Controls.Add(this.btSetConfig);
             this.splitContainer1.Panel2.Controls.Add(this.btSetValue50);
             this.splitContainer1.Size = new System.Drawing.Size(626, 450);
             this.splitContainer1.SplitterDistance = 370;
             this.splitContainer1.TabIndex = 5;
+            // 
+            // userScrollBar4
+            // 
+            this.userScrollBar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.userScrollBar4.DecrementButtonColor = System.Drawing.Color.Red;
+            this.userScrollBar4.DecrementButtonDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(192)))), ((int)(((byte)(201)))));
+            this.userScrollBar4.DecrementButtonMouseDownColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(79)))), ((int)(((byte)(151)))));
+            this.userScrollBar4.DecrementButtonOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(113)))), ((int)(((byte)(185)))));
+            this.userScrollBar4.EncrementButtonColor = System.Drawing.Color.Blue;
+            this.userScrollBar4.EncrementButtonDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(192)))), ((int)(((byte)(201)))));
+            this.userScrollBar4.EncrementButtonMouseDownColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(79)))), ((int)(((byte)(151)))));
+            this.userScrollBar4.EncrementButtonOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(113)))), ((int)(((byte)(185)))));
+            this.userScrollBar4.IncreaseDecreaseButtonVisible = true;
+            this.userScrollBar4.LargeChange = 10;
+            this.userScrollBar4.Location = new System.Drawing.Point(232, 38);
+            this.userScrollBar4.Maximum = 100;
+            this.userScrollBar4.Minimum = 0;
+            this.userScrollBar4.Name = "userScrollBar4";
+            this.userScrollBar4.ScrollButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.userScrollBar4.ScrollButtonDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(224)))));
+            this.userScrollBar4.ScrollButtonMouseDownColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.userScrollBar4.ScrollButtonOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
+            this.userScrollBar4.Size = new System.Drawing.Size(379, 56);
+            this.userScrollBar4.SmallChange = 1;
+            this.userScrollBar4.TabIndex = 3;
+            this.userScrollBar4.Type = ST.Controls.UserScrollBarType.Horizontal;
+            this.userScrollBar4.Value = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(42, 329);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 2;
             // 
             // userScrollBar2
             // 
@@ -192,39 +228,20 @@
             this.btSetValue50.UseVisualStyleBackColor = false;
             this.btSetValue50.Click += new System.EventHandler(this.btSetValue50_Click);
             // 
-            // textBox1
+            // btSetConfig
             // 
-            this.textBox1.Location = new System.Drawing.Point(42, 329);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 2;
-            // 
-            // userScrollBar4
-            // 
-            this.userScrollBar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.userScrollBar4.DecrementButtonColor = System.Drawing.Color.Red;
-            this.userScrollBar4.DecrementButtonDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(192)))), ((int)(((byte)(201)))));
-            this.userScrollBar4.DecrementButtonMouseDownColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(79)))), ((int)(((byte)(151)))));
-            this.userScrollBar4.DecrementButtonOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(113)))), ((int)(((byte)(185)))));
-            this.userScrollBar4.EncrementButtonColor = System.Drawing.Color.Blue;
-            this.userScrollBar4.EncrementButtonDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(192)))), ((int)(((byte)(201)))));
-            this.userScrollBar4.EncrementButtonMouseDownColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(79)))), ((int)(((byte)(151)))));
-            this.userScrollBar4.EncrementButtonOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(113)))), ((int)(((byte)(185)))));
-            this.userScrollBar4.IncreaseDecreaseButtonVisible = true;
-            this.userScrollBar4.LargeChange = 10;
-            this.userScrollBar4.Location = new System.Drawing.Point(232, 38);
-            this.userScrollBar4.Maximum = 100;
-            this.userScrollBar4.Minimum = 0;
-            this.userScrollBar4.Name = "userScrollBar4";
-            this.userScrollBar4.ScrollButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.userScrollBar4.ScrollButtonDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(224)))));
-            this.userScrollBar4.ScrollButtonMouseDownColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.userScrollBar4.ScrollButtonOverColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(104)))), ((int)(((byte)(104)))));
-            this.userScrollBar4.Size = new System.Drawing.Size(379, 56);
-            this.userScrollBar4.SmallChange = 1;
-            this.userScrollBar4.TabIndex = 3;
-            this.userScrollBar4.Type = ST.Controls.UserScrollBarType.Horizontal;
-            this.userScrollBar4.Value = 0;
+            this.btSetConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btSetConfig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSetConfig.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btSetConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btSetConfig.Location = new System.Drawing.Point(122, 8);
+            this.btSetConfig.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btSetConfig.Name = "btSetConfig";
+            this.btSetConfig.Size = new System.Drawing.Size(108, 26);
+            this.btSetConfig.TabIndex = 9;
+            this.btSetConfig.Text = "Set Config";
+            this.btSetConfig.UseVisualStyleBackColor = false;
+            this.btSetConfig.Click += new System.EventHandler(this.btSetConfig_Click);
             // 
             // Form7
             // 
@@ -233,6 +250,7 @@
             this.ClientSize = new System.Drawing.Size(626, 450);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form7";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form7";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -253,5 +271,6 @@
         private ST.Controls.UserScrollBar userScrollBar5;
         private ST.Controls.UserScrollBar userScrollBar4;
         private System.Windows.Forms.TextBox textBox1;
+        private ST.Controls.Modal.ModalButton btSetConfig;
     }
 }
