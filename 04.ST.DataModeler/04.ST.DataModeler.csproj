@@ -156,7 +156,7 @@
     <Compile Include="Relations\Base\RelationControlInput.cs" />
     <Compile Include="Relations\Base\RelationControlCollection.cs" />
     <Compile Include="Relations\Base\RelationControlEnums.cs" />
-    <Compile Include="Relations\Base\RelationModels.cs" />
+    <Compile Include="Relations\Base\RelationModel.cs" />
     <Compile Include="Relations\Base\RelationControl.cs" />
     <Compile Include="Relations\Relation\Relation.cs" />
   </ItemGroup>
