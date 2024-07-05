@@ -10,10 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ST.Controls;
-using GraphicControl = ST.DataModeler.GraphicControl;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+//using GraphicControl = ST.DataModeler.GraphicControl;
 using System.Xml.Linq;
-using static ST.DataModeler.DataModeler;
 
 namespace Sample
 {
@@ -26,38 +24,38 @@ namespace Sample
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            NODE.NODE_ID = "NODE_ID";
-            NODE.NODE_SEQ = "NODE_SEQ";
-            NODE.NODE_DETAIL_ID = "NODE_DETAIL_ID";
-            NODE.NODE_DETAIL_SEQ = "NODE_DETAIL_SEQ";
-            NODE.NODE_DETAIL_ORDER = "NODE_DETAIL_ORDER";
-            NODE.NODE_DETAIL_TYPE = "NODE_DETAIL_TYPE";
-            NODE.NODE_DETAIL_NOTE = "NODE_DETAIL_NOTE";
-            NODE.NODE_ID_REF = "NODE_ID_REF";
-            NODE.NODE_SEQ_REF = "NODE_SEQ_REF";
-            NODE.NODE_DETAIL_DATA_TYPE = "NODE_DETAIL_DATA_TYPE";
-            NODE.NODE_DETAIL_DATA_TYPE_FULL = "NODE_DETAIL_DATA_TYPE_FULL";
-            NODE.NODE_DETAIL_COMMENT = "NODE_DETAIL_COMMENT";
-            NODE.NODE_DETAIL_TABLE_ALIAS = "NODE_DETAIL_TABLE_ALIAS";
-            NODE.NODE_DETAIL_ORDINAL_POSITION = "NODE_DETAIL_ORDINAL_POSITION";
-            NODE.NODE_DETAIL_IS_PRIMARY_KEY = "NODE_DETAIL_IS_PRIMARY_KEY";
-            NODE.NODE_DETAIL_VIEW_COLUMN1 = "NODE_DETAIL_VIEW_COLUMN1";
-            NODE.NODE_DETAIL_VIEW_COLUMN2 = "NODE_DETAIL_VIEW_COLUMN2";
+            DataModeler.NODE.NODE_ID = "NODE_ID";
+            DataModeler.NODE.NODE_SEQ = "NODE_SEQ";
+            DataModeler.NODE.NODE_DETAIL_ID = "NODE_DETAIL_ID";
+            DataModeler.NODE.NODE_DETAIL_SEQ = "NODE_DETAIL_SEQ";
+            DataModeler.NODE.NODE_DETAIL_ORDER = "NODE_DETAIL_ORDER";
+            DataModeler.NODE.NODE_DETAIL_TYPE = "NODE_DETAIL_TYPE";
+            DataModeler.NODE.NODE_DETAIL_NOTE = "NODE_DETAIL_NOTE";
+            DataModeler.NODE.NODE_ID_REF = "NODE_ID_REF";
+            DataModeler.NODE.NODE_SEQ_REF = "NODE_SEQ_REF";
+            DataModeler.NODE.NODE_DETAIL_DATA_TYPE = "NODE_DETAIL_DATA_TYPE";
+            DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL = "NODE_DETAIL_DATA_TYPE_FULL";
+            DataModeler.NODE.NODE_DETAIL_COMMENT = "NODE_DETAIL_COMMENT";
+            DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS = "NODE_DETAIL_TABLE_ALIAS";
+            DataModeler.NODE.NODE_DETAIL_ORDINAL_POSITION = "NODE_DETAIL_ORDINAL_POSITION";
+            DataModeler.NODE.NODE_DETAIL_IS_PRIMARY_KEY = "NODE_DETAIL_IS_PRIMARY_KEY";
+            DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1 = "NODE_DETAIL_VIEW_COLUMN1";
+            DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN2 = "NODE_DETAIL_VIEW_COLUMN2";
 
-            RELATION.RELATION_TYPE = "RELATION_TYPE";
-            RELATION.RELATION_OPERATOR = "RELATION_OPERATOR";
-            RELATION.RELATION_VALUE = "RELATION_VALUE";
-            RELATION.RELATION_NOTE = "RELATION_NOTE";
-            RELATION.NODE_ID1 = "NODE_ID1";
-            RELATION.NODE_SEQ1 = "NODE_SEQ1";
-            RELATION.NODE_DETAIL_ID1 = "NODE_DETAIL_ID1";
-            RELATION.NODE_DETAIL_SEQ1 = "NODE_DETAIL_SEQ1";
-            RELATION.NODE_DETAIL_ORDER1 = "NODE_DETAIL_ORDER1";
-            RELATION.NODE_ID2 = "NODE_ID2";
-            RELATION.NODE_SEQ2 = "NODE_SEQ2";
-            RELATION.NODE_DETAIL_ID2 = "NODE_DETAIL_ID2";
-            RELATION.NODE_DETAIL_SEQ2 = "NODE_DETAIL_SEQ2";
-            RELATION.NODE_DETAIL_ORDER2 = "NODE_DETAIL_ORDER2";
+            DataModeler.RELATION.RELATION_TYPE = "RELATION_TYPE";
+            DataModeler.RELATION.RELATION_OPERATOR = "RELATION_OPERATOR";
+            DataModeler.RELATION.RELATION_VALUE = "RELATION_VALUE";
+            DataModeler.RELATION.RELATION_NOTE = "RELATION_NOTE";
+            DataModeler.RELATION.NODE_ID1 = "NODE_ID1";
+            DataModeler.RELATION.NODE_SEQ1 = "NODE_SEQ1";
+            DataModeler.RELATION.NODE_DETAIL_ID1 = "NODE_DETAIL_ID1";
+            DataModeler.RELATION.NODE_DETAIL_SEQ1 = "NODE_DETAIL_SEQ1";
+            DataModeler.RELATION.NODE_DETAIL_ORDER1 = "NODE_DETAIL_ORDER1";
+            DataModeler.RELATION.NODE_ID2 = "NODE_ID2";
+            DataModeler.RELATION.NODE_SEQ2 = "NODE_SEQ2";
+            DataModeler.RELATION.NODE_DETAIL_ID2 = "NODE_DETAIL_ID2";
+            DataModeler.RELATION.NODE_DETAIL_SEQ2 = "NODE_DETAIL_SEQ2";
+            DataModeler.RELATION.NODE_DETAIL_ORDER2 = "NODE_DETAIL_ORDER2";
         }
 
         private void btClear_Click(object sender, EventArgs e)
@@ -151,7 +149,7 @@ namespace Sample
         {
             // Validate - 테스트 Relation Data 바인드를 위한 임시 코드
             List<string> valudateIDList = new List<string>();
-            foreach (GraphicControl control in dataModeler.Controls)
+            foreach (ST.DataModeler.GraphicControl control in dataModeler.Controls)
             {
                 TableNode node = control as TableNode;
                 if (node != null)
