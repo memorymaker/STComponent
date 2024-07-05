@@ -118,7 +118,7 @@ namespace ST.DataModeler
                     List<string> items = new List<string>();
                     foreach (GraphicListViewItem item in _this.SelectedItems)
                     {
-                        items.Add(item.Row["NODE_DETAIL_ID"].ToString());
+                        items.Add(item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString());
                     }
                     Clipboard.SetText(String.Join("\r\n", items));
                 }
@@ -174,7 +174,7 @@ namespace ST.DataModeler
                 }
                 else
                 {
-                    ListViewContextMenu.MenuItems[1].Enabled = target.Row["NODE_DETAIL_TYPE"].ToString() == "U";
+                    ListViewContextMenu.MenuItems[1].Enabled = target.Row[DataModeler.NODE.NODE_DETAIL_TYPE].ToString() == "U";
                     ListViewContextMenu.MenuItems[2].Enabled = true;
                 }
 
@@ -286,23 +286,23 @@ namespace ST.DataModeler
                             }
                         }
                         GraphicListViewItem newItem = new GraphicListViewItem(InnerListView, newRow);
-                        newItem.Row["NODE_ID"] = ID;
-                        newItem.Row["NODE_SEQ"] = SEQ;
-                        newItem.Row["NODE_ID_REF"] = items[i].Row["NODE_ID"];
-                        newItem.Row["NODE_SEQ_REF"] = items[i].Row["NODE_SEQ"];
+                        newItem.Row[DataModeler.NODE.NODE_ID] = ID;
+                        newItem.Row[DataModeler.NODE.NODE_SEQ] = SEQ;
+                        newItem.Row[DataModeler.NODE.NODE_ID_REF] = items[i].Row[DataModeler.NODE.NODE_ID];
+                        newItem.Row[DataModeler.NODE.NODE_SEQ_REF] = items[i].Row[DataModeler.NODE.NODE_SEQ];
 
                         int newItemSeq = 0;
                         foreach(GraphicListViewItem thisItem in InnerListView.Items)
                         {
-                            if (thisItem.Row["NODE_ID_REF"].Equals(newItem.Row["NODE_ID_REF"])
-                             && thisItem.Row["NODE_DETAIL_ID"].Equals(newItem.Row["NODE_DETAIL_ID"])
-                             && newItemSeq <= Convert.ToInt32(thisItem.Row["NODE_DETAIL_SEQ"])
+                            if (thisItem.Row[DataModeler.NODE.NODE_ID_REF].Equals(newItem.Row[DataModeler.NODE.NODE_ID_REF])
+                             && thisItem.Row[DataModeler.NODE.NODE_DETAIL_ID].Equals(newItem.Row[DataModeler.NODE.NODE_DETAIL_ID])
+                             && newItemSeq <= Convert.ToInt32(thisItem.Row[DataModeler.NODE.NODE_DETAIL_SEQ])
                             )
                             {
-                                newItemSeq = Convert.ToInt32(thisItem.Row["NODE_DETAIL_SEQ"]) + 1;
+                                newItemSeq = Convert.ToInt32(thisItem.Row[DataModeler.NODE.NODE_DETAIL_SEQ]) + 1;
                             }
                         }
-                        newItem.Row["NODE_DETAIL_SEQ"] = newItemSeq;
+                        newItem.Row[DataModeler.NODE.NODE_DETAIL_SEQ] = newItemSeq;
 
                         if (InnerListView.InsertLineIndex >= 0)
                         {
@@ -401,7 +401,7 @@ namespace ST.DataModeler
                 {
                     foreach(DataRow row in InnerListView.Data.Rows)
                     {
-                        row["NODE_ID"] = ID;
+                        row[DataModeler.NODE.NODE_ID] = ID;
                     }
                 }
             }
@@ -415,15 +415,15 @@ namespace ST.DataModeler
             // Set refData
             foreach (GraphicListViewItem thisItem in InnerListView.Items)
             {
-                if (!string.IsNullOrEmpty(thisItem.Row["NODE_ID_REF"].ToString()))
+                if (!string.IsNullOrEmpty(thisItem.Row[DataModeler.NODE.NODE_ID_REF].ToString()))
                 {
                     bool duplicated = false;
                     for (int i = 0; i < refData.Count; i++)
                     {
                         if (!string.IsNullOrEmpty((string)refData[i][0]))
                         {
-                            if (refData[i][0].ToString() == thisItem.Row["NODE_ID_REF"].ToString()
-                             && refData[i][1].ToString() == thisItem.Row["NODE_SEQ_REF"].ToString()
+                            if (refData[i][0].ToString() == thisItem.Row[DataModeler.NODE.NODE_ID_REF].ToString()
+                             && refData[i][1].ToString() == thisItem.Row[DataModeler.NODE.NODE_SEQ_REF].ToString()
                             )
                             {
                                 duplicated = true;
@@ -433,7 +433,7 @@ namespace ST.DataModeler
 
                     if (!duplicated)
                     {
-                        refData.Add(new object[] { thisItem.Row["NODE_ID_REF"], thisItem.Row["NODE_SEQ_REF"], null, 0 });
+                        refData.Add(new object[] { thisItem.Row[DataModeler.NODE.NODE_ID_REF], thisItem.Row[DataModeler.NODE.NODE_SEQ_REF], null, 0 });
                     }
                 }
             }
@@ -471,13 +471,13 @@ namespace ST.DataModeler
             {
                 string talbeAlias = "";
                 string tableAliasCount = "";
-                if (!string.IsNullOrEmpty(thisItem.Row["NODE_ID_REF"].ToString()))
+                if (!string.IsNullOrEmpty(thisItem.Row[DataModeler.NODE.NODE_ID_REF].ToString()))
                 {
                     DataRow node = thisItem.Row;
                     for (int i = 0; i < refData.Count; i++)
                     {
-                        if (refData[i][0].ToString() == node["NODE_ID_REF"].ToString()
-                        && refData[i][1].ToString() == node["NODE_SEQ_REF"].ToString())
+                        if (refData[i][0].ToString() == node[DataModeler.NODE.NODE_ID_REF].ToString()
+                        && refData[i][1].ToString() == node[DataModeler.NODE.NODE_SEQ_REF].ToString())
                         {
                             talbeAlias = refData[i][2].ToString();
                             tableAliasCount = refData[i][3].ToString();
@@ -488,24 +488,24 @@ namespace ST.DataModeler
                         }
                     }
 
-                    thisItem.Row["NODE_DETAIL_TABLE_ALIAS"] = talbeAlias.ToString() + tableAliasCount;
+                    thisItem.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS] = talbeAlias.ToString() + tableAliasCount;
 
                     if (NodeOptionShowTableAlias)
                     {
-                        thisItem.Row["NODE_DETAIL_VIEW_COLUMN1"] =
-                              thisItem.Row["NODE_DETAIL_TABLE_ALIAS"]
+                        thisItem.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] =
+                              thisItem.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS]
                             + "."
-                            + thisItem.Row["NODE_DETAIL_ID"].ToString()
-                            + $"({thisItem.Row["NODE_DETAIL_DATA_TYPE"]})";
+                            + thisItem.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString()
+                            + $"({thisItem.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE]})";
                     }
                     else
                     {
-                        thisItem.Row["NODE_DETAIL_VIEW_COLUMN1"] =
-                              thisItem.Row["NODE_DETAIL_ID"].ToString()
-                            + $"({thisItem.Row["NODE_DETAIL_DATA_TYPE"]})";
+                        thisItem.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] =
+                              thisItem.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString()
+                            + $"({thisItem.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE]})";
                     }
 
-                    thisItem.ToolTipFormat["NODE_DETAIL_VIEW_COLUMN1"] = "{NODE_ID_REF}({NODE_SEQ_REF}) {NODE_DETAIL_VIEW_COLUMN1} {NODE_DETAIL_COMMENT}";
+                    thisItem.ToolTipFormat[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] = "{NODE_ID_REF}({NODE_SEQ_REF}) {NODE_DETAIL_VIEW_COLUMN1} {NODE_DETAIL_COMMENT}";
                 }
             }
         }
@@ -575,17 +575,17 @@ namespace ST.DataModeler
             {
                 if (NodeOptionShowTableAlias)
                 {
-                    item.Row["NODE_DETAIL_VIEW_COLUMN1"] =
-                          item.Row["NODE_DETAIL_TABLE_ALIAS"]
+                    item.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] =
+                          item.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS]
                         + "."
-                        + item.Row["NODE_DETAIL_ID"].ToString()
-                        + $" [{item.Row["NODE_DETAIL_DATA_TYPE_FULL"].ToString().ToLower()}]";
+                        + item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString()
+                        + $" [{item.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL].ToString().ToLower()}]";
                 }
                 else
                 {
-                    item.Row["NODE_DETAIL_VIEW_COLUMN1"] =
-                          item.Row["NODE_DETAIL_ID"].ToString()
-                        + $" [{item.Row["NODE_DETAIL_DATA_TYPE_FULL"].ToString().ToLower()}]";
+                    item.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] =
+                          item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString()
+                        + $" [{item.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL].ToString().ToLower()}]";
                 }
             }
         }
@@ -615,37 +615,37 @@ namespace ST.DataModeler
                 var newRow = InnerListView.Data.NewRow();
                 GraphicListViewItem newItem = new GraphicListViewItem(InnerListView, newRow);
                 newItem.ForeColor = UserColumnForeColor;
-                newItem.Row["NODE_ID"] = ID;
-                newItem.Row["NODE_SEQ"] = SEQ;
-                newItem.Row["NODE_DETAIL_ID"] = modal.ColumnName;
-                newItem.Row["NODE_DETAIL_TYPE"] = "U";
-                newItem.Row["NODE_DETAIL_DATA_TYPE"] = GetDataType(modal.DataTypeFull).ToUpper();
-                newItem.Row["NODE_DETAIL_DATA_TYPE_FULL"] = modal.DataTypeFull.ToUpper();
-                newItem.Row["NODE_DETAIL_COMMENT"] = modal.Comment;
-                newItem.Row["NODE_DETAIL_TABLE_ALIAS"] = modal.TableAlias;
-                newItem.Row["NODE_ID_REF"] = DBNull.Value;
-                newItem.Row["NODE_SEQ_REF"] = DBNull.Value;
+                newItem.Row[DataModeler.NODE.NODE_ID] = ID;
+                newItem.Row[DataModeler.NODE.NODE_SEQ] = SEQ;
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_ID] = modal.ColumnName;
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_TYPE] = "U";
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE] = GetDataType(modal.DataTypeFull).ToUpper();
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL] = modal.DataTypeFull.ToUpper();
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_COMMENT] = modal.Comment;
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS] = modal.TableAlias;
+                newItem.Row[DataModeler.NODE.NODE_ID_REF] = DBNull.Value;
+                newItem.Row[DataModeler.NODE.NODE_SEQ_REF] = DBNull.Value;
 
                 string viewColumn1 = modal.ColumnName;
                 if (NodeOptionShowTableAlias && modal.TableAlias.Length > 0) { viewColumn1 = $"{modal.TableAlias}.{viewColumn1}"; }
                 if (modal.DataTypeFull.Length > 0) { viewColumn1 = $"{viewColumn1} [{modal.DataTypeFull}]"; }
-                newItem.Row["NODE_DETAIL_VIEW_COLUMN1"] = viewColumn1;
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] = viewColumn1;
 
 
-                newItem.Row["NODE_DETAIL_VIEW_COLUMN2"] = modal.Comment;
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN2] = modal.Comment;
 
                 int newItemSeq = 0;
                 foreach (GraphicListViewItem thisItem in InnerListView.Items)
                 {
-                    if (thisItem.Row["NODE_ID_REF"].Equals(DBNull.Value)
-                     && thisItem.Row["NODE_DETAIL_ID"].Equals(newItem.Row["NODE_DETAIL_ID"])
-                     && newItemSeq <= Convert.ToInt32(thisItem.Row["NODE_DETAIL_SEQ"])
+                    if (thisItem.Row[DataModeler.NODE.NODE_ID_REF].Equals(DBNull.Value)
+                     && thisItem.Row[DataModeler.NODE.NODE_DETAIL_ID].Equals(newItem.Row[DataModeler.NODE.NODE_DETAIL_ID])
+                     && newItemSeq <= Convert.ToInt32(thisItem.Row[DataModeler.NODE.NODE_DETAIL_SEQ])
                     )
                     {
-                        newItemSeq = Convert.ToInt32(thisItem.Row["NODE_DETAIL_SEQ"]) + 1;
+                        newItemSeq = Convert.ToInt32(thisItem.Row[DataModeler.NODE.NODE_DETAIL_SEQ]) + 1;
                     }
                 }
-                newItem.Row["NODE_DETAIL_SEQ"] = newItemSeq;
+                newItem.Row[DataModeler.NODE.NODE_DETAIL_SEQ] = newItemSeq;
 
                 // Append Item
                 GraphicListViewItem target = GetItem(InnerListView, screenCursorPosition.X, screenCursorPosition.Y);
@@ -696,25 +696,25 @@ namespace ST.DataModeler
             else
             {
                 ModalUserColumn modal = new ModalUserColumn(
-                      target.Row["NODE_DETAIL_ID"].ToString()
-                    , target.Row["NODE_DETAIL_DATA_TYPE_FULL"].ToString().ToUpper()
-                    , target.Row["NODE_DETAIL_COMMENT"].ToString()
-                    , target.Row["NODE_DETAIL_TABLE_ALIAS"].ToString()
+                      target.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString()
+                    , target.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL].ToString().ToUpper()
+                    , target.Row[DataModeler.NODE.NODE_DETAIL_COMMENT].ToString()
+                    , target.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS].ToString()
                 );
 
                 if (modal.ShowDialog() == DialogResult.OK)
                 {
-                    target.Row["NODE_DETAIL_ID"] = modal.ColumnName;
-                    target.Row["NODE_DETAIL_DATA_TYPE"] = modal.DataTypeFull.ToUpper();
-                    target.Row["NODE_DETAIL_DATA_TYPE_FULL"] = modal.DataTypeFull.ToUpper();
-                    target.Row["NODE_DETAIL_COMMENT"] = modal.Comment;
-                    target.Row["NODE_DETAIL_TABLE_ALIAS"] = modal.TableAlias;
+                    target.Row[DataModeler.NODE.NODE_DETAIL_ID] = modal.ColumnName;
+                    target.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE] = modal.DataTypeFull.ToUpper();
+                    target.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL] = modal.DataTypeFull.ToUpper();
+                    target.Row[DataModeler.NODE.NODE_DETAIL_COMMENT] = modal.Comment;
+                    target.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS] = modal.TableAlias;
 
                     string viewColumn1 = modal.ColumnName;
                     if (NodeOptionShowTableAlias && modal.TableAlias.Length > 0) { viewColumn1 = $"{modal.TableAlias}.{viewColumn1}"; }
                     if (modal.DataTypeFull.Length > 0) { viewColumn1 = $"{viewColumn1} [{modal.DataTypeFull}]"; }
-                    target.Row["NODE_DETAIL_VIEW_COLUMN1"] = viewColumn1;
-                    target.Row["NODE_DETAIL_VIEW_COLUMN2"] = modal.Comment;
+                    target.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1] = viewColumn1;
+                    target.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN2] = modal.Comment;
 
                     SetAutoSize();
                     Refresh();

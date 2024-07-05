@@ -88,17 +88,17 @@ namespace ST.DataModeler
                 RelationModel model = new RelationModel()
                 {
                     RELATION_TYPE = Target.GetRelationType(
-                        itemsOrigin[0].Row["NODE_ID"].ToString()
-                        , Convert.ToInt32(itemsOrigin[0].Row["NODE_SEQ"])
+                        itemsOrigin[0].Row[DataModeler.NODE.NODE_ID].ToString()
+                        , Convert.ToInt32(itemsOrigin[0].Row[DataModeler.NODE.NODE_SEQ])
                         , ID
                         , SEQ
                     ),
                     RELATION_OPERATOR = "=",
                     RELATION_VALUE = "",
-                    NODE_ID1 = itemsOrigin[0].Row["NODE_ID"].ToString(),
-                    NODE_SEQ1 = Convert.ToInt32(itemsOrigin[0].Row["NODE_SEQ"]),
-                    NODE_DETAIL_ID1 = itemsOrigin[0].Row["NODE_DETAIL_ID"].ToString(),
-                    NODE_DETAIL_SEQ1 = Convert.ToInt32(itemsOrigin[0].Row["NODE_DETAIL_SEQ"]),
+                    NODE_ID1 = itemsOrigin[0].Row[DataModeler.NODE.NODE_ID].ToString(),
+                    NODE_SEQ1 = Convert.ToInt32(itemsOrigin[0].Row[DataModeler.NODE.NODE_SEQ]),
+                    NODE_DETAIL_ID1 = itemsOrigin[0].Row[DataModeler.NODE.NODE_DETAIL_ID].ToString(),
+                    NODE_DETAIL_SEQ1 = Convert.ToInt32(itemsOrigin[0].Row[DataModeler.NODE.NODE_DETAIL_SEQ]),
                     NODE_ID2 = ID,
                     NODE_SEQ2 = SEQ,
                     NODE_DETAIL_ID2 = "",
@@ -164,7 +164,7 @@ namespace ST.DataModeler
                     List<string> items = new List<string>();
                     foreach (GraphicListViewItem item in _this.SelectedItems)
                     {
-                        items.Add(item.Row["NODE_DETAIL_ID"].ToString());
+                        items.Add(item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString());
                     }
                     Clipboard.SetText(string.Join("\r\n", items));
                 }

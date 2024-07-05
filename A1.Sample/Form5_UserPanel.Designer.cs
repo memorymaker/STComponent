@@ -78,7 +78,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btAddRelation);
             this.splitContainer1.Panel2.Controls.Add(this.btClear);
             this.splitContainer1.Panel2.Controls.Add(this.btAddPanel);
-            this.splitContainer1.Size = new System.Drawing.Size(1077, 575);
+            this.splitContainer1.Size = new System.Drawing.Size(1056, 575);
             this.splitContainer1.SplitterDistance = 495;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -291,7 +291,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 575);
+            this.ClientSize = new System.Drawing.Size(1056, 575);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

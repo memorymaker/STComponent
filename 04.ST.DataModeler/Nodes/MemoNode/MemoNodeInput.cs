@@ -106,8 +106,8 @@ namespace ST.DataModeler
                     for(int i = 0; i < items.Count; i++)
                     {
                         itemStringList.Add(string.Format("{0}.{1}"
-                            , items[i].Row["NODE_ID"].ToString()
-                            , items[i].Row["NODE_DETAIL_ID"].ToString()
+                            , items[i].Row[DataModeler.NODE.NODE_ID].ToString()
+                            , items[i].Row[DataModeler.NODE.NODE_DETAIL_ID].ToString()
                         ));
                     }
 

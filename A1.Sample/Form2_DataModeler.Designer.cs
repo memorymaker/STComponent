@@ -70,7 +70,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btAddRelation);
             this.splitContainer1.Panel2.Controls.Add(this.btScalePlus);
             this.splitContainer1.Panel2.Controls.Add(this.btToggleEnabled);
-            this.splitContainer1.Size = new System.Drawing.Size(1077, 575);
+            this.splitContainer1.Size = new System.Drawing.Size(1035, 575);
             this.splitContainer1.SplitterDistance = 495;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -86,7 +86,7 @@
             this.dataModeler.ReadOnly = false;
             this.dataModeler.ScaleValue = 1F;
             this.dataModeler.ShowPerformanceTestLabel = true;
-            this.dataModeler.Size = new System.Drawing.Size(1077, 495);
+            this.dataModeler.Size = new System.Drawing.Size(1035, 495);
             this.dataModeler.StatusPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.dataModeler.StatusPanelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
             this.dataModeler.TabIndex = 0;
@@ -231,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 575);
+            this.ClientSize = new System.Drawing.Size(1035, 575);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

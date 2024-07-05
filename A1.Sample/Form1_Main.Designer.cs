@@ -46,8 +46,8 @@
             this.btShowForm2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btShowForm2.Name = "btShowForm2";
             this.btShowForm2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btShowForm2.Size = new System.Drawing.Size(209, 26);
-            this.btShowForm2.TabIndex = 10;
+            this.btShowForm2.Size = new System.Drawing.Size(362, 26);
+            this.btShowForm2.TabIndex = 0;
             this.btShowForm2.Text = "Show Form2_DataModeler";
             this.btShowForm2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btShowForm2.UseVisualStyleBackColor = false;
@@ -63,8 +63,8 @@
             this.btShowForm3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btShowForm3.Name = "btShowForm3";
             this.btShowForm3.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btShowForm3.Size = new System.Drawing.Size(209, 26);
-            this.btShowForm3.TabIndex = 10;
+            this.btShowForm3.Size = new System.Drawing.Size(362, 26);
+            this.btShowForm3.TabIndex = 1;
             this.btShowForm3.Text = "Show Form3_CodeGenerator";
             this.btShowForm3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btShowForm3.UseVisualStyleBackColor = false;
@@ -80,8 +80,8 @@
             this.btShowForm4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btShowForm4.Name = "btShowForm4";
             this.btShowForm4.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btShowForm4.Size = new System.Drawing.Size(209, 26);
-            this.btShowForm4.TabIndex = 10;
+            this.btShowForm4.Size = new System.Drawing.Size(362, 26);
+            this.btShowForm4.TabIndex = 2;
             this.btShowForm4.Text = "Show Form4_UserEditor";
             this.btShowForm4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btShowForm4.UseVisualStyleBackColor = false;
@@ -97,8 +97,8 @@
             this.btShowForm5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btShowForm5.Name = "btShowForm5";
             this.btShowForm5.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btShowForm5.Size = new System.Drawing.Size(209, 26);
-            this.btShowForm5.TabIndex = 10;
+            this.btShowForm5.Size = new System.Drawing.Size(362, 26);
+            this.btShowForm5.TabIndex = 3;
             this.btShowForm5.Text = "Show Form5_UserPanel";
             this.btShowForm5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btShowForm5.UseVisualStyleBackColor = false;
@@ -114,8 +114,8 @@
             this.btShowForm6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btShowForm6.Name = "btShowForm6";
             this.btShowForm6.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btShowForm6.Size = new System.Drawing.Size(209, 26);
-            this.btShowForm6.TabIndex = 10;
+            this.btShowForm6.Size = new System.Drawing.Size(362, 26);
+            this.btShowForm6.TabIndex = 4;
             this.btShowForm6.Text = "Show Form6_UserListView";
             this.btShowForm6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btShowForm6.UseVisualStyleBackColor = false;
@@ -131,8 +131,8 @@
             this.btShowForm7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btShowForm7.Name = "btShowForm7";
             this.btShowForm7.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.btShowForm7.Size = new System.Drawing.Size(209, 26);
-            this.btShowForm7.TabIndex = 10;
+            this.btShowForm7.Size = new System.Drawing.Size(362, 26);
+            this.btShowForm7.TabIndex = 5;
             this.btShowForm7.Text = "Show Form7_UserScrollBar";
             this.btShowForm7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btShowForm7.UseVisualStyleBackColor = false;
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 311);
+            this.ClientSize = new System.Drawing.Size(387, 222);
             this.Controls.Add(this.btShowForm7);
             this.Controls.Add(this.btShowForm6);
             this.Controls.Add(this.btShowForm5);
@@ -151,7 +151,7 @@
             this.Controls.Add(this.btShowForm2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "ST Component";
             this.ResumeLayout(false);
 
         }

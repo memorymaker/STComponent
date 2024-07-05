@@ -1,6 +1,7 @@
 ﻿using ST.Core;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -107,6 +108,33 @@ namespace ST.DataModeler
         public RelationControl(DataModeler target, RelationModel model) // : base(target)
         {
             _Target = target;
+            _Model = model;
+
+            LoadRelationControlInput();
+            LoadRelationControlDraw();
+        }
+
+        public RelationControl(DataModeler target, DataRow modelRow) // : base(target)
+        {
+            _Target = target;
+
+            var model = new RelationModel() 
+            {
+                  RELATION_TYPE      = modelRow[DataModeler.RELATION.RELATION_TYPE].ToString()
+                , RELATION_OPERATOR  = modelRow[DataModeler.RELATION.RELATION_OPERATOR].ToString()
+                , RELATION_VALUE     = modelRow[DataModeler.RELATION.RELATION_VALUE].ToString()
+                , RELATION_NOTE      = modelRow[DataModeler.RELATION.RELATION_NOTE].ToString()
+                , NODE_ID1           = modelRow[DataModeler.RELATION.NODE_ID1].ToString()
+                , NODE_SEQ1          = Convert.ToInt32(modelRow[DataModeler.RELATION.NODE_SEQ1])
+                , NODE_DETAIL_ID1    = modelRow[DataModeler.RELATION.NODE_DETAIL_ID1].ToString()
+                , NODE_DETAIL_SEQ1   = Convert.ToInt32(modelRow[DataModeler.RELATION.NODE_DETAIL_SEQ1])
+                , NODE_DETAIL_ORDER1 = Convert.ToInt32(modelRow[DataModeler.RELATION.NODE_DETAIL_ORDER1])
+                , NODE_ID2           = modelRow[DataModeler.RELATION.NODE_ID2].ToString()
+                , NODE_SEQ2          = Convert.ToInt32(modelRow[DataModeler.RELATION.NODE_SEQ2])
+                , NODE_DETAIL_ID2    = modelRow[DataModeler.RELATION.NODE_DETAIL_ID2].ToString()
+                , NODE_DETAIL_SEQ2   = Convert.ToInt32(modelRow[DataModeler.RELATION.NODE_DETAIL_SEQ2])
+                , NODE_DETAIL_ORDER2 = Convert.ToInt32(modelRow[DataModeler.RELATION.NODE_DETAIL_ORDER2])
+            };
             _Model = model;
 
             LoadRelationControlInput();

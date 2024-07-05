@@ -17,7 +17,7 @@ namespace ST.DataModeler
         private GraphicListView InnerListView;
 
         private Color UserColumnForeColor = Color.FromArgb(56, 99, 141);
-        private string ColumnTypeName = "NODE_DETAIL_TYPE";
+        private string ColumnTypeName = DataModeler.NODE.NODE_DETAIL_TYPE;
         #endregion
 
         #region EventHandler
@@ -142,8 +142,8 @@ namespace ST.DataModeler
             InnerListView.VerticalScrollBarVisible = false;
             InnerListView.ColumnHeight = 0;
             InnerListView.Font = Font;
-            InnerListView.AddColumn(new GraphicListViewColumn("Column", "NODE_DETAIL_VIEW_COLUMN1"));
-            InnerListView.AddColumn(new GraphicListViewColumn("Comment", "NODE_DETAIL_VIEW_COLUMN2"));
+            InnerListView.AddColumn(new GraphicListViewColumn("Column", DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1));
+            InnerListView.AddColumn(new GraphicListViewColumn("Comment", DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN2));
             InnerListView.Columns[0].Width = 150 - Padding.Left;
             InnerListView.Columns[1].Width = 100 - Padding.Right;
             Controls.Add(InnerListView);
@@ -265,21 +265,21 @@ namespace ST.DataModeler
                 GraphicListViewItem item = Items[i];
 				var model = new NodeDetailModel
 				{
-					NODE_ID                    = item.Row["NODE_ID"].ToString(),
-					NODE_SEQ                   = item.Row["NODE_SEQ"].ToInt(),
-					NODE_DETAIL_ID             = item.Row["NODE_DETAIL_ID"].ToString(),
-					NODE_DETAIL_SEQ            = item.Row["NODE_DETAIL_SEQ"].ToInt(),
+					NODE_ID                    = item.Row[DataModeler.NODE.NODE_ID].ToString(),
+					NODE_SEQ                   = item.Row[DataModeler.NODE.NODE_SEQ].ToInt(),
+					NODE_DETAIL_ID             = item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString(),
+					NODE_DETAIL_SEQ            = item.Row[DataModeler.NODE.NODE_DETAIL_SEQ].ToInt(),
 					NODE_DETAIL_ORDER          = i + 1,
-					NODE_DETAIL_TYPE           = item.Row["NODE_DETAIL_TYPE"].ToString(),
-					NODE_DETAIL_DATA_TYPE      = item.Row["NODE_DETAIL_DATA_TYPE"].ToString(),
-					NODE_DETAIL_DATA_TYPE_FULL = item.Row["NODE_DETAIL_DATA_TYPE_FULL"].ToString(),
-					NODE_DETAIL_COMMENT        = item.Row["NODE_DETAIL_COMMENT"].ToString(),
-					NODE_DETAIL_TABLE_ALIAS    = item.Row["NODE_DETAIL_TABLE_ALIAS"].ToString(),
-					NODE_DETAIL_NOTE           = item.Row["NODE_DETAIL_NOTE"].ToString(),
-                    NODE_DETAIL_VIEW_COLUMN1   = item.Row["NODE_DETAIL_VIEW_COLUMN1"].ToString(),
-					NODE_DETAIL_VIEW_COLUMN2   = item.Row["NODE_DETAIL_VIEW_COLUMN2"].ToString(),
-                    NODE_ID_REF                = item.Row["NODE_ID_REF"].ToString(),
-                    NODE_SEQ_REF               = item.Row["NODE_SEQ_REF"].ToInt()
+					NODE_DETAIL_TYPE           = item.Row[DataModeler.NODE.NODE_DETAIL_TYPE].ToString(),
+					NODE_DETAIL_DATA_TYPE      = item.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE].ToString(),
+					NODE_DETAIL_DATA_TYPE_FULL = item.Row[DataModeler.NODE.NODE_DETAIL_DATA_TYPE_FULL].ToString(),
+					NODE_DETAIL_COMMENT        = item.Row[DataModeler.NODE.NODE_DETAIL_COMMENT].ToString(),
+					NODE_DETAIL_TABLE_ALIAS    = item.Row[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS].ToString(),
+					NODE_DETAIL_NOTE           = item.Row[DataModeler.NODE.NODE_DETAIL_NOTE].ToString(),
+                    NODE_DETAIL_VIEW_COLUMN1   = item.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN1].ToString(),
+					NODE_DETAIL_VIEW_COLUMN2   = item.Row[DataModeler.NODE.NODE_DETAIL_VIEW_COLUMN2].ToString(),
+                    NODE_ID_REF                = item.Row[DataModeler.NODE.NODE_ID_REF].ToString(),
+                    NODE_SEQ_REF               = item.Row[DataModeler.NODE.NODE_SEQ_REF].ToInt()
                 };
 				rs.Add(model);
 			}

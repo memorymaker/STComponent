@@ -273,7 +273,7 @@ namespace ST.DataModeler
             if (tableNode != null)
             {
                 GraphicListViewItem item = tableNode.GetItemFromRowValue(
-                      new string[] { "NODE_DETAIL_ID", "NODE_DETAIL_SEQ" }
+                      new string[] { DataModeler.NODE.NODE_DETAIL_ID, DataModeler.NODE.NODE_DETAIL_SEQ }
                     , new object[] { Model.NODE_DETAIL_ID1, Model.NODE_DETAIL_SEQ1 } 
                 );
                 if (item != null)
@@ -299,7 +299,7 @@ namespace ST.DataModeler
                 if (Model.NODE_DETAIL_ID2 != string.Empty)
                 {
                     GraphicListViewItem item = tableNode.GetItemFromRowValue(
-                        new string[] { "NODE_DETAIL_ID" , "NODE_DETAIL_SEQ" }
+                        new string[] { DataModeler.NODE.NODE_DETAIL_ID , DataModeler.NODE.NODE_DETAIL_SEQ }
 					    , new object[] { Model.NODE_DETAIL_ID2, Model.NODE_DETAIL_SEQ2 }
 				    );
 

@@ -389,7 +389,7 @@ namespace ST.DataModeler
                     {
                         if (refDataNode[0].ToString() == dr[idField].ToString() && refDataNode[1].ToInt() == dr[seqField].ToInt())
                         {
-                            dr["NODE_DETAIL_TABLE_ALIAS" + numberText] = refDataNode[2].ToString();
+                            dr[DataModeler.NODE.NODE_DETAIL_TABLE_ALIAS + numberText] = refDataNode[2].ToString();
                             break;
                         }
                     }
@@ -490,8 +490,8 @@ namespace ST.DataModeler
                     {
                         foreach (GraphicListViewItem item in node.Items)
                         {
-                            if (item.Row["NODE_DETAIL_ID"].ToString() == relation.Model.NODE_DETAIL_ID1
-                            && item.Row["NODE_DETAIL_SEQ"].ToInt() == relation.Model.NODE_DETAIL_SEQ1)
+                            if (item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString() == relation.Model.NODE_DETAIL_ID1
+                            && item.Row[DataModeler.NODE.NODE_DETAIL_SEQ].ToInt() == relation.Model.NODE_DETAIL_SEQ1)
                             {
                                 rs[0] = true;
                                 break;
@@ -508,8 +508,8 @@ namespace ST.DataModeler
                         {
                             foreach (GraphicListViewItem item in node.Items)
                             {
-                                if (item.Row["NODE_DETAIL_ID"].ToString() == relation.Model.NODE_DETAIL_ID2
-                                && item.Row["NODE_DETAIL_SEQ"].ToInt() == relation.Model.NODE_DETAIL_SEQ2)
+                                if (item.Row[DataModeler.NODE.NODE_DETAIL_ID].ToString() == relation.Model.NODE_DETAIL_ID2
+                                && item.Row[DataModeler.NODE.NODE_DETAIL_SEQ].ToInt() == relation.Model.NODE_DETAIL_SEQ2)
                                 {
                                     rs[1] = true;
                                     break;

@@ -51,24 +51,24 @@ namespace ST.DataModeler
                             new RelationModel()
                             {
                                 RELATION_TYPE = GetRelationType(
-                                    items1[i].Row["NODE_ID"].ToString()
-                                    , Convert.ToInt32(items1[i].Row["NODE_SEQ"])
-                                    , items2[i].Row["NODE_ID"].ToString()
-                                    , Convert.ToInt32(items2[i].Row["NODE_SEQ"])
+                                    items1[i].Row[DataModeler.NODE.NODE_ID].ToString()
+                                    , Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_SEQ])
+                                    , items2[i].Row[DataModeler.NODE.NODE_ID].ToString()
+                                    , Convert.ToInt32(items2[i].Row[DataModeler.NODE.NODE_SEQ])
                                 ),
                                 RELATION_OPERATOR = "",
                                 RELATION_VALUE = "",
                                 RELATION_NOTE = "",
-                                NODE_ID1 = items1[i].Row["NODE_ID"].ToString(),
-                                NODE_SEQ1 = Convert.ToInt32(items1[i].Row["NODE_SEQ"]),
-                                NODE_DETAIL_ID1 = items1[i].Row["NODE_DETAIL_ID"].ToString(),
-                                NODE_DETAIL_SEQ1 = Convert.ToInt32(items1[i].Row["NODE_DETAIL_SEQ"]),
-                                NODE_DETAIL_ORDER1 = Convert.ToInt32(items1[i].Row["NODE_DETAIL_ORDER"]),
-                                NODE_ID2 = items2[i].Row["NODE_ID"].ToString(),
-                                NODE_SEQ2 = Convert.ToInt32(items2[i].Row["NODE_SEQ"]),
-                                NODE_DETAIL_ID2 = items2[i].Row["NODE_DETAIL_ID"].ToString(),
-                                NODE_DETAIL_SEQ2 = Convert.ToInt32(items2[i].Row["NODE_DETAIL_SEQ"]),
-                                NODE_DETAIL_ORDER2 = Convert.ToInt32(items2[i].Row["NODE_DETAIL_ORDER"])
+                                NODE_ID1 = items1[i].Row[DataModeler.NODE.NODE_ID].ToString(),
+                                NODE_SEQ1 = Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_SEQ]),
+                                NODE_DETAIL_ID1 = items1[i].Row[DataModeler.NODE.NODE_DETAIL_ID].ToString(),
+                                NODE_DETAIL_SEQ1 = Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_DETAIL_SEQ]),
+                                NODE_DETAIL_ORDER1 = Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_DETAIL_ORDER]),
+                                NODE_ID2 = items2[i].Row[DataModeler.NODE.NODE_ID].ToString(),
+                                NODE_SEQ2 = Convert.ToInt32(items2[i].Row[DataModeler.NODE.NODE_SEQ]),
+                                NODE_DETAIL_ID2 = items2[i].Row[DataModeler.NODE.NODE_DETAIL_ID].ToString(),
+                                NODE_DETAIL_SEQ2 = Convert.ToInt32(items2[i].Row[DataModeler.NODE.NODE_DETAIL_SEQ]),
+                                NODE_DETAIL_ORDER2 = Convert.ToInt32(items2[i].Row[DataModeler.NODE.NODE_DETAIL_ORDER])
                             }
                         );
 
@@ -94,11 +94,11 @@ namespace ST.DataModeler
                             RELATION_OPERATOR = itemTable.RELATION_OPERATOR,
                             RELATION_VALUE = itemTable.RELATION_VALUE,
                             RELATION_NOTE = "",
-                            NODE_ID1 = items1[i].Row["NODE_ID"].ToString(),
-                            NODE_SEQ1 = Convert.ToInt32(items1[i].Row["NODE_SEQ"]),
-                            NODE_DETAIL_ID1 = items1[i].Row["NODE_DETAIL_ID"].ToString(),
-                            NODE_DETAIL_SEQ1 = Convert.ToInt32(items1[i].Row["NODE_DETAIL_SEQ"]),
-                            NODE_DETAIL_ORDER1 = Convert.ToInt32(items1[i].Row["NODE_DETAIL_ORDER"]),
+                            NODE_ID1 = items1[i].Row[DataModeler.NODE.NODE_ID].ToString(),
+                            NODE_SEQ1 = Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_SEQ]),
+                            NODE_DETAIL_ID1 = items1[i].Row[DataModeler.NODE.NODE_DETAIL_ID].ToString(),
+                            NODE_DETAIL_SEQ1 = Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_DETAIL_SEQ]),
+                            NODE_DETAIL_ORDER1 = Convert.ToInt32(items1[i].Row[DataModeler.NODE.NODE_DETAIL_ORDER]),
                             NODE_ID2 = itemTable.NODE_ID2,
                             NODE_SEQ2 = itemTable.NODE_SEQ2,
                             NODE_DETAIL_ID2 = string.Empty,
