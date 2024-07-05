@@ -22,15 +22,9 @@ namespace Sample
         public Form2()
         {
             InitializeComponent();
-            LoadThis();
         }
 
-        private void LoadThis()
-        {
-            SetConfig();
-        }
-
-        private void SetConfig()
+        private void Form2_Load(object sender, EventArgs e)
         {
             NODE.NODE_ID = "NODE_ID";
             NODE.NODE_SEQ = "NODE_SEQ";

@@ -209,7 +209,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form6";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form6";
+            this.Text = "Form6_UserListView";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

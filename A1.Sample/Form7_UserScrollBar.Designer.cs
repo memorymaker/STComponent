@@ -35,8 +35,8 @@
             this.userScrollBar5 = new ST.Controls.UserScrollBar();
             this.userScrollBar3 = new ST.Controls.UserScrollBar();
             this.userScrollBar1 = new ST.Controls.UserScrollBar();
-            this.btSetValue50 = new ST.Controls.Modal.ModalButton();
             this.btSetConfig = new ST.Controls.Modal.ModalButton();
+            this.btSetValue50 = new ST.Controls.Modal.ModalButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -213,21 +213,6 @@
             this.userScrollBar1.Type = ST.Controls.UserScrollBarType.Vertical;
             this.userScrollBar1.Value = 0;
             // 
-            // btSetValue50
-            // 
-            this.btSetValue50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btSetValue50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btSetValue50.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btSetValue50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btSetValue50.Location = new System.Drawing.Point(8, 8);
-            this.btSetValue50.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btSetValue50.Name = "btSetValue50";
-            this.btSetValue50.Size = new System.Drawing.Size(108, 26);
-            this.btSetValue50.TabIndex = 8;
-            this.btSetValue50.Text = "Set Value 50";
-            this.btSetValue50.UseVisualStyleBackColor = false;
-            this.btSetValue50.Click += new System.EventHandler(this.btSetValue50_Click);
-            // 
             // btSetConfig
             // 
             this.btSetConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
@@ -243,6 +228,21 @@
             this.btSetConfig.UseVisualStyleBackColor = false;
             this.btSetConfig.Click += new System.EventHandler(this.btSetConfig_Click);
             // 
+            // btSetValue50
+            // 
+            this.btSetValue50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btSetValue50.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSetValue50.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btSetValue50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btSetValue50.Location = new System.Drawing.Point(8, 8);
+            this.btSetValue50.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btSetValue50.Name = "btSetValue50";
+            this.btSetValue50.Size = new System.Drawing.Size(108, 26);
+            this.btSetValue50.TabIndex = 8;
+            this.btSetValue50.Text = "Set Value 50";
+            this.btSetValue50.UseVisualStyleBackColor = false;
+            this.btSetValue50.Click += new System.EventHandler(this.btSetValue50_Click);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -251,7 +251,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form7";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form7";
+            this.Text = "Form7_UserScrollBar";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

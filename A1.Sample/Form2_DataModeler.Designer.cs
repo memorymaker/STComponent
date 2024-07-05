@@ -235,7 +235,8 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Form2_DataModeler";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

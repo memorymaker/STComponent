@@ -235,7 +235,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form4";
+            this.Text = "Form4_UserEditor";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
