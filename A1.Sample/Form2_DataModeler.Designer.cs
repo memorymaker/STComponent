@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataModeler = new ST.DataModeler.DataModeler();
             this.btGetMainData = new ST.Controls.Modal.ModalButton();
             this.btGetRelationData = new ST.Controls.Modal.ModalButton();
             this.btClear = new ST.Controls.Modal.ModalButton();
@@ -39,6 +38,9 @@
             this.btAddRelation = new ST.Controls.Modal.ModalButton();
             this.btScalePlus = new ST.Controls.Modal.ModalButton();
             this.btToggleEnabled = new ST.Controls.Modal.ModalButton();
+            this.btAddColumnNode = new ST.Controls.Modal.ModalButton();
+            this.btAddMemoNode = new ST.Controls.Modal.ModalButton();
+            this.dataModeler = new ST.DataModeler.DataModeler();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,6 +63,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Panel2.Controls.Add(this.btAddMemoNode);
+            this.splitContainer1.Panel2.Controls.Add(this.btAddColumnNode);
             this.splitContainer1.Panel2.Controls.Add(this.btGetMainData);
             this.splitContainer1.Panel2.Controls.Add(this.btGetRelationData);
             this.splitContainer1.Panel2.Controls.Add(this.btClear);
@@ -74,31 +78,13 @@
             this.splitContainer1.SplitterDistance = 495;
             this.splitContainer1.TabIndex = 0;
             // 
-            // dataModeler
-            // 
-            this.dataModeler.AllowDrop = true;
-            this.dataModeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.dataModeler.DisableBackColor = System.Drawing.Color.Gray;
-            this.dataModeler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataModeler.ID = null;
-            this.dataModeler.Location = new System.Drawing.Point(0, 0);
-            this.dataModeler.Name = "dataModeler";
-            this.dataModeler.ReadOnly = false;
-            this.dataModeler.ScaleValue = 1F;
-            this.dataModeler.ShowPerformanceTestLabel = true;
-            this.dataModeler.Size = new System.Drawing.Size(1035, 495);
-            this.dataModeler.StatusPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.dataModeler.StatusPanelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
-            this.dataModeler.TabIndex = 0;
-            this.dataModeler.Text = "dataModeler1";
-            // 
             // btGetMainData
             // 
             this.btGetMainData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
             this.btGetMainData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGetMainData.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btGetMainData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetMainData.Location = new System.Drawing.Point(692, 8);
+            this.btGetMainData.Location = new System.Drawing.Point(578, 40);
             this.btGetMainData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btGetMainData.Name = "btGetMainData";
             this.btGetMainData.Size = new System.Drawing.Size(108, 26);
@@ -113,7 +99,7 @@
             this.btGetRelationData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGetRelationData.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btGetRelationData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetRelationData.Location = new System.Drawing.Point(920, 8);
+            this.btGetRelationData.Location = new System.Drawing.Point(806, 40);
             this.btGetRelationData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btGetRelationData.Name = "btGetRelationData";
             this.btGetRelationData.Size = new System.Drawing.Size(108, 26);
@@ -143,7 +129,7 @@
             this.btGetNodeData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGetNodeData.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btGetNodeData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetNodeData.Location = new System.Drawing.Point(806, 8);
+            this.btGetNodeData.Location = new System.Drawing.Point(692, 40);
             this.btGetNodeData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btGetNodeData.Name = "btGetNodeData";
             this.btGetNodeData.Size = new System.Drawing.Size(108, 26);
@@ -173,7 +159,7 @@
             this.btScaleMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btScaleMinus.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btScaleMinus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btScaleMinus.Location = new System.Drawing.Point(578, 8);
+            this.btScaleMinus.Location = new System.Drawing.Point(806, 8);
             this.btScaleMinus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btScaleMinus.Name = "btScaleMinus";
             this.btScaleMinus.Size = new System.Drawing.Size(108, 26);
@@ -203,7 +189,7 @@
             this.btScalePlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btScalePlus.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btScalePlus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btScalePlus.Location = new System.Drawing.Point(464, 8);
+            this.btScalePlus.Location = new System.Drawing.Point(692, 8);
             this.btScalePlus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btScalePlus.Name = "btScalePlus";
             this.btScalePlus.Size = new System.Drawing.Size(108, 26);
@@ -218,7 +204,7 @@
             this.btToggleEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btToggleEnabled.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btToggleEnabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btToggleEnabled.Location = new System.Drawing.Point(350, 8);
+            this.btToggleEnabled.Location = new System.Drawing.Point(578, 8);
             this.btToggleEnabled.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btToggleEnabled.Name = "btToggleEnabled";
             this.btToggleEnabled.Size = new System.Drawing.Size(108, 26);
@@ -226,6 +212,54 @@
             this.btToggleEnabled.Text = "Toggle Enabled";
             this.btToggleEnabled.UseVisualStyleBackColor = false;
             this.btToggleEnabled.Click += new System.EventHandler(this.btToggleEnabled_Click);
+            // 
+            // btAddColumnNode
+            // 
+            this.btAddColumnNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btAddColumnNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddColumnNode.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btAddColumnNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btAddColumnNode.Location = new System.Drawing.Point(350, 8);
+            this.btAddColumnNode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAddColumnNode.Name = "btAddColumnNode";
+            this.btAddColumnNode.Size = new System.Drawing.Size(108, 26);
+            this.btAddColumnNode.TabIndex = 4;
+            this.btAddColumnNode.Text = " Add ColumnNode";
+            this.btAddColumnNode.UseVisualStyleBackColor = false;
+            this.btAddColumnNode.Click += new System.EventHandler(this.btAddColumnNode_Click);
+            // 
+            // btAddMemoNode
+            // 
+            this.btAddMemoNode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btAddMemoNode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btAddMemoNode.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btAddMemoNode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btAddMemoNode.Location = new System.Drawing.Point(464, 8);
+            this.btAddMemoNode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btAddMemoNode.Name = "btAddMemoNode";
+            this.btAddMemoNode.Size = new System.Drawing.Size(108, 26);
+            this.btAddMemoNode.TabIndex = 5;
+            this.btAddMemoNode.Text = " Add MemoNode";
+            this.btAddMemoNode.UseVisualStyleBackColor = false;
+            this.btAddMemoNode.Click += new System.EventHandler(this.btAddMemoNode_Click);
+            // 
+            // dataModeler
+            // 
+            this.dataModeler.AllowDrop = true;
+            this.dataModeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
+            this.dataModeler.DisableBackColor = System.Drawing.Color.Gray;
+            this.dataModeler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataModeler.ID = null;
+            this.dataModeler.Location = new System.Drawing.Point(0, 0);
+            this.dataModeler.Name = "dataModeler";
+            this.dataModeler.ReadOnly = false;
+            this.dataModeler.ScaleValue = 1F;
+            this.dataModeler.ShowPerformanceTestLabel = true;
+            this.dataModeler.Size = new System.Drawing.Size(1035, 495);
+            this.dataModeler.StatusPanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.dataModeler.StatusPanelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(160)))), ((int)(((byte)(160)))));
+            this.dataModeler.TabIndex = 0;
+            this.dataModeler.Text = "dataModeler1";
             // 
             // Form2
             // 
@@ -258,5 +292,7 @@
         private ST.Controls.Modal.ModalButton btGetNodeData;
         private ST.Controls.Modal.ModalButton btGetMainData;
         private ST.Controls.Modal.ModalButton btGetRelationData;
+        private ST.Controls.Modal.ModalButton btAddColumnNode;
+        private ST.Controls.Modal.ModalButton btAddMemoNode;
     }
 }

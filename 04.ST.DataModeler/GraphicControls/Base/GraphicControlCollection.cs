@@ -56,7 +56,7 @@ namespace ST.DataModeler
             }
 
             value.Parent = _Owner;
-            InnerList.Add(value);
+            InnerList.Insert(0, value);
 
             _Owner.OnControlAdded(new GraphicControlEventArgs(value));
         }

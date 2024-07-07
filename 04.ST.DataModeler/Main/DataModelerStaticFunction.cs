@@ -24,6 +24,7 @@ namespace ST.DataModeler
             rsDt.Columns.Add(NODE.NODE_DETAIL_TYPE);
             rsDt.Columns.Add(NODE.NODE_DETAIL_NOTE);
             rsDt.Columns.Add(NODE.NODE_ID_REF);
+            rsDt.Columns.Add(NODE.NODE_SEQ_REF, typeof(int));
             rsDt.Columns.Add(NODE.NODE_DETAIL_DATA_TYPE);
             rsDt.Columns.Add(NODE.NODE_DETAIL_DATA_TYPE_FULL);
             rsDt.Columns.Add(NODE.NODE_DETAIL_COMMENT);

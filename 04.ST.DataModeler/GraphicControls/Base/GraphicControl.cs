@@ -174,7 +174,7 @@ namespace ST.DataModeler
                 }
             }
         }
-        private int _Width;
+        private int _Width = 200;
 
         public int Height
         {
@@ -194,7 +194,7 @@ namespace ST.DataModeler
                 }
             }
         }
-        private int _Height;
+        private int _Height = 200;
 
         public Point Location
         {
