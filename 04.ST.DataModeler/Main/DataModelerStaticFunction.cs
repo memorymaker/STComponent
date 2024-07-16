@@ -10,7 +10,7 @@ namespace ST.DataModeler
     public partial class DataModeler
     {
         /// <summary>
-        /// 
+        /// 빈 노드 DataTable을 반환합니다.
         /// </summary>
         /// <returns></returns>
         public static DataTable GetEmptyNodeDataTable()
@@ -36,6 +36,10 @@ namespace ST.DataModeler
             return rsDt;
         }
 
+        /// <summary>
+        /// 빈 릴레이션 DataTable을 반환합니다.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetEmptyRelationDataTable()
         {
             DataTable rsDt = new DataTable();

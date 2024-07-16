@@ -50,6 +50,9 @@ namespace ST.DataModeler
         #region Propertise
         public string ID { get; set; }
 
+        /// <summary>
+        /// DataModeler의 자식 컨트롤(Node, Relation) 배율을 지정한 배율 인수로 조정합니다.
+        /// </summary>
         public float ScaleValue
         {
             get
@@ -92,6 +95,10 @@ namespace ST.DataModeler
             }
         }
 
+        /// <summary>
+        /// 컨트롤이 사용자 상호 작용에 응답할 수 있는지를 나타내는 값을 가져오거나 설정합니다.
+        /// </summary>
+        /// <returns>컨트롤이 사용자 상호 작용에 응답할 수 있으면 <see langword="true"/>이고, 그렇지 않으면 <see langword="false"/>입니다. 기본값은 <see langword="true"/>입니다.</returns>
         new public bool Enabled
         {
             get
@@ -303,6 +310,11 @@ namespace ST.DataModeler
             return rs;
         }
 
+        /// <summary>
+        /// DataModeler 내부 Nodes 데이터를 DataTable 형태로 반환합니다.
+        /// </summary>
+        /// <returns> <see langword="DataModelerNodeDataTables"/> 클래스 내부에 Node(DataTable), NodeDetail(DataTable) 필드로 각각의 데이터를 반환합니다.
+        /// </returns>
         public DataModelerNodeDataTables GetNodeDataTables()
         {
             var nodeModels = GetNodeModels();
@@ -336,6 +348,10 @@ namespace ST.DataModeler
             return rs;
         }
 
+        /// <summary>
+        /// DataModeler 내부 Relations 데이터를 DataTable 형태로 반환합니다.
+        /// </summary>
+        /// <returns><see langword="DataTable"></see></returns>
         public DataTable GetRelationDataTable()
         {
             var relationModels = GetRelationModels();
@@ -399,6 +415,9 @@ namespace ST.DataModeler
             return rs;
         }
 
+        /// <summary>
+        /// DataModeler의 모든 Node와 Relation을 삭제합니다.
+        /// </summary>
         public void Clear()
         {
             Controls.Clear();
@@ -462,6 +481,11 @@ namespace ST.DataModeler
             Minimap.Draw();
         }
 
+        /// <summary>
+        /// DataModeler 인스턴스의 Controls에 요소가 있는지 여부를 확인합니다.
+        /// </summary>
+        /// <param name="node"></param>
+        /// <returns></returns>
         public bool ContainsNode(NodeBase node)
         {
             bool rs = false;

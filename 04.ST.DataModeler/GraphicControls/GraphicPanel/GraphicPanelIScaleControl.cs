@@ -22,6 +22,9 @@ namespace ST.DataModeler
         protected Padding OriginalPadding => _OriginalPadding;
         private Padding _OriginalPadding = new Padding(3, 3, 3, 3); // _Padding Default Value
 
+        /// <summary>
+        /// GraphicPanel과 모든 자식 컨트롤의 배율을 지정한 배율 인수로 조정합니다.
+        /// </summary>
         public float ScaleValue
         {
             get

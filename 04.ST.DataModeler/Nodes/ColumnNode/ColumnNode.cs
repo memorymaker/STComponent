@@ -25,7 +25,13 @@ namespace ST.DataModeler
         #endregion
 
         #region Propertise
-        public override NodeType NodeType { get; set; } = NodeType.ColumnNode;
+        public override NodeType NodeType
+        {
+            get
+            {
+                return NodeType.ColumnNode;
+            }
+        }
 
         override public string ID
         {
@@ -39,21 +45,6 @@ namespace ST.DataModeler
                 {
                     _ID = value;
                     Title = ID;
-                }
-            }
-        }
-
-        override public int SEQ
-        {
-            get
-            {
-                return _SEQ;
-            }
-            set
-            {
-                if (_SEQ != value)
-                {
-                    _SEQ = value;
                 }
             }
         }

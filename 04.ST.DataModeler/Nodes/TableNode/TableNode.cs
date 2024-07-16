@@ -31,7 +31,13 @@ namespace ST.DataModeler
         #endregion
 
         #region Propertise
-        public override NodeType NodeType { get; set; } = NodeType.TableNode;
+        public override NodeType NodeType
+        {
+            get
+            { 
+                return NodeType.TableNode;
+            }
+        }
 
         public override string ID
         {

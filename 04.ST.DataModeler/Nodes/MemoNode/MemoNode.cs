@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,13 @@ namespace ST.DataModeler
         #endregion
 
         #region Propertise
-        public override NodeType NodeType { get; set; } = NodeType.MemoNode;
+        public override NodeType NodeType
+        {
+            get
+            {
+                return NodeType.MemoNode;
+            }
+        }
         #endregion
 
         #region Load
