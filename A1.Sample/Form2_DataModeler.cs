@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ST.Controls;
 using System.Xml.Linq;
+using static ST.DataModeler.DataModeler;
 
 namespace Sample
 {
@@ -59,6 +60,7 @@ namespace Sample
 
         private void btClear_Click(object sender, EventArgs e)
         {
+            // DataModeler의 모든 Node와 Relation을 삭제합니다.
             dataModeler.Clear();
         }
 
