@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ST.Controls;
 using System.Xml.Linq;
-using static ST.DataModeler.DataModeler;
 
 namespace Sample
 {
@@ -235,12 +234,12 @@ namespace Sample
             // DataModeler.GetEmptyNodeDataTable는 빈 Node DataTable을 반환하는 정적 메서드입니다.
             // 위 메서드와 Rows.Add로 Node의 DataTable와 데이터를 생성합니다.
             DataTable columnNodeData = DataModeler.GetEmptyNodeDataTable();
-            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_ID"       , 0, 1 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(30)" , "사용자 ID"      , "", 1 , "Y", "USER_ID [varchar2(30)]"       , "사용자 ID"       });
-            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_NAME"     , 0, 2 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(50)" , "사용자명"       , "", 2 , "N", "USER_NAME [varchar2(50)]"     , "사용자명"        });
-            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_GROUP"    , 0, 3 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(30)" , "사용자 그룹"    , "", 3 , "N", "USER_GROUP [varchar2(30)]"    , "사용자 그룹"     });
-            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_PASSWD"   , 0, 4 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(200)", "사용자 비밀번호", "", 4 , "N", "USER_PASSWD [varchar2(200)]"  , "사용자 비밀번호" });
-            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_POSITION" , 0, 5 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(30)" , "사용자 직위"    , "", 5 , "N", "USER_POSITION [varchar2(30)]" , "사용자 직위"     });
-            columnNodeData.Rows.Add(new object[] { nodeID, 0, "CODE_NM"       , 0, 6 , "C", "", "SYS_CODE", 0, "VARCHAR2", "VARCHAR2(100)", "코드명"         , "", 3 , "N", "CODE_NM [varchar2(100)]"      , "코드명"          });
+            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_ID"       , 0, 1 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(30)" , "사용자 ID"      , "SU", 1 , "Y", "USER_ID [varchar2(30)]"       , "사용자 ID"       });
+            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_NAME"     , 0, 2 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(50)" , "사용자명"       , "SU", 2 , "N", "USER_NAME [varchar2(50)]"     , "사용자명"        });
+            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_GROUP"    , 0, 3 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(30)" , "사용자 그룹"    , "SU", 3 , "N", "USER_GROUP [varchar2(30)]"    , "사용자 그룹"     });
+            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_PASSWD"   , 0, 4 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(200)", "사용자 비밀번호", "SU", 4 , "N", "USER_PASSWD [varchar2(200)]"  , "사용자 비밀번호" });
+            columnNodeData.Rows.Add(new object[] { nodeID, 0, "USER_POSITION" , 0, 5 , "C", "", "SYS_USER", 0, "VARCHAR2", "VARCHAR2(30)" , "사용자 직위"    , "SU", 5 , "N", "USER_POSITION [varchar2(30)]" , "사용자 직위"     });
+            columnNodeData.Rows.Add(new object[] { nodeID, 0, "CODE_NM"       , 0, 6 , "C", "", "SYS_CODE", 0, "VARCHAR2", "VARCHAR2(100)", "코드명"         , "SC", 3 , "N", "CODE_NM [varchar2(100)]"      , "코드명"          });
 
             // C1 - ColumnNode 생성
             // ColumnNode 객체를 생성합니다. 생성자는 부모가 될 DataModeler를 파라미터로 전달 받습니다.
@@ -335,7 +334,8 @@ namespace Sample
             // DataModeler 내부 Nodes 데이터를 저장합니다.(DataModelerNodeDataTables 클래스 형태)
             var dataTables = dataModeler.GetNodeDataTables();
 
-            // DataModelerNodeDataTables 클래스는 Node, NodeDetail 필드에 각각 노드 메인 정보와 노드 디테일 정보를 가지고 있습니다.
+            // DataModelerNodeDataTables 클래스는 Node, NodeDetail 필드에 각각 노드 메인 정보와
+            // 노드 디테일 정보를 가지고 있습니다.
             DataTable node = dataTables.Node;
             DataTable nodeDetail = dataTables.NodeDetail;
 
@@ -374,7 +374,8 @@ namespace Sample
             // DataModeler 내부 Relations 데이터를 DataTable에 저장합니다.
             DataTable rsRelation = dataModeler.GetRelationDataTable();
 
-            // NODE_DETAIL_TABLE_ALIAS1, NODE_DETAIL_TABLE_ALIAS2 컬럼은 DataModeler 내부적으로 사용되기에 삭제합니다.
+            // NODE_DETAIL_TABLE_ALIAS1, NODE_DETAIL_TABLE_ALIAS2 컬럼은 DataModeler 내부적으로 사용되기에
+            // 삭제합니다.
             rsRelation.Columns.Remove("NODE_DETAIL_TABLE_ALIAS1");
             rsRelation.Columns.Remove("NODE_DETAIL_TABLE_ALIAS2");
 
