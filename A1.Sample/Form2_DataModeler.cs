@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ST.Controls;
 using System.Xml.Linq;
-using static ST.DataModeler.DataModeler;
 
 namespace Sample
 {

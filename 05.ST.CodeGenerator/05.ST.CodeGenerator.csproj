@@ -57,6 +57,9 @@
     <Compile Include="Main\CodeGeneratorEditorStyle.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Main\CodeGeneratorFieldName.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Main\CodeGeneratorGraphicControls.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -73,6 +76,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CodeGeneratorResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Main\CodeGeneratorStaticFunction.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\TabModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

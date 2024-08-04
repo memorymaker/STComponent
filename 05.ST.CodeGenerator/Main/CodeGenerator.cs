@@ -74,355 +74,6 @@ namespace ST.CodeGenerator
         private bool _Enabled = true;
 
         public bool ReadOnly { get; set; } = false;
-
-        public string NodeFieldName_Table
-        {
-            get
-            {
-                return _NodeFieldName_Table;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach(Tab tab in tabs)
-                    {
-                        tab.Processor.NodeFieldName_Table = value;
-                    }
-                }
-                _NodeFieldName_Table = value;
-            }
-        }
-        private string _NodeFieldName_Table = null;
-
-        public string NodeFieldName_TableSeq
-        {
-            get
-            {
-                return _NodeFieldName_TableSeq;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.NodeFieldName_TableSeq = value;
-                    }
-                }
-                _NodeFieldName_TableSeq = value;
-            }
-        }
-        private string _NodeFieldName_TableSeq = null;
-
-        public string NodeFieldName_TableAlias
-        {
-            get
-            {
-                return _NodeFieldName_TableAlias;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.NodeFieldName_TableAlias = value;
-                    }
-                }
-                _NodeFieldName_TableAlias = value;
-            }
-        }
-        private string _NodeFieldName_TableAlias = null;
-
-        public string NodeFieldName_Column
-        {
-            get
-            {
-                return _NodeFieldName_Column;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.NodeFieldName_Column = value;
-                    }
-                }
-                _NodeFieldName_Column = value;
-            }
-        }
-        private string _NodeFieldName_Column = null;
-
-        public string NodeFieldName_Option
-        {
-            get
-            {
-                return _NodeFieldName_Option;
-            }
-            set
-            {
-                _NodeFieldName_Option = value;
-            }
-        }
-        private string _NodeFieldName_Option = null;
-
-        public string RelationFieldName_OriginTable
-        {
-            get
-            {
-                return _RelationFieldName_OriginTable;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_OriginTable = value;
-                    }
-                }
-                _RelationFieldName_OriginTable = value;
-            }
-        }
-        private string _RelationFieldName_OriginTable = null;
-
-        public string RelationFieldName_OriginTableSeq
-        {
-            get
-            {
-                return _RelationFieldName_OriginTableSeq;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_OriginTableSeq = value;
-                    }
-                }
-                _RelationFieldName_OriginTableSeq = value;
-            }
-        }
-        private string _RelationFieldName_OriginTableSeq = null;
-
-        public string RelationFieldName_OriginTableAlias
-        {
-            get
-            {
-                return _RelationFieldName_OriginTableAlias;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_OriginTableAlias = value;
-                    }
-                }
-                _RelationFieldName_OriginTableAlias = value;
-            }
-        }
-        private string _RelationFieldName_OriginTableAlias = null;
-
-        public string RelationFieldName_OriginColumn
-        {
-            get
-            {
-                return _RelationFieldName_OriginColumn;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_OriginColumn = value;
-                    }
-                }
-                _RelationFieldName_OriginColumn = value;
-            }
-        }
-        private string _RelationFieldName_OriginColumn = null;
-
-        public string RelationFieldName_DestinationTable
-        {
-            get
-            {
-                return _RelationFieldName_DestinationTable;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_DestinationTable = value;
-                    }
-                }
-                _RelationFieldName_DestinationTable = value;
-            }
-        }
-        private string _RelationFieldName_DestinationTable = null;
-
-        public string RelationFieldName_DestinationTableSeq
-        {
-            get
-            {
-                return _RelationFieldName_DestinationTableSeq;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_DestinationTableSeq = value;
-                    }
-                }
-                _RelationFieldName_DestinationTableSeq = value;
-            }
-        }
-        private string _RelationFieldName_DestinationTableSeq = null;
-
-        public string RelationFieldName_DestinationTableAlias
-        {
-            get
-            {
-                return _RelationFieldName_DestinationTableAlias;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_DestinationTableAlias = value;
-                    }
-                }
-                _RelationFieldName_DestinationTableAlias = value;
-            }
-        }
-        private string _RelationFieldName_DestinationTableAlias = null;
-
-        public string RelationFieldName_DestinationColumn
-        {
-            get
-            {
-                return _RelationFieldName_DestinationColumn;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_DestinationColumn = value;
-                    }
-                }
-                _RelationFieldName_DestinationColumn = value;
-            }
-        }
-        private string _RelationFieldName_DestinationColumn = null;
-
-        public string RelationFieldName_DestinationColumnOrder
-        {
-            get
-            {
-                return _RelationFieldName_DestinationColumnOrder;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_DestinationColumnOrder = value;
-                    }
-                }
-                _RelationFieldName_DestinationColumnOrder = value;
-            }
-        }
-        private string _RelationFieldName_DestinationColumnOrder = null;
-
-        public string RelationFieldName_JoinType
-        {
-            get
-            {
-                return _RelationFieldName_JoinType;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_JoinType = value;
-                    }
-                }
-                _RelationFieldName_JoinType = value;
-            }
-        }
-        private string _RelationFieldName_JoinType = null;
-
-        public string RelationFieldName_JoinOperator
-        {
-            get
-            {
-                return _RelationFieldName_JoinOperator;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_JoinOperator = value;
-                    }
-                }
-                _RelationFieldName_JoinOperator = value;
-            }
-        }
-        private string _RelationFieldName_JoinOperator = null;
-
-        public string RelationFieldName_JoinValue
-        {
-            get
-            {
-                return _RelationFieldName_JoinValue;
-            }
-            set
-            {
-                var tabs = GetAllTabs();
-                if (tabs != null)
-                {
-                    foreach (Tab tab in tabs)
-                    {
-                        tab.Processor.RelationFieldName_JoinValue = value;
-                    }
-                }
-                _RelationFieldName_JoinValue = value;
-            }
-        }
-        private string _RelationFieldName_JoinValue = null;
         #endregion
 
         #region Load
@@ -567,29 +218,29 @@ namespace ST.CodeGenerator
             Tab parentTab = null;
             string selectedTabGuid = null;
             int boundMaximumSeq = -1;
-            data.DefaultView.Sort = "TEMPLATE_SORT";
+            data.DefaultView.Sort = TEMPLATE.TEMPLATE_SORT;
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 DataRow row = data.Rows[i];
 
                 // CommonVariables
-                if (row["TEMPLATE_SEQ"].ToInt() == -1)
+                if (row[TEMPLATE.TEMPLATE_SEQ].ToInt() == -1)
                 {
-                    CommonVariablesEditor.Text = row["TEMPLATE_CONTENT"].ToString();
+                    CommonVariablesEditor.Text = row[TEMPLATE.TEMPLATE_CONTENT].ToString();
                 }
                 // Tabs
                 else
                 {
-                    Tab newTab = AddTab(row["TEMPLATE_TITLE"].ToString()
-                                      , row["TEMPLATE_SEQ"].ToString()
-                                      , row["TEMPLATE_CONTENT"].ToString()
-                                      , row["TEMPLATE_RESULT"].ToString()
-                                      , row["TEMPLATE_STYLE"].ToString()
+                    Tab newTab = AddTab(row[TEMPLATE.TEMPLATE_TITLE].ToString()
+                                      , row[TEMPLATE.TEMPLATE_SEQ].ToString()
+                                      , row[TEMPLATE.TEMPLATE_CONTENT].ToString()
+                                      , row[TEMPLATE.TEMPLATE_RESULT].ToString()
+                                      , row[TEMPLATE.TEMPLATE_STYLE].ToString()
                                       , i != 0);
 
-                    if (Convert.ToBoolean(row["TEMPLATE_SELECTED"]))
+                    if (Convert.ToBoolean(row[TEMPLATE.TEMPLATE_SELECTED]))
                     {
-                        selectedTabGuid = row["TEMPLATE_SEQ"].ToString();
+                        selectedTabGuid = row[TEMPLATE.TEMPLATE_SEQ].ToString();
                     }
 
                     if (parentTab == null)
@@ -597,9 +248,9 @@ namespace ST.CodeGenerator
                         parentTab = newTab;
                     }
 
-                    if (boundMaximumSeq < Convert.ToInt32(row["TEMPLATE_SEQ"]))
+                    if (boundMaximumSeq < Convert.ToInt32(row[TEMPLATE.TEMPLATE_SEQ]))
                     {
-                        boundMaximumSeq = Convert.ToInt32(row["TEMPLATE_SEQ"]);
+                        boundMaximumSeq = Convert.ToInt32(row[TEMPLATE.TEMPLATE_SEQ]);
                     }
                 }
             }

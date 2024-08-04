@@ -71,38 +71,53 @@ namespace ST.CodeGenerator
         private bool UsingIndexMapper = false;
         #endregion
 
-        #region Propertise
-        public string NodeFieldName_Table { get; set; } = null;
+        #region Propertise(NODE, RELATION)
+        public _NODE NODE = new _NODE();
+        public _RELATION RELATION = new _RELATION();
 
-        public string NodeFieldName_TableSeq { get; set; } = null;
+        public class _NODE
+        {
+            public string NODE_ID_REF { get; set; } = null;
 
-        public string NodeFieldName_TableAlias { get; set; } = null;
+            public string NODE_SEQ_REF { get; set; } = null;
 
-        public string NodeFieldName_Column { get; set; } = null;
+            public string NODE_DETAIL_TABLE_ALIAS { get; set; } = null;
 
-        public string RelationFieldName_OriginTable { get; set; } = null;
+            public string NODE_DETAIL_ID { get; set; } = null;
+        }
 
-        public string RelationFieldName_OriginTableSeq { get; set; } = null;
+        public class _RELATION
+        {
+            /// <summary>
+            /// Destination Table
+            /// </summary>
+            public string NODE_ID2 { get; set; } = null;
 
-        public string RelationFieldName_OriginTableAlias { get; set; } = null;
+            public string NODE_SEQ2 { get; set; } = null;
 
-        public string RelationFieldName_OriginColumn { get; set; } = null;
+            public string NODE_DETAIL_TABLE_ALIAS2 { get; set; } = null;
 
-        public string RelationFieldName_DestinationTable { get; set; } = null;
+            public string NODE_DETAIL_ID2 { get; set; } = null;
 
-        public string RelationFieldName_DestinationTableSeq { get; set; } = null;
+            /// <summary>
+            /// Origin Table
+            /// </summary>
+            public string NODE_ID1 { get; set; } = null;
 
-        public string RelationFieldName_DestinationTableAlias { get; set; } = null;
+            public string NODE_SEQ1 { get; set; } = null;
 
-        public string RelationFieldName_DestinationColumn { get; set; } = null;
+            public string NODE_DETAIL_TABLE_ALIAS1 { get; set; } = null;
 
-        public string RelationFieldName_DestinationColumnOrder { get; set; } = null;
+            public string NODE_DETAIL_ID1 { get; set; } = null;
 
-        public string RelationFieldName_JoinType { get; set; } = null;
+            public string NODE_DETAIL_ORDER1 { get; set; } = null;
 
-        public string RelationFieldName_JoinOperator { get; set; } = null;
+            public string RELATION_TYPE { get; set; } = null;
 
-        public string RelationFieldName_JoinValue { get; set; } = null;
+            public string RELATION_OPERATOR { get; set; } = null;
+
+            public string RELATION_VALUE { get; set; } = null;
+        }
         #endregion
 
         #region Public
@@ -1250,7 +1265,7 @@ namespace ST.CodeGenerator
                     string id = match.Groups[1].Value;
                     if (columnTableDic.ContainsKey(id))
                     {
-                        DataRow[] tablesRows = columnTableDic[id].DefaultView.ToTable(true, new string[] { NodeFieldName_Table, NodeFieldName_TableSeq, NodeFieldName_TableAlias }).Select($"{NodeFieldName_Table} <> '' AND {NodeFieldName_Table} IS NOT NULL");
+                        DataRow[] tablesRows = columnTableDic[id].DefaultView.ToTable(true, new string[] { NODE.NODE_ID_REF, NODE.NODE_SEQ_REF, NODE.NODE_DETAIL_TABLE_ALIAS }).Select($"{NODE.NODE_ID_REF} <> '' AND {NODE.NODE_ID_REF} IS NOT NULL");
 
                         // None Table
                         if (tablesRows.Length == 0)
@@ -1260,7 +1275,7 @@ namespace ST.CodeGenerator
                         // Single Table
                         else if (tablesRows.Length == 1)
                         {
-                            rsFromString = $"FROM {tablesRows[0][NodeFieldName_Table].ToString().Trim()}";
+                            rsFromString = $"FROM {tablesRows[0][NODE.NODE_ID_REF].ToString().Trim()}";
                         }
                         // Multi Tables
                         else
@@ -1328,10 +1343,10 @@ namespace ST.CodeGenerator
 
         private void TranslateCommands_GetPath(DataRow originRow, DataRow destinationRow, DataTable relationTable, ref DataTable rsRelationData, out bool success, out string errorMessage)
         {
-            string originTable = originRow[NodeFieldName_Table].ToString();
-            string originTableSeq = originRow[NodeFieldName_TableSeq].ToString();
-            string destinationTable = destinationRow[NodeFieldName_Table].ToString();
-            string destinationTableSeq = destinationRow[NodeFieldName_TableSeq].ToString();
+            string originTable = originRow[NODE.NODE_ID_REF].ToString();
+            string originTableSeq = originRow[NODE.NODE_SEQ_REF].ToString();
+            string destinationTable = destinationRow[NODE.NODE_ID_REF].ToString();
+            string destinationTableSeq = destinationRow[NODE.NODE_SEQ_REF].ToString();
             success = TranslateCommands_GetPathProc(originTable, originTableSeq, destinationTable, destinationTableSeq, relationTable, ref rsRelationData, out errorMessage);
         }
 
@@ -1341,15 +1356,15 @@ namespace ST.CodeGenerator
             bool rs = false;
 
             // Get path
-            DataRow[] path = relationTable.Select($"{RelationFieldName_OriginTable} = '{originTable}' AND {RelationFieldName_OriginTableSeq} = '{originTableSeq}'");
+            DataRow[] path = relationTable.Select($"{RELATION.NODE_ID2} = '{originTable}' AND {RELATION.NODE_SEQ2} = '{originTableSeq}'");
 
             // Get destinationTables
             // 0: Table, 1: TableAlias
             List<string[]> destinationTables = new List<string[]>();
             foreach (DataRow row in path)
             {
-                string table = row[RelationFieldName_DestinationTable].ToString();
-                string tableSeq = row[RelationFieldName_DestinationTableSeq].ToString();
+                string table = row[RELATION.NODE_ID1].ToString();
+                string tableSeq = row[RELATION.NODE_SEQ1].ToString();
 
                 if (!TranslateCommands_Fnc_ContainsTableInfo(destinationTables, table, tableSeq))
                 {
@@ -1362,7 +1377,7 @@ namespace ST.CodeGenerator
                 // Success
                 if (TranslateCommands_Fnc_ContainsTableInfo(destinationTables, destinationTable, destinationTableSeq))
                 {
-                    DataRow[] rsPaths = relationTable.Select($"{RelationFieldName_OriginTable} = '{originTable}' AND {RelationFieldName_OriginTableSeq} = {originTableSeq} AND {RelationFieldName_DestinationTable} = '{destinationTable}' AND {RelationFieldName_DestinationTableSeq} = {destinationTableSeq}");
+                    DataRow[] rsPaths = relationTable.Select($"{RELATION.NODE_ID2} = '{originTable}' AND {RELATION.NODE_SEQ2} = {originTableSeq} AND {RELATION.NODE_ID1} = '{destinationTable}' AND {RELATION.NODE_SEQ1} = {destinationTableSeq}");
                     foreach(DataRow rsPath in rsPaths)
                     {
                         rsRelationData.Rows.Add(rsPath.ItemArray);
@@ -1378,7 +1393,7 @@ namespace ST.CodeGenerator
                         bool found = TranslateCommands_GetPathProc(destinationTables[i][0], destinationTables[i][1], destinationTable, destinationTableSeq, relationTable, ref rsRelationDataNode, out errorMessage);
                         if (found)
                         {
-                            DataRow[] rsPathsPrev = relationTable.Select($"{RelationFieldName_OriginTable} = '{originTable}' AND {RelationFieldName_OriginTableSeq} = '{originTableSeq}' AND {RelationFieldName_DestinationTable} = '{destinationTables[i][0]}' AND {RelationFieldName_DestinationTableSeq} = '{destinationTables[i][1]}'");
+                            DataRow[] rsPathsPrev = relationTable.Select($"{RELATION.NODE_ID2} = '{originTable}' AND {RELATION.NODE_SEQ2} = '{originTableSeq}' AND {RELATION.NODE_ID1} = '{destinationTables[i][0]}' AND {RELATION.NODE_SEQ1} = '{destinationTables[i][1]}'");
                             foreach (DataRow rsPath in rsPathsPrev)
                             {
                                 rsRelationData.Rows.Add(rsPath.ItemArray);
@@ -1455,8 +1470,8 @@ namespace ST.CodeGenerator
             bool fail = false;
 
             // Sort relationData
-            relationData.DefaultView.Sort = $"{RelationFieldName_OriginTable}, {RelationFieldName_OriginTableSeq}, {RelationFieldName_DestinationTable}, {RelationFieldName_DestinationTableSeq}, {RelationFieldName_DestinationColumnOrder}";
-            relationData = relationData.DefaultView.ToTable(true, new string[] { RelationFieldName_OriginTable, RelationFieldName_OriginTableSeq, RelationFieldName_OriginTableAlias, RelationFieldName_OriginColumn, RelationFieldName_DestinationTable, RelationFieldName_DestinationTableSeq, RelationFieldName_DestinationTableAlias, RelationFieldName_DestinationColumn, RelationFieldName_DestinationColumnOrder, RelationFieldName_JoinType, RelationFieldName_JoinOperator, RelationFieldName_JoinValue });
+            relationData.DefaultView.Sort = $"{RELATION.NODE_ID2}, {RELATION.NODE_SEQ2}, {RELATION.NODE_ID1}, {RELATION.NODE_SEQ1}, {RELATION.NODE_DETAIL_ORDER1}";
+            relationData = relationData.DefaultView.ToTable(true, new string[] { RELATION.NODE_ID2, RELATION.NODE_SEQ2, RELATION.NODE_DETAIL_TABLE_ALIAS2, RELATION.NODE_DETAIL_ID2, RELATION.NODE_ID1, RELATION.NODE_SEQ1, RELATION.NODE_DETAIL_TABLE_ALIAS1, RELATION.NODE_DETAIL_ID1, RELATION.NODE_DETAIL_ORDER1, RELATION.RELATION_TYPE, RELATION.RELATION_OPERATOR, RELATION.RELATION_VALUE });
 
             // Get mainTableInfo
             // 0: Table, 1: TableSeq
@@ -1464,7 +1479,7 @@ namespace ST.CodeGenerator
             List<string[]> _originTables = new List<string[]>();
             foreach(DataRow relationRow in relationData.Rows)
             {
-                string[] originTableInfo = new string[] { relationRow[RelationFieldName_OriginTable].ToString(), relationRow[RelationFieldName_OriginTableSeq].ToString() };
+                string[] originTableInfo = new string[] { relationRow[RELATION.NODE_ID2].ToString(), relationRow[RELATION.NODE_SEQ2].ToString() };
                 if (!TranslateCommands_Fnc_ContainsTableInfo(_originTables, originTableInfo[0], originTableInfo[1]))
                 {
                     _originTables.Add(new string[] { originTableInfo[0], originTableInfo[1] } );
@@ -1472,7 +1487,7 @@ namespace ST.CodeGenerator
             }
             foreach (DataRow relationRow in relationData.Rows)
             {
-                string[] destinationTableInfo = new string[] { relationRow[RelationFieldName_DestinationTable].ToString(), relationRow[RelationFieldName_DestinationTableSeq].ToString() };
+                string[] destinationTableInfo = new string[] { relationRow[RELATION.NODE_ID1].ToString(), relationRow[RELATION.NODE_SEQ1].ToString() };
                 string[] outKey;
                 if (TranslateCommands_Fnc_ContainsTableInfo(_originTables, destinationTableInfo[0], destinationTableInfo[1], out outKey))
                 {
@@ -1495,13 +1510,13 @@ namespace ST.CodeGenerator
                 for(int i = 0; i < originTableInfoList.Count; i++)
                 {
                     string[] originTableInfo = originTableInfoList[i];
-                    DataRow[] nodeRows = relationData.Select($"{RelationFieldName_OriginTable} = '{originTableInfo[0]}' AND {RelationFieldName_OriginTableSeq} = '{originTableInfo[1]}'");
+                    DataRow[] nodeRows = relationData.Select($"{RELATION.NODE_ID2} = '{originTableInfo[0]}' AND {RELATION.NODE_SEQ2} = '{originTableInfo[1]}'");
 
                     // Get nodeDestinationTablesCount
                     Dictionary<string[], int> nodeDestinationTablesCount = new Dictionary<string[], int>();
                     foreach(DataRow nodeRow in nodeRows)
                     {
-                        string[] nodeDestinationTableInfo = new string[] { nodeRow[RelationFieldName_DestinationTable].ToString(), nodeRow[RelationFieldName_DestinationTableSeq].ToString() };
+                        string[] nodeDestinationTableInfo = new string[] { nodeRow[RELATION.NODE_ID1].ToString(), nodeRow[RELATION.NODE_SEQ1].ToString() };
                         string[] outKey = null;
                         if (!TranslateCommands_Fnc_ContainsTableInfo(nodeDestinationTablesCount, nodeDestinationTableInfo[0], nodeDestinationTableInfo[1], out outKey))
                         {
@@ -1516,7 +1531,7 @@ namespace ST.CodeGenerator
                     // Append sb N Remove relationData rows
                     foreach (KeyValuePair<string[], int> pair in nodeDestinationTablesCount)
                     {
-                        DataRow[] targetRelationRows = relationData.Select($"{RelationFieldName_DestinationTable} = '{pair.Key[0]}' AND {RelationFieldName_DestinationTableSeq} = '{pair.Key[1]}'");
+                        DataRow[] targetRelationRows = relationData.Select($"{RELATION.NODE_ID1} = '{pair.Key[0]}' AND {RELATION.NODE_SEQ1} = '{pair.Key[1]}'");
 
                         // Append sb N Remove relationData rows
                         if (targetRelationRows.Length == pair.Value)
@@ -1541,7 +1556,7 @@ namespace ST.CodeGenerator
                                 string oldTargetTableNode = string.Empty;
                                 foreach(DataRow targetRow in targetRelationRows)
                                 {
-                                    string targetTableNode = targetRow[RelationFieldName_OriginTable].ToString();
+                                    string targetTableNode = targetRow[RELATION.NODE_ID2].ToString();
                                     if (targetTableNode != oldTargetTableNode)
                                     {
                                         if (sb.IndexOf($" {targetTableNode} ") < 0)
@@ -1587,7 +1602,7 @@ namespace ST.CodeGenerator
             string targetAlias = TranslateCommands_GetFromString_GetTableAlias(tablesRows, relationData, pair.Key[0], pair.Key[1]);
 
             // Append join string to sb
-            sb.Append($"{leftSpace}{TranslateCommands_GetJoinType(targetRelationRows[0][RelationFieldName_JoinType].ToString())} {targetRelationRows[0][RelationFieldName_DestinationTable]} AS {targetAlias}\r\n");
+            sb.Append($"{leftSpace}{TranslateCommands_GetJoinType(targetRelationRows[0][RELATION.RELATION_TYPE].ToString())} {targetRelationRows[0][RELATION.NODE_ID1]} AS {targetAlias}\r\n");
 
             // Add N Remove
             for (int k = 0; k < targetRelationRows.Length; k++)
@@ -1597,7 +1612,7 @@ namespace ST.CodeGenerator
 
                 // Get originAliasNode
                 string originAliasNode = originAlias;
-                string[] targetRelationRowOriginInfo = new string[] { targetRow[RelationFieldName_OriginTable].ToString(), targetRow[RelationFieldName_OriginTableSeq].ToString() };
+                string[] targetRelationRowOriginInfo = new string[] { targetRow[RELATION.NODE_ID2].ToString(), targetRow[RELATION.NODE_SEQ2].ToString() };
                 if (!(originTableInfo[0] == targetRelationRowOriginInfo[0]
                 &&    originTableInfo[1] == targetRelationRowOriginInfo[1]))
                 {
@@ -1606,17 +1621,17 @@ namespace ST.CodeGenerator
 
                 // Append to sb
                 string joinOnOrAnd = k == 0 ? "ON" : "AND";
-                string joinOperator = targetRow[RelationFieldName_JoinOperator] == null || string.IsNullOrWhiteSpace(targetRow[RelationFieldName_JoinOperator].ToString())
-                        ? "=" : targetRow[RelationFieldName_JoinOperator].ToString();
-                if (string.IsNullOrWhiteSpace(targetRow[RelationFieldName_OriginColumn].ToString()))
+                string joinOperator = targetRow[RELATION.RELATION_OPERATOR] == null || string.IsNullOrWhiteSpace(targetRow[RELATION.RELATION_OPERATOR].ToString())
+                        ? "=" : targetRow[RELATION.RELATION_OPERATOR].ToString();
+                if (string.IsNullOrWhiteSpace(targetRow[RELATION.NODE_DETAIL_ID2].ToString()))
                 {
                     // Using {targetRow[RelationDataValueFieldName]}
-                    sb.Append($"{leftSpace}    {joinOnOrAnd} {targetAlias}.{targetRow[RelationFieldName_DestinationColumn]} {joinOperator} {targetRow[RelationFieldName_JoinValue]}\r\n");
+                    sb.Append($"{leftSpace}    {joinOnOrAnd} {targetAlias}.{targetRow[RELATION.NODE_DETAIL_ID1]} {joinOperator} {targetRow[RELATION.RELATION_VALUE]}\r\n");
                 }
                 else
                 {
                     // Using {originAliasNode}.{targetRow[RelationDataColumnFieldName1]}
-                    sb.Append($"{leftSpace}    {joinOnOrAnd} {targetAlias}.{targetRow[RelationFieldName_DestinationColumn]} {joinOperator} {originAliasNode}.{targetRow[RelationFieldName_OriginColumn]}\r\n");
+                    sb.Append($"{leftSpace}    {joinOnOrAnd} {targetAlias}.{targetRow[RELATION.NODE_DETAIL_ID1]} {joinOperator} {originAliasNode}.{targetRow[RELATION.NODE_DETAIL_ID2]}\r\n");
                 }
 
                 // Remove targetRow in targetRow
@@ -1630,27 +1645,27 @@ namespace ST.CodeGenerator
 
             foreach(DataRow tableRow in tablesRows)
             {
-                if (tableRow[NodeFieldName_Table].ToString() == table
-                &&  tableRow[NodeFieldName_TableSeq].ToString() == tableSeq)
+                if (tableRow[NODE.NODE_ID_REF].ToString() == table
+                &&  tableRow[NODE.NODE_SEQ_REF].ToString() == tableSeq)
                 {
-                    rsAlias = tableRow[NodeFieldName_TableAlias].ToString();
+                    rsAlias = tableRow[NODE.NODE_DETAIL_TABLE_ALIAS].ToString();
                     break;
                 }
             }
 
             if (rsAlias == string.Empty)
             {
-                DataRow[] rsRows2 = relationData.Select($"{RelationFieldName_DestinationTable} = '{table}' AND {RelationFieldName_DestinationTableSeq} = {tableSeq}");
+                DataRow[] rsRows2 = relationData.Select($"{RELATION.NODE_ID1} = '{table}' AND {RELATION.NODE_SEQ1} = {tableSeq}");
                 if (rsRows2.Length > 0)
                 {
-                    rsAlias = rsRows2[0][RelationFieldName_DestinationTableAlias].ToString();
+                    rsAlias = rsRows2[0][RELATION.NODE_DETAIL_TABLE_ALIAS1].ToString();
                 }
                 else
                 {
-                    DataRow[] rsRows1 = relationData.Select($"{RelationFieldName_OriginTable} = '{table}' AND {RelationFieldName_OriginTableSeq} = {tableSeq}");
+                    DataRow[] rsRows1 = relationData.Select($"{RELATION.NODE_ID2} = '{table}' AND {RELATION.NODE_SEQ2} = {tableSeq}");
                     if (rsRows1.Length > 0)
                     {
-                        rsAlias = rsRows1[0][RelationFieldName_OriginTableAlias].ToString();
+                        rsAlias = rsRows1[0][RELATION.NODE_DETAIL_TABLE_ALIAS2].ToString();
                     }
                     else
                     {

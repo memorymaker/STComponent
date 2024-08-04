@@ -105,22 +105,22 @@ namespace ST.CodeGenerator
             CodeGenerator parent = GetParentCodeGenerator();
             if (parent != null)
             {
-                Processor.NodeFieldName_Table = parent.NodeFieldName_Table;
-                Processor.NodeFieldName_TableSeq = parent.NodeFieldName_TableSeq;
-                Processor.NodeFieldName_TableAlias = parent.NodeFieldName_TableAlias;
-                Processor.NodeFieldName_Column = parent.NodeFieldName_Column;
-                Processor.RelationFieldName_OriginTable = parent.RelationFieldName_OriginTable;
-                Processor.RelationFieldName_OriginTableSeq = parent.RelationFieldName_OriginTableSeq;
-                Processor.RelationFieldName_OriginTableAlias = parent.RelationFieldName_OriginTableAlias;
-                Processor.RelationFieldName_OriginColumn = parent.RelationFieldName_OriginColumn;
-                Processor.RelationFieldName_DestinationTable = parent.RelationFieldName_DestinationTable;
-                Processor.RelationFieldName_DestinationTableSeq = parent.RelationFieldName_DestinationTableSeq;
-                Processor.RelationFieldName_DestinationTableAlias = parent.RelationFieldName_DestinationTableAlias;
-                Processor.RelationFieldName_DestinationColumn = parent.RelationFieldName_DestinationColumn;
-                Processor.RelationFieldName_DestinationColumnOrder = parent.RelationFieldName_DestinationColumnOrder;
-                Processor.RelationFieldName_JoinType = parent.RelationFieldName_JoinType;
-                Processor.RelationFieldName_JoinOperator = parent.RelationFieldName_JoinOperator;
-                Processor.RelationFieldName_JoinValue = parent.RelationFieldName_JoinValue;
+                Processor.NODE.NODE_ID_REF = CodeGenerator.NODE.NODE_ID_REF;
+                Processor.NODE.NODE_SEQ_REF = CodeGenerator.NODE.NODE_SEQ_REF;
+                Processor.NODE.NODE_DETAIL_TABLE_ALIAS = CodeGenerator.NODE.NODE_DETAIL_TABLE_ALIAS;
+                Processor.NODE.NODE_DETAIL_ID = CodeGenerator.NODE.NODE_DETAIL_ID;
+                Processor.RELATION.NODE_ID2 = CodeGenerator.RELATION.NODE_ID2;
+                Processor.RELATION.NODE_SEQ2 = CodeGenerator.RELATION.NODE_SEQ2;
+                Processor.RELATION.NODE_DETAIL_TABLE_ALIAS2 = CodeGenerator.RELATION.NODE_DETAIL_TABLE_ALIAS2;
+                Processor.RELATION.NODE_DETAIL_ID2 = CodeGenerator.RELATION.NODE_DETAIL_ID2;
+                Processor.RELATION.NODE_ID1 = CodeGenerator.RELATION.NODE_ID1;
+                Processor.RELATION.NODE_SEQ1 = CodeGenerator.RELATION.NODE_SEQ1;
+                Processor.RELATION.NODE_DETAIL_TABLE_ALIAS1 = CodeGenerator.RELATION.NODE_DETAIL_TABLE_ALIAS1;
+                Processor.RELATION.NODE_DETAIL_ID1 = CodeGenerator.RELATION.NODE_DETAIL_ID1;
+                Processor.RELATION.NODE_DETAIL_ORDER1 = CodeGenerator.RELATION.NODE_DETAIL_ORDER1;
+                Processor.RELATION.RELATION_TYPE = CodeGenerator.RELATION.RELATION_TYPE;
+                Processor.RELATION.RELATION_OPERATOR = CodeGenerator.RELATION.RELATION_OPERATOR;
+                Processor.RELATION.RELATION_VALUE = CodeGenerator.RELATION.RELATION_VALUE;
             }
         }
 

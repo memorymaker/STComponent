@@ -84,26 +84,9 @@
             this.codeGenerator.MainSplitSplitterDistance = 74;
             this.codeGenerator.Name = "codeGenerator";
             this.codeGenerator.NodeData = ((System.Collections.Generic.Dictionary<string, System.Data.DataTable>)(resources.GetObject("codeGenerator.NodeData")));
-            this.codeGenerator.NodeFieldName_Column = null;
-            this.codeGenerator.NodeFieldName_Option = null;
-            this.codeGenerator.NodeFieldName_Table = null;
-            this.codeGenerator.NodeFieldName_TableAlias = null;
-            this.codeGenerator.NodeFieldName_TableSeq = null;
             this.codeGenerator.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.codeGenerator.ReadOnly = false;
             this.codeGenerator.RelationData = null;
-            this.codeGenerator.RelationFieldName_DestinationColumn = null;
-            this.codeGenerator.RelationFieldName_DestinationColumnOrder = null;
-            this.codeGenerator.RelationFieldName_DestinationTable = null;
-            this.codeGenerator.RelationFieldName_DestinationTableAlias = null;
-            this.codeGenerator.RelationFieldName_DestinationTableSeq = null;
-            this.codeGenerator.RelationFieldName_JoinOperator = null;
-            this.codeGenerator.RelationFieldName_JoinType = null;
-            this.codeGenerator.RelationFieldName_JoinValue = null;
-            this.codeGenerator.RelationFieldName_OriginColumn = null;
-            this.codeGenerator.RelationFieldName_OriginTable = null;
-            this.codeGenerator.RelationFieldName_OriginTableAlias = null;
-            this.codeGenerator.RelationFieldName_OriginTableSeq = null;
             this.codeGenerator.Size = new System.Drawing.Size(1077, 795);
             this.codeGenerator.TabIndex = 0;
             // 

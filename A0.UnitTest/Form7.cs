@@ -251,28 +251,26 @@ namespace UnitTest
             codeGenerator.RelationData = dtRelation;
 
 
-            codeGenerator.NodeFieldName_Table = "TableID";
-            codeGenerator.NodeFieldName_TableSeq = "TableSeq";
-            codeGenerator.NodeFieldName_TableAlias = "TableAlias";
-            codeGenerator.NodeFieldName_Column = "ColumnID";
+            CodeGenerator.NODE.NODE_ID_REF = "TableID";
+            CodeGenerator.NODE.NODE_SEQ_REF = "TableSeq";
+            CodeGenerator.NODE.NODE_DETAIL_TABLE_ALIAS = "TableAlias";
+            CodeGenerator.NODE.NODE_DETAIL_ID = "ColumnID";
 
-            codeGenerator.RelationFieldName_OriginTable = "TableID1";
-            codeGenerator.RelationFieldName_OriginTableSeq = "TableSeq1";
-            codeGenerator.RelationFieldName_OriginTableAlias = "TableAlias1";
-            codeGenerator.RelationFieldName_OriginColumn = "ColumnID1";
-            codeGenerator.RelationFieldName_DestinationTable = "TableID2";
-            codeGenerator.RelationFieldName_DestinationTableSeq = "TableSeq2";
-            codeGenerator.RelationFieldName_DestinationTableAlias = "TableAlias2";
-            codeGenerator.RelationFieldName_DestinationColumn = "ColumnID2";
-            codeGenerator.RelationFieldName_DestinationColumnOrder = "ColumnOrder2";
-            codeGenerator.RelationFieldName_JoinType = "JoinType";
-            codeGenerator.RelationFieldName_JoinOperator = "JoinOperator";
-            codeGenerator.RelationFieldName_JoinValue = "JoinValue";
-
+            CodeGenerator.RELATION.NODE_ID2 = "TableID1";
+            CodeGenerator.RELATION.NODE_SEQ2 = "TableSeq1";
+            CodeGenerator.RELATION.NODE_DETAIL_TABLE_ALIAS2 = "TableAlias1";
+            CodeGenerator.RELATION.NODE_DETAIL_ID2 = "ColumnID1";
+            CodeGenerator.RELATION.NODE_ID1 = "TableID2";
+            CodeGenerator.RELATION.NODE_SEQ1 = "TableSeq2";
+            CodeGenerator.RELATION.NODE_DETAIL_TABLE_ALIAS1 = "TableAlias2";
+            CodeGenerator.RELATION.NODE_DETAIL_ID1 = "ColumnID2";
+            CodeGenerator.RELATION.NODE_DETAIL_ORDER1 = "ColumnOrder2";
+            CodeGenerator.RELATION.RELATION_TYPE = "JoinType";
+            CodeGenerator.RELATION.RELATION_OPERATOR = "JoinOperator";
+            CodeGenerator.RELATION.RELATION_VALUE = "JoinValue";
 
 
             //SizeChanged += Form7_SizeChanged;
-            
         }
 
         private void Split_MouseLeave(object sender, EventArgs e)
