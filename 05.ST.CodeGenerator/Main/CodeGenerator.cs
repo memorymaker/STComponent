@@ -46,6 +46,10 @@ namespace ST.CodeGenerator
 
         public DataTable RelationData { get; set; }
 
+        /// <summary>
+        /// 컨트롤이 사용자 상호 작용에 응답할 수 있는지를 나타내는 값을 가져오거나 설정합니다.
+        /// </summary>
+        /// <returns>컨트롤이 사용자 상호 작용에 응답할 수 있으면 <see langword="true"/>이고, 그렇지 않으면 <see langword="false"/>입니다. 기본값은 <see langword="true"/>입니다.</returns>
         new public bool Enabled
         {
             get
@@ -155,6 +159,10 @@ namespace ST.CodeGenerator
             return data;
         }
 
+        /// <summary>
+        /// CodeGenerator의 데이터를 DataTable 형태로 반환합니다.
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetDataTable()
         {
             return GetData().ToDataTable();
@@ -210,6 +218,10 @@ namespace ST.CodeGenerator
             this.EndControlUpdate(false);
         }
 
+        /// <summary>
+        /// 전달된 DataTable을 CodeGenerator에 바인딩합니다.
+        /// </summary>
+        /// <param name="data"></param>
         public void SetDataTable(DataTable data)
         {
             this.BeginControlUpdate();
@@ -267,6 +279,9 @@ namespace ST.CodeGenerator
             this.EndControlUpdate();
         }
 
+        /// <summary>
+        /// CodeGenerator의 모든 Tab을 삭제하고 Common Variables 텍스트를 초기화합니다.
+        /// </summary>
         public void Clear()
         {
             CommonVariablesEditor.Text = string.Empty;

@@ -9,6 +9,10 @@ namespace ST.CodeGenerator
 {
     public partial class CodeGenerator
     {
+        /// <summary>
+        /// 빈 Template DataTable을 반환합니다.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetTemplateDataTable()
         {
             DataTable rsDt = new DataTable();
@@ -23,6 +27,10 @@ namespace ST.CodeGenerator
             return rsDt;
         }
 
+        /// <summary>
+        /// 빈 Relation DataTable을 반환합니다.
+        /// </summary>
+        /// <returns></returns>
         public static DataTable GetEmptyRelationDataTable()
         {
             DataTable rsDt = new DataTable();

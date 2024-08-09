@@ -81,7 +81,7 @@
             this.codeGenerator.BackColor = System.Drawing.Color.White;
             this.codeGenerator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.codeGenerator.Location = new System.Drawing.Point(0, 0);
-            this.codeGenerator.MainSplitSplitterDistance = 74;
+            this.codeGenerator.MainSplitterDistance = 74;
             this.codeGenerator.Name = "codeGenerator";
             this.codeGenerator.NodeData = ((System.Collections.Generic.Dictionary<string, System.Data.DataTable>)(resources.GetObject("codeGenerator.NodeData")));
             this.codeGenerator.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);

@@ -27,7 +27,10 @@ namespace ST.CodeGenerator
         // Ref
         private int OldMainSplitSplitterDistance = 0;
 
-        public int MainSplitSplitterDistance
+        /// <summary>
+        /// Common Variables 영역과 Tab 영역 사이의 간격의 가져오거나 설정합니다.
+        /// </summary>
+        public int MainSplitterDistance
         {
             get
             {

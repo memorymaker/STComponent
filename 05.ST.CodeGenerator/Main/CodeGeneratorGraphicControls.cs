@@ -227,6 +227,10 @@ namespace ST.CodeGenerator
         }
 
         #region Function
+        /// <summary>
+        /// 새 탭을 추가합니다.
+        /// </summary>
+        /// <returns></returns>
         public Tab AddNewTab()
         {
             bool controlUpdate = this.IsBeginControlUpdate();
