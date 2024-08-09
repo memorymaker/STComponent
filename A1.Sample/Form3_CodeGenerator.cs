@@ -24,6 +24,15 @@ namespace Sample
 
         private void LoadThis()
         {
+            CodeGenerator.TEMPLATE.TEMPLATE_SEQ = "TEMPLATE_SEQ";
+            CodeGenerator.TEMPLATE.TEMPLATE_TITLE = "TEMPLATE_TITLE";
+            CodeGenerator.TEMPLATE.TEMPLATE_CONTENT = "TEMPLATE_CONTENT";
+            CodeGenerator.TEMPLATE.TEMPLATE_RESULT = "TEMPLATE_RESULT";
+            CodeGenerator.TEMPLATE.TEMPLATE_STYLE = "TEMPLATE_STYLE";
+            CodeGenerator.TEMPLATE.TEMPLATE_SORT = "TEMPLATE_SORT";
+            CodeGenerator.TEMPLATE.TEMPLATE_NOTE = "TEMPLATE_NOTE";
+            CodeGenerator.TEMPLATE.TEMPLATE_SELECTED = "TEMPLATE_SELECTED";
+
             CodeGenerator.NODE.NODE_ID_REF = "NODE_ID_REF";
             CodeGenerator.NODE.NODE_SEQ_REF = "NODE_SEQ_REF";
             CodeGenerator.NODE.NODE_DETAIL_ID = "NODE_DETAIL_ID";
@@ -108,11 +117,6 @@ namespace Sample
             relationData.Rows.Add(new object[] { "I", "=", "'CPOSI'", "", "SYS_CODE", 0, "CODE_GROUP", 0, 2, "SC", "SYS_USER", 0, ""             , 0, 0, "SU" });
             relationData.Rows.Add(new object[] { "I", "" , ""       , "", "SYS_CODE", 0, "CODE_ID"   , 0, 1, "SC", "SYS_USER", 0, "USER_POSITION", 0, 5, "SU" });
             codeGenerator.RelationData = relationData;
-        }
-
-        private void CodeGenerator_ExecuteButton_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("ExecuteButton Click");
         }
 
         private void btClear_Click(object sender, EventArgs e)
