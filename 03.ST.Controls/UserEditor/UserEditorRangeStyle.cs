@@ -10,10 +10,10 @@ namespace ST.Controls
 {
     public partial class UserEditor
     {
-        public Dictionary<string, UserEditorRangeStyle> RangeStyles = new Dictionary<string, UserEditorRangeStyle>();
+        public Dictionary<string, UserEditorRangeStyleInfo> RangeStyles = new Dictionary<string, UserEditorRangeStyleInfo>();
     }
 
-    public class UserEditorRangeStyle
+    public class UserEditorRangeStyleInfo
     {
         #region Conditions
         public List<Range> Ranges { get; set; }

@@ -239,7 +239,7 @@ namespace ST.CodeGenerator
             ResultEditor.RangeStyles.Clear();
 
             // ResultEditor.RangeStyles - Add NoneLoopValueStyleInfo
-            UserEditorRangeStyle noneLoopValueStyleInfo = new UserEditorRangeStyle();
+            UserEditorRangeStyleInfo noneLoopValueStyleInfo = new UserEditorRangeStyleInfo();
             noneLoopValueStyleInfo.FontColor = NoneLoopValueFontColor;
             noneLoopValueStyleInfo.BackColor = NoneLoopValueBackColor;
             noneLoopValueStyleInfo.BorderColor = NoneLoopValueBorderColor;
@@ -248,7 +248,7 @@ namespace ST.CodeGenerator
             ResultEditor.RangeStyles.Add("noneLoopValueStyleInfo", noneLoopValueStyleInfo);
 
             // ResultEditor.RangeStyles - Add LoopValueStyleInfo
-            UserEditorRangeStyle loopValueStyleInfo = new UserEditorRangeStyle();
+            UserEditorRangeStyleInfo loopValueStyleInfo = new UserEditorRangeStyleInfo();
             loopValueStyleInfo.FontColor = LoopValueFontColor;
             loopValueStyleInfo.BackColor = LoopValueBackColor;
             loopValueStyleInfo.BorderColor = LoopValueBorderColor;
@@ -257,7 +257,7 @@ namespace ST.CodeGenerator
             ResultEditor.RangeStyles.Add("loopValueStyleInfo", loopValueStyleInfo);
 
             // ResultEditor.RangeStyles - Add LoopValueStyleInfo
-            UserEditorRangeStyle loopTextStyleInfo = new UserEditorRangeStyle();
+            UserEditorRangeStyleInfo loopTextStyleInfo = new UserEditorRangeStyleInfo();
             loopTextStyleInfo.FontColor = LoopTextFontColor;
             loopTextStyleInfo.BackColor = LoopTextBackColor;
             loopTextStyleInfo.BorderColor = LoopTextBorderColor;

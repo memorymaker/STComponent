@@ -1363,7 +1363,7 @@ namespace ST.Controls
         {
             bool rsBlock = false;
 
-            foreach (KeyValuePair<string, UserEditorRangeStyle> pair in RangeStyles)
+            foreach (KeyValuePair<string, UserEditorRangeStyleInfo> pair in RangeStyles)
             {
                 if (pair.Value.ReadOnly)
                 {
@@ -1388,7 +1388,7 @@ namespace ST.Controls
 
         private void ReviseRangeStylesValue(int index, int length)
         {
-            foreach (KeyValuePair<string, UserEditorRangeStyle> pair in RangeStyles)
+            foreach (KeyValuePair<string, UserEditorRangeStyleInfo> pair in RangeStyles)
             {
                 foreach (Range range in pair.Value.Ranges)
                 {
@@ -1634,7 +1634,7 @@ namespace ST.Controls
             bool[] boolsReadonly = new bool[selectionLength];
 
             // By RangeStyles
-            foreach (KeyValuePair<string, UserEditorRangeStyle> pair in RangeStyles)
+            foreach (KeyValuePair<string, UserEditorRangeStyleInfo> pair in RangeStyles)
             {
                 if (pair.Value.ReadOnly)
                 {

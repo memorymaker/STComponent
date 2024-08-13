@@ -327,7 +327,7 @@ namespace ST.Controls
                     // Index Style
                     foreach (var pair in Parent.RangeStyles)
                     {
-                        UserEditorRangeStyle info = pair.Value;
+                        UserEditorRangeStyleInfo info = pair.Value;
                         foreach (Range range in info.Ranges)
                         {
                             int targetSp = -1, targetEp = -1;
