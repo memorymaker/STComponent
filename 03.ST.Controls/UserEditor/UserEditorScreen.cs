@@ -58,6 +58,9 @@ namespace ST.Controls
         }
         private ScrollBars _ScrollBars = ScrollBars.Both;
 
+        /// <summary>
+        /// 커서 정보 표시 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool ShowSelectoinInfo
         {
             get

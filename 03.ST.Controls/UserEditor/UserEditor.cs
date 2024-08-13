@@ -81,6 +81,9 @@ namespace ST.Controls
         #endregion
 
         #region Properties
+        /// <summary>
+        /// 이 컨트롤과 관련된 텍스트를 가져오거나 설정합니다.
+        /// </summary>
         [Category("Text"), Description("Text")]
         new public string Text
         {
@@ -184,6 +187,10 @@ namespace ST.Controls
             }
         }
 
+        /// <summary>
+        /// 컨트롤이 사용자 상호 작용에 응답할 수 있는지를 나타내는 값을 가져오거나 설정합니다.
+        /// </summary>
+        /// <returns>컨트롤이 사용자 상호 작용에 응답할 수 있으면 <see langword="true"/>이고, 그렇지 않으면 <see langword="false"/>입니다. 기본값은 <see langword="true"/>입니다.</returns>
         new public bool Enabled
         {
             get

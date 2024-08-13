@@ -16,6 +16,9 @@ namespace ST.Controls
     {
         private string CommentStylesName = "Comment";
 
+        /// <summary>
+        /// 이 컨트롤의 텍스트 스타일의 가져오거나 반환합니다.
+        /// </summary>
         public Dictionary<string, UserEditorStyleInfo> Styles = new Dictionary<string, UserEditorStyleInfo>();
 
         private void LoadUserEditorStyle()
@@ -69,22 +72,43 @@ namespace ST.Controls
     public class UserEditorStyleInfo
     {
         #region Name
+        /// <summary>
+        /// 텍스트 스타일의 이름을 가져오거나 설정합니다.
+        /// </summary>
         public string Name { get; set; }
         #endregion
 
         #region Conditions
+        /// <summary>
+        /// 텍스트 스타일의 정규식을 가져오거나 설정합니다.
+        /// </summary>
         public string Regex { get; set; }
 
+        /// <summary>
+        /// 정규식의 대소문자 구분 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool CaseSensitive { get; set; } = false;
 
+        /// <summary>
+        /// 정규식의 멀티라인 적용 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool MultiLine { get; set; } = false;
         #endregion
 
         #region System(Name: Comment)
+        /// <summary>
+        /// 현재 스타일의 Name이 "Comment" 일 때 멀티라인의 매핑 시작 문자를 가져오거나 설정합니다.
+        /// </summary>
         public string MultiLineStartingText { get; set; }
 
+        /// <summary>
+        /// 현재 스타일의 Name이 "Comment" 일 때 멀티라인의 매핑 끝 문자를 가져오거나 설정합니다.
+        /// </summary>
         public string MultiLineEndText { get; set; }
 
+        /// <summary>
+        /// 현재 스타일의 Name이 "Comment" 일 때 싱글 라인의 매핑 문자를 가져오거나 설정합니다.
+        /// </summary>
         public string SingleLineText { get; set; }
         #endregion
 
@@ -93,18 +117,36 @@ namespace ST.Controls
         #endregion
 
         #region Line
+        /// <summary>
+        /// 매핑된 스타일의 라인 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color LineColor { get; set; } = Color.Empty;
         #endregion
 
         #region Text
+        /// <summary>
+        /// 매핑된 스타일의 폰트 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color FontColor { get; set; } = Color.Empty;
 
+        /// <summary>
+        /// 매핑된 스타일의 배경 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color BackColor { get; set; } = Color.Empty;
 
+        /// <summary>
+        /// 매핑된 스타일의 폰트 굵기 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool Bold { get; set; } = false;
 
+        /// <summary>
+        /// 매핑된 스타일의 이탤릭 여부을 가져오거나 설정합니다.
+        /// </summary>
         public bool Italic { get; set; } = false;
 
+        /// <summary>
+        /// 매핑된 스타일의 밑줄 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool Underline { get; set; } = false;
         #endregion
     }
