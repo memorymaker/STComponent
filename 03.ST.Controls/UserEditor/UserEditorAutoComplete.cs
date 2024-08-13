@@ -16,6 +16,9 @@ namespace ST.Controls
 {
     public partial class UserEditor
     {
+        /// <summary>
+        /// 자동 완성 리스트가 표시되기 직전에 발생합니다.
+        /// </summary>
         public event UserEditorShowAutoCompleteEventHandler AutoCompleteShown;
         private UserListView AutoCompleteList = new UserListView();
         private List<string> AutoCompleteData = null;
@@ -52,11 +55,15 @@ namespace ST.Controls
             }
         }
 
-        public void OnShowAutoComplete()
+        /// <summary>
+        /// 자동 완성 이벤트를 호출합니다.
+        /// </summary>
+        /// <param name="word"></param>
+        public void OnShowAutoComplete(string word = "")
         {
             if (!IsAutoCompleteListShown)
             {
-                ShowAutoComplete();
+                ShowAutoComplete(word);
             }
         }
 
@@ -86,37 +93,44 @@ namespace ST.Controls
         #endregion
 
         #region Function Inner
-        private void ShowAutoComplete()
+        private void ShowAutoComplete(string word = "")
         {
             var e = new UserEditorShowAutoCompleteEventArg();
             AutoCompleteShown?.Invoke(this, e);
-            
+
             if (e.ShowAutoCompleteList && e.Data != null && e.Data.Count > 0)
             {
-                // Set Data N Field
-                AutoCompleteData = e.Data;
-                AutoCompleteList.AddColumn(new UserListViewColumn("Field", "Field"));
-                AutoCompleteList.Bind(e.Data.ToDataTable("Field"));
-                AutoCompleteList.SelectedItemIndexList.Clear();
-                AutoCompleteList.SelectedItemIndex = 0;
-
-                // Set Auto Bounds N Column Width
-                AutoCompleteList.Bounds = ShowAutoComplete_GetBounds();
-                AutoCompleteList.Columns[0].Width = AutoCompleteList.Width - AutoCompleteList.VScrollBarWidth - 1;
-                
-                // Show
-                if (!AutoCompleteList.Visible)
+                if (e.Data.Count > 0)
                 {
-                    AutoCompleteList.ScrollTop = 0;
-                    AutoCompleteList.BringToFront();
-                    AutoCompleteList.Visible = true;
-                    AutoCompleteStartIndex = Selection.Start;
+                    // Set Data N Field
+                    AutoCompleteData = e.Data;
+                    AutoCompleteList.AddColumn(new UserListViewColumn("Field", "Field"));
+                    AutoCompleteList.Bind(e.Data.ToDataTable("Field"));
+                    AutoCompleteList.SelectedItemIndexList.Clear();
+                    AutoCompleteList.SelectedItemIndex = 0;
+
+                    // Set Auto Bounds N Column Width
+                    AutoCompleteList.Bounds = ShowAutoComplete_GetBounds(word);
+                    AutoCompleteList.Columns[0].Width = AutoCompleteList.Width - AutoCompleteList.VScrollBarWidth - 1;
+                
+                    // Show
+                    if (!AutoCompleteList.Visible)
+                    {
+                        AutoCompleteList.ScrollTop = 0;
+                        AutoCompleteList.BringToFront();
+                        AutoCompleteList.Visible = true;
+                        AutoCompleteStartIndex = Selection.Start - word.Length;
+                        if (word != string.Empty)
+                        {
+                            AutoComplete_WndProc_WM_CHAR(0);
+                        }
+                    }
+                    Focus();
                 }
-                Focus();
             }
         }
 
-        private Rectangle ShowAutoComplete_GetBounds()
+        private Rectangle ShowAutoComplete_GetBounds(string word = "")
         {
             Point location = Point.Empty;
             Size size = new Size(
@@ -158,17 +172,26 @@ namespace ST.Controls
             }
 
             // Set location.X ,Revise size.Width
-            location.X = Draw.CursorRectangle.X;
+            int wordWidth = 0;
+            if (word != "")
+            {
+                using (var g = Graphics.FromImage(new Bitmap(1, 1)))
+                {
+                    SizeF wordSize = g.MeasureString(word, AutoCompleteList.Font);
+                    wordWidth = Convert.ToInt32(Math.Ceiling(wordSize.Width)) - 5;
+                }
+            }
+            location.X = Draw.CursorRectangle.X - wordWidth;
             int rightAreaWidth = Width - Draw.CursorRectangle.X;
             if (size.Width <= rightAreaWidth)
             {
-                location.X = Draw.CursorRectangle.X;
+                location.X = Draw.CursorRectangle.X - wordWidth;
             }
             else
             {
                 if (size.Width <= Width)
                 {
-                    location.X = Width - size.Width;
+                    location.X = Width - size.Width - wordWidth;
                 }
                 else
                 {
@@ -303,13 +326,14 @@ namespace ST.Controls
 
                 if (!rs)
                 {
-                    // A-Z a-z Baskspace / : { } - _
+                    // A-Z a-z Baskspace / : { } - _ Empty(for word)
                     if ((65 <= keyChar && keyChar <= 90)
                      || (97 <= keyChar && keyChar <= 122)
                      || keyChar == 8
                      || keyChar == 47 || keyChar == 58
                      || keyChar == 123 || keyChar == 125
-                     || keyChar == 45|| keyChar == 95)
+                     || keyChar == 45|| keyChar == 95
+                     || keyChar == 0)
                     {
                         string searchText = null;
                         // Baskspace
@@ -319,6 +343,11 @@ namespace ST.Controls
                             {
                                 searchText = Data.GetText(AutoCompleteStartIndex, Selection.Start - AutoCompleteStartIndex - 1);
                             }
+                        }
+                        // Empty(for word)
+                        else if (keyChar == 0)
+                        {
+                            searchText = Data.GetText(AutoCompleteStartIndex, Selection.Start - AutoCompleteStartIndex);
                         }
                         // A-Z a-z
                         else
@@ -378,7 +407,14 @@ namespace ST.Controls
 
     public class UserEditorShowAutoCompleteEventArg : EventArgs
     {
+        /// <summary>
+        /// 자동 완성을 표시할지 여부를 가져오거나 반환합니다.
+        /// </summary>
         public bool ShowAutoCompleteList = true;
+
+        /// <summary>
+        /// 자동 완성에 사용될 데이터를 가져오거나 반환합니다.
+        /// </summary>
         public List<string> Data;
     }
 }

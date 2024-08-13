@@ -1,11 +1,14 @@
 ﻿using ST.Controls;
+using ST.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ST.CodeGenerator.TemplateProcessor;
@@ -88,10 +91,76 @@ namespace Sample
             userEditor.Enabled = !userEditor.Enabled;
         }
 
+        private void btSetAutoComplate_Click(object sender, EventArgs e)
+        {
+            // 중복 방지를 위해 이벤트를 해제합니다.
+            userEditor.KeyUp -= UserEditor_KeyUp;
+            userEditor.AutoCompleteShown -= UserEditor_AutoCompleteShown;
+
+            // 이벤트를 바인딩합니다.
+            // KeyUp 이벤트에 자동 완성을 사용하기 위해 바인딩합니다.
+            userEditor.KeyUp += UserEditor_KeyUp;
+            // 자동 완성 리스트가 뜨기 직전에 발생합니다. 자동 완성 목록을 정의하기 위해 바인딩합니다.
+            userEditor.AutoCompleteShown += UserEditor_AutoCompleteShown;
+        }
+
+        // 자동 완성 목록을 정의합니다.
+        private List<string> AutoCompleteList = new List<string>()
+        {
+            "if"
+            , "else"
+            , "private"
+            , "protected"
+            , "internal"
+            , "public"
+        };
+
+        private void UserEditor_AutoCompleteShown(object sender, UserEditorShowAutoCompleteEventArg e)
+        {
+            // 자동 완성에 사용될 데이터를 설정합니다.
+            e.Data = AutoCompleteList;
+        }
+
+        private void UserEditor_KeyUp(object sender, KeyEventArgs e)
+        {
+            // 이동 키를 정의합니다.
+            var moveKeys = new Keys[]
+            {
+                  Keys.Up, Keys.Right, Keys.Down, Keys.Left, Keys.PageUp, Keys.PageDown, Keys.Home, Keys.End
+                , Keys.Escape, Keys.Space, Keys.Return, Keys.ShiftKey, Keys.ControlKey, Keys.Alt, Keys.Tab, Keys.Menu
+                , Keys.Delete, Keys.Back
+            };
+
+            // 이동 키 및 Ctrl + Z(Undo), Ctrl + Y(Redo)
+            if (!moveKeys.Contains(e.KeyCode) && !(e.Control && (e.KeyCode == Keys.Z || e.KeyCode == Keys.Y)))
+            {
+                // 커서 위치를 마지막으로 하는 단어를 가져옵니다.
+                string word = userEditor.GetCurrentWord();
+                if (word != string.Empty)
+                {
+                    // 현재 단어가 자동 완성 목록에 있는지 확인합니다.
+                    List<string> searchResultList = AutoCompleteList.Search(word);
+                    if (searchResultList?.Count > 0)
+                    {
+                        // 자동 완성 이벤트를 호출합니다.
+                        userEditor.OnShowAutoComplete(word);
+                    }
+                }
+            }
+        }
+
+        private void btClearAutoComplate_Click(object sender, EventArgs e)
+        {
+            // 이벤트를 해제합니다.
+            userEditor.KeyUp -= UserEditor_KeyUp;
+            userEditor.AutoCompleteShown -= UserEditor_AutoCompleteShown;
+        }
+
         private void btToggleInfo_Click(object sender, EventArgs e)
         {
             // 커서 정보 표시 여부를 가져오거나 설정합니다.
             userEditor.ShowSelectoinInfo = !userEditor.ShowSelectoinInfo;
         }
+
     }
 }

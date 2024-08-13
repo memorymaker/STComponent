@@ -12,6 +12,7 @@ using System.Drawing.Design;
 using System.Reflection;
 using ST.Core;
 using ST.Core.Extension;
+using System.Text.RegularExpressions;
 
 namespace ST.Controls
 {
@@ -770,6 +771,31 @@ namespace ST.Controls
             }
 
             return rs;
+        }
+
+        /// <summary>
+        /// 현재 커서의 위치를 마지막으로 하는 단어를 반환합니다.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentWord()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for(int i = SelectionStart - 1; i >= 0; i--)
+            {
+                Regex regex = new Regex(@"\w");
+                string character = Data.SB[i].ToString();
+                if (regex.IsMatch(character))
+                {
+                    sb.Insert(0, character);
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return sb.ToString();
         }
         #endregion
 

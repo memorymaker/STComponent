@@ -30,9 +30,9 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.userEditor = new ST.Controls.UserEditor();
-            this.btGetMainData = new ST.Controls.Modal.ModalButton();
+            this.btSetAutoComplate = new ST.Controls.Modal.ModalButton();
             this.btGetRelationData = new ST.Controls.Modal.ModalButton();
-            this.btGetNodeData = new ST.Controls.Modal.ModalButton();
+            this.btClearAutoComplate = new ST.Controls.Modal.ModalButton();
             this.btClearStyle = new ST.Controls.Modal.ModalButton();
             this.btToggleInfo = new ST.Controls.Modal.ModalButton();
             this.btToggleEnabled = new ST.Controls.Modal.ModalButton();
@@ -62,9 +62,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel2.Controls.Add(this.btGetMainData);
+            this.splitContainer1.Panel2.Controls.Add(this.btSetAutoComplate);
             this.splitContainer1.Panel2.Controls.Add(this.btGetRelationData);
-            this.splitContainer1.Panel2.Controls.Add(this.btGetNodeData);
+            this.splitContainer1.Panel2.Controls.Add(this.btClearAutoComplate);
             this.splitContainer1.Panel2.Controls.Add(this.btClearStyle);
             this.splitContainer1.Panel2.Controls.Add(this.btToggleInfo);
             this.splitContainer1.Panel2.Controls.Add(this.btToggleEnabled);
@@ -95,19 +95,20 @@
             this.userEditor.TabStop = false;
             this.userEditor.WordWrap = false;
             // 
-            // btGetMainData
+            // btSetAutoComplate
             // 
-            this.btGetMainData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btGetMainData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetMainData.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btGetMainData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetMainData.Location = new System.Drawing.Point(716, 8);
-            this.btGetMainData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btGetMainData.Name = "btGetMainData";
-            this.btGetMainData.Size = new System.Drawing.Size(108, 26);
-            this.btGetMainData.TabIndex = 11;
-            this.btGetMainData.Text = "...";
-            this.btGetMainData.UseVisualStyleBackColor = false;
+            this.btSetAutoComplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btSetAutoComplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSetAutoComplate.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btSetAutoComplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btSetAutoComplate.Location = new System.Drawing.Point(464, 8);
+            this.btSetAutoComplate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btSetAutoComplate.Name = "btSetAutoComplate";
+            this.btSetAutoComplate.Size = new System.Drawing.Size(126, 26);
+            this.btSetAutoComplate.TabIndex = 11;
+            this.btSetAutoComplate.Text = "Set Auto Complate";
+            this.btSetAutoComplate.UseVisualStyleBackColor = false;
+            this.btSetAutoComplate.Click += new System.EventHandler(this.btSetAutoComplate_Click);
             // 
             // btGetRelationData
             // 
@@ -115,27 +116,28 @@
             this.btGetRelationData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btGetRelationData.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btGetRelationData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetRelationData.Location = new System.Drawing.Point(944, 8);
+            this.btGetRelationData.Location = new System.Drawing.Point(993, 8);
             this.btGetRelationData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btGetRelationData.Name = "btGetRelationData";
-            this.btGetRelationData.Size = new System.Drawing.Size(108, 26);
+            this.btGetRelationData.Size = new System.Drawing.Size(59, 26);
             this.btGetRelationData.TabIndex = 12;
             this.btGetRelationData.Text = "...";
             this.btGetRelationData.UseVisualStyleBackColor = false;
             // 
-            // btGetNodeData
+            // btClearAutoComplate
             // 
-            this.btGetNodeData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btGetNodeData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetNodeData.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btGetNodeData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetNodeData.Location = new System.Drawing.Point(830, 8);
-            this.btGetNodeData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btGetNodeData.Name = "btGetNodeData";
-            this.btGetNodeData.Size = new System.Drawing.Size(108, 26);
-            this.btGetNodeData.TabIndex = 10;
-            this.btGetNodeData.Text = "...";
-            this.btGetNodeData.UseVisualStyleBackColor = false;
+            this.btClearAutoComplate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btClearAutoComplate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btClearAutoComplate.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btClearAutoComplate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btClearAutoComplate.Location = new System.Drawing.Point(596, 8);
+            this.btClearAutoComplate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btClearAutoComplate.Name = "btClearAutoComplate";
+            this.btClearAutoComplate.Size = new System.Drawing.Size(139, 26);
+            this.btClearAutoComplate.TabIndex = 10;
+            this.btClearAutoComplate.Text = "Clear Auto Complate";
+            this.btClearAutoComplate.UseVisualStyleBackColor = false;
+            this.btClearAutoComplate.Click += new System.EventHandler(this.btClearAutoComplate_Click);
             // 
             // btClearStyle
             // 
@@ -158,7 +160,7 @@
             this.btToggleInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btToggleInfo.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btToggleInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btToggleInfo.Location = new System.Drawing.Point(577, 8);
+            this.btToggleInfo.Location = new System.Drawing.Point(855, 8);
             this.btToggleInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btToggleInfo.Name = "btToggleInfo";
             this.btToggleInfo.Size = new System.Drawing.Size(132, 26);
@@ -173,7 +175,7 @@
             this.btToggleEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btToggleEnabled.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.btToggleEnabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btToggleEnabled.Location = new System.Drawing.Point(463, 8);
+            this.btToggleEnabled.Location = new System.Drawing.Point(741, 8);
             this.btToggleEnabled.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btToggleEnabled.Name = "btToggleEnabled";
             this.btToggleEnabled.Size = new System.Drawing.Size(108, 26);
@@ -247,9 +249,9 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private ST.Controls.Modal.ModalButton btGetMainData;
+        private ST.Controls.Modal.ModalButton btSetAutoComplate;
         private ST.Controls.Modal.ModalButton btGetRelationData;
-        private ST.Controls.Modal.ModalButton btGetNodeData;
+        private ST.Controls.Modal.ModalButton btClearAutoComplate;
         private ST.Controls.Modal.ModalButton btClearStyle;
         private ST.Controls.Modal.ModalButton btToggleInfo;
         private ST.Controls.Modal.ModalButton btToggleEnabled;
