@@ -31,7 +31,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.userEditor = new ST.Controls.UserEditor();
             this.btSetAutoComplate = new ST.Controls.Modal.ModalButton();
-            this.btGetRelationData = new ST.Controls.Modal.ModalButton();
             this.btClearAutoComplate = new ST.Controls.Modal.ModalButton();
             this.btClearStyle = new ST.Controls.Modal.ModalButton();
             this.btToggleInfo = new ST.Controls.Modal.ModalButton();
@@ -63,7 +62,6 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel2.Controls.Add(this.btSetAutoComplate);
-            this.splitContainer1.Panel2.Controls.Add(this.btGetRelationData);
             this.splitContainer1.Panel2.Controls.Add(this.btClearAutoComplate);
             this.splitContainer1.Panel2.Controls.Add(this.btClearStyle);
             this.splitContainer1.Panel2.Controls.Add(this.btToggleInfo);
@@ -109,20 +107,6 @@
             this.btSetAutoComplate.Text = "Set Auto Complate";
             this.btSetAutoComplate.UseVisualStyleBackColor = false;
             this.btSetAutoComplate.Click += new System.EventHandler(this.btSetAutoComplate_Click);
-            // 
-            // btGetRelationData
-            // 
-            this.btGetRelationData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.btGetRelationData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btGetRelationData.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.btGetRelationData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btGetRelationData.Location = new System.Drawing.Point(993, 8);
-            this.btGetRelationData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btGetRelationData.Name = "btGetRelationData";
-            this.btGetRelationData.Size = new System.Drawing.Size(59, 26);
-            this.btGetRelationData.TabIndex = 12;
-            this.btGetRelationData.Text = "...";
-            this.btGetRelationData.UseVisualStyleBackColor = false;
             // 
             // btClearAutoComplate
             // 
@@ -250,7 +234,6 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private ST.Controls.Modal.ModalButton btSetAutoComplate;
-        private ST.Controls.Modal.ModalButton btGetRelationData;
         private ST.Controls.Modal.ModalButton btClearAutoComplate;
         private ST.Controls.Modal.ModalButton btClearStyle;
         private ST.Controls.Modal.ModalButton btToggleInfo;

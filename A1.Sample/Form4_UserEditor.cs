@@ -95,7 +95,7 @@ namespace Sample
             // 중복 방지를 위해 이벤트를 해제합니다.
             userEditor.KeyUp -= UserEditor_KeyUp;
             userEditor.AutoCompleteShown -= UserEditor_AutoCompleteShown;
-
+            
             // 이벤트를 바인딩합니다.
             // KeyUp 이벤트에 자동 완성을 사용하기 위해 바인딩합니다.
             userEditor.KeyUp += UserEditor_KeyUp;
@@ -130,7 +130,7 @@ namespace Sample
                 , Keys.Delete, Keys.Back
             };
 
-            // 이동 키 및 Ctrl + Z(Undo), Ctrl + Y(Redo)
+            // 이동 키 및 Ctrl + Z(Undo), Ctrl + Y(Redo)는 제외합니다.
             if (!moveKeys.Contains(e.KeyCode) && !(e.Control && (e.KeyCode == Keys.Z || e.KeyCode == Keys.Y)))
             {
                 // 커서 위치를 마지막으로 하는 단어를 가져옵니다.
