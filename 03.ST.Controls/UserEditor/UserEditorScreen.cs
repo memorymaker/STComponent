@@ -74,7 +74,7 @@ namespace ST.Controls
                     _ShowSelectoinInfo = value;
                     HScroll.Width = _ShowSelectoinInfo
                         ? Width - Draw.SelectionInfoWidth
-                        : Width;
+                        : Width - VScroll.Width;
 
                     Draw.Draw();
                     HScroll.Draw();
