@@ -508,6 +508,10 @@ namespace ST.Controls
             Draw();
         }
 
+        /// <summary>
+        /// 데이터를 바인딩합니다.
+        /// </summary>
+        /// <param name="data"></param>
         public void Bind(DataTable data)
         {
             BlockDrawing = true;

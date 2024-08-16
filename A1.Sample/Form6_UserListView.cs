@@ -52,9 +52,11 @@ namespace Sample
 
         private void btBindData_Click(object sender, EventArgs e)
         {
+            // 샘플 DataTable을 생성합니다.
             DataTable dt = new DataTable();
             dt.AddColumns("{S}CODE_ID {S}CODE_NAME {I}CODE_ORDER {S}CODE_NOTE");
 
+            // 데이터를 추가합니다.
             dt.Rows.Add(new object[] { "POSI0001", "사원"  , 1, "Note 1" });
             dt.Rows.Add(new object[] { "POSI0002", "대리"  , 2, "Note 2" });
             dt.Rows.Add(new object[] { "POSI0003", "과장"  , 3, "Note 3" });
@@ -64,6 +66,7 @@ namespace Sample
             dt.Rows.Add(new object[] { "RESP0002", "팀장"  , 2, "Note 7" });
             dt.Rows.Add(new object[] { "RESP0003", "본부장", 3, "Note 8" });
 
+            // 데이터를 바인딩합니다.
             userListView.Bind(dt);
         }
 
@@ -77,11 +80,13 @@ namespace Sample
                 userListView.Columns[2].ForeColor = Color.FromArgb(0, 0, 240);
 
                 // Items(Row)의 스타일을 설정합니다.
+                // Row 전체에 적용됩니다.
                 userListView.Items[1].BackColor = Color.FromArgb(230, 230, 255);
                 userListView.Items[2].ForeColor = Color.FromArgb(255, 0, 0);
                 userListView.Items[3].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
 
                 // Items(SubItem)의 스타일을 설정합니다.
+                // Column 별로 적용됩니다.
                 userListView.Items[5].SubItems[0].BackColor = Color.FromArgb(230, 255, 230);
                 userListView.Items[5].SubItems[1].ForeColor = Color.FromArgb(0, 0, 255);
                 userListView.Items[5].SubItems["CODE_NOTE"].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
