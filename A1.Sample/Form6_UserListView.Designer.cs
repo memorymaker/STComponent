@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.userListView1 = new ST.Controls.UserListView();
+            this.userListView = new ST.Controls.UserListView();
             this.btScaleMinus = new ST.Controls.Modal.ModalButton();
             this.btScalePlus = new ST.Controls.Modal.ModalButton();
             this.btBindData = new ST.Controls.Modal.ModalButton();
@@ -55,7 +55,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer1.Panel1.Controls.Add(this.userListView1);
+            this.splitContainer1.Panel1.Controls.Add(this.userListView);
             // 
             // splitContainer1.Panel2
             // 
@@ -73,29 +73,29 @@
             // 
             // userListView1
             // 
-            this.userListView1.AllowDrop = true;
-            this.userListView1.AutoSizeType = ST.Controls.UserListAutoSizeType.None;
-            this.userListView1.BackColor = System.Drawing.Color.White;
-            this.userListView1.ColumnHeight = 26;
-            this.userListView1.ColumnHorizontalDistance = 0;
-            this.userListView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.userListView1.ItemHeight = 20;
-            this.userListView1.ItemPadding = new System.Windows.Forms.Padding(4);
-            this.userListView1.ItemVerticalDistance = 1;
-            this.userListView1.ItemVerticalDistanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.userListView1.Location = new System.Drawing.Point(12, 12);
-            this.userListView1.MinimapColor = System.Drawing.Color.Blue;
-            this.userListView1.Name = "userListView1";
-            this.userListView1.OriginalHeight = 0;
-            this.userListView1.OriginalLeft = 0;
-            this.userListView1.OriginalTop = 0;
-            this.userListView1.OriginalWidth = 0;
-            this.userListView1.ScaleValue = 1F;
-            this.userListView1.ScrollLeft = 0;
-            this.userListView1.ScrollTop = 0;
-            this.userListView1.SelectedItemIndex = -1;
-            this.userListView1.Size = new System.Drawing.Size(508, 301);
-            this.userListView1.TabIndex = 0;
+            this.userListView.AllowDrop = true;
+            this.userListView.AutoSizeType = ST.Controls.UserListAutoSizeType.None;
+            this.userListView.BackColor = System.Drawing.Color.White;
+            this.userListView.ColumnHeight = 26;
+            this.userListView.ColumnHorizontalDistance = 0;
+            this.userListView.Cursor = System.Windows.Forms.Cursors.Default;
+            this.userListView.ItemHeight = 20;
+            this.userListView.ItemPadding = new System.Windows.Forms.Padding(4);
+            this.userListView.ItemVerticalDistance = 1;
+            this.userListView.ItemVerticalDistanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.userListView.Location = new System.Drawing.Point(12, 12);
+            this.userListView.MinimapColor = System.Drawing.Color.Blue;
+            this.userListView.Name = "userListView1";
+            this.userListView.OriginalHeight = 0;
+            this.userListView.OriginalLeft = 0;
+            this.userListView.OriginalTop = 0;
+            this.userListView.OriginalWidth = 0;
+            this.userListView.ScaleValue = 1F;
+            this.userListView.ScrollLeft = 0;
+            this.userListView.ScrollTop = 0;
+            this.userListView.SelectedItemIndex = -1;
+            this.userListView.Size = new System.Drawing.Size(508, 301);
+            this.userListView.TabIndex = 0;
             // 
             // btScaleMinus
             // 
@@ -227,7 +227,7 @@
         private ST.Controls.Modal.ModalButton btSetStyle;
         private ST.Controls.Modal.ModalButton btClear;
         private ST.Controls.Modal.ModalButton btAddColumn;
-        private ST.Controls.UserListView userListView1;
+        private ST.Controls.UserListView userListView;
         private ST.Controls.Modal.ModalButton modalButton1;
     }
 }

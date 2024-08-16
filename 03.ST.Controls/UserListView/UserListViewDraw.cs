@@ -121,6 +121,17 @@ namespace ST.Controls
         public Size FontPixelSize;
         #endregion
 
+        /// <summary>
+        /// 해당 컨트롤을 다시 그립니다.
+        /// </summary>
+        new public void Refresh()
+        {
+            Draw();
+        }
+
+        /// <summary>
+        /// 해당 컨트롤을 그립니다.
+        /// </summary>
         public void Draw()
         {
             if (!BlockDrawing && !_SuspendLayout)

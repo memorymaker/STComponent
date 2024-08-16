@@ -13,6 +13,9 @@ namespace ST.Controls
         private float MaximumScaleValue = 2f;
         private float MinimumScaleValue = 0.2f;
 
+        /// <summary>
+        /// UserListView을 지정한 배율로 조정합니다.
+        /// </summary>
         public float ScaleValue
         {
             get

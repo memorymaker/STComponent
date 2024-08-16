@@ -20,6 +20,9 @@ namespace ST.Controls
     public partial class UserListView : UserControl
     {
         #region User Options
+        /// <summary>
+        /// 사용자가 리스트의 항목을 다른 컨트롤로 드래그 할 수 있는지 여부를 가져오거나 설정합니다.
+        /// </summary>
         public bool AllowDrag = true;
         #endregion
 
@@ -266,6 +269,9 @@ namespace ST.Controls
             }
         }
 
+        /// <summary>
+        /// 컬럼의 크기가 자동으로 조정되는 방법을 가져오거나 설정합니다.
+        /// </summary>
         public UserListAutoSizeType AutoSizeType
         {
             get
@@ -464,6 +470,9 @@ namespace ST.Controls
         #endregion
 
         #region Public Function
+        /// <summary>
+        /// UserList의 모든 항목을 삭제합니다.
+        /// </summary>
         public void Clear()
         {
             if (Data != null)
@@ -479,12 +488,20 @@ namespace ST.Controls
             Draw();
         }
 
+        /// <summary>
+        /// 컬럼을 추가합니다.
+        /// </summary>
+        /// <param name="userListViewColumn"></param>
         public void AddColumn(UserListViewColumn userListViewColumn)
         {
             Columns.Add(new UserListViewColumn(userListViewColumn));
             Draw();
         }
 
+        /// <summary>
+        /// 컬럼을 제거합니다.
+        /// </summary>
+        /// <param name="userListViewColumn"></param>
         public void RemoveColumn(UserListViewColumn userListViewColumn)
         {
             Columns.Remove(userListViewColumn);

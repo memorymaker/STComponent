@@ -22,22 +22,32 @@ namespace Sample
 
         private void LoadThis()
         {
-            userListView1.AllowDrag = false;
+            // 리스트의 항목의 드래그를 막습니다.
+            userListView.AllowDrag = false;
         }
 
         private void btClear_Click(object sender, EventArgs e)
         {
-            userListView1.Clear();
+            // UserList의 모든 항목을 삭제합니다.
+            userListView.Clear();
+
+            // UserList의 모든 컬럼을 삭제합니다.
+            userListView.Columns.Clear();
         }
 
         private void btAddColumn_Click(object sender, EventArgs e)
         {
-            userListView1.Columns.Clear();
-            userListView1.AddColumn(new ST.Controls.UserListViewColumn("ID"   , "CODE_ID"   ));
-            userListView1.AddColumn(new ST.Controls.UserListViewColumn("Name" , "CODE_NAME" ));
-            userListView1.AddColumn(new ST.Controls.UserListViewColumn("Order", "CODE_ORDER"));
-            userListView1.AddColumn(new ST.Controls.UserListViewColumn("Note" , "CODE_NOTE" ));
-            userListView1.AutoSizeType = ST.Controls.UserListAutoSizeType.LeftFirst;
+            // UserList의 모든 컬럼을 삭제합니다.
+            userListView.Columns.Clear();
+
+            // 컬럼을 추가합니다.
+            userListView.AddColumn(new UserListViewColumn("ID"   , "CODE_ID"   ));
+            userListView.AddColumn(new UserListViewColumn("Name" , "CODE_NAME" ));
+            userListView.AddColumn(new UserListViewColumn("Order", "CODE_ORDER"));
+            userListView.AddColumn(new UserListViewColumn("Note" , "CODE_NOTE" ));
+            
+            // 컬럼 크기의 자동 조정을 좌측 우선으로 설정합니다.
+            userListView.AutoSizeType = UserListAutoSizeType.LeftFirst;
         }
 
         private void btBindData_Click(object sender, EventArgs e)
@@ -54,29 +64,30 @@ namespace Sample
             dt.Rows.Add(new object[] { "RESP0002", "팀장"  , 2, "Note 7" });
             dt.Rows.Add(new object[] { "RESP0003", "본부장", 3, "Note 8" });
 
-            userListView1.Bind(dt);
+            userListView.Bind(dt);
         }
 
         private void btSetStyle_Click(object sender, EventArgs e)
         {
             try
             {
-                // Column
-                userListView1.Columns[0].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
-                userListView1.Columns[1].BackColor = Color.FromArgb(255, 200, 200);
-                userListView1.Columns[2].ForeColor = Color.FromArgb(0, 0, 240);
+                // Column의 스타일을 설정합니다.
+                userListView.Columns[0].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
+                userListView.Columns[1].BackColor = Color.FromArgb(255, 200, 200);
+                userListView.Columns[2].ForeColor = Color.FromArgb(0, 0, 240);
 
-                // Items(Row)
-                userListView1.Items[1].BackColor = Color.FromArgb(230, 230, 255);
-                userListView1.Items[2].ForeColor = Color.FromArgb(255, 0, 0);
-                userListView1.Items[3].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
+                // Items(Row)의 스타일을 설정합니다.
+                userListView.Items[1].BackColor = Color.FromArgb(230, 230, 255);
+                userListView.Items[2].ForeColor = Color.FromArgb(255, 0, 0);
+                userListView.Items[3].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
 
-                // Items(SubItem)
-                userListView1.Items[5].SubItems[0].BackColor = Color.FromArgb(230, 255, 230);
-                userListView1.Items[5].SubItems[1].ForeColor = Color.FromArgb(0, 0, 255);
-                userListView1.Items[5].SubItems["CODE_NOTE"].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
+                // Items(SubItem)의 스타일을 설정합니다.
+                userListView.Items[5].SubItems[0].BackColor = Color.FromArgb(230, 255, 230);
+                userListView.Items[5].SubItems[1].ForeColor = Color.FromArgb(0, 0, 255);
+                userListView.Items[5].SubItems["CODE_NOTE"].Font = new Font("맑은 고딕", 9f, FontStyle.Bold | FontStyle.Italic);
 
-                userListView1.Draw();
+                // UserListView를 다시 그립니다.
+                userListView.Refresh();
             }
             catch(Exception ex)
             {
@@ -86,18 +97,14 @@ namespace Sample
 
         private void btScalePlus_Click(object sender, EventArgs e)
         {
-            userListView1.ScaleValue += 0.1f;
+            // UserListView의 배율을 +10% 증가 시킵니다.
+            userListView.ScaleValue += 0.1f;
         }
 
         private void btScaleMinus_Click(object sender, EventArgs e)
         {
-            userListView1.ScaleValue -= 0.1f;
+            // UserListView의 배율을 -10% 감소 시킵니다.
+            userListView.ScaleValue -= 0.1f;
         }
-
-        private void btSetColor_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
