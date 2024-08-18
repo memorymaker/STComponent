@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ST.Controls
 {
+    public enum UserScrollBarType
+    {
+        Vertical, Horizontal
+    }
+
     public partial class UserScrollBar
     {
-        public enum UserScrollBarType
-        {
-            Vertical, Horizontal
-        }
-
         private enum MouseActionType
         {
             None, DecrementButton, EncrementButton, ScrollButton, DecrementArea, EncrementArea
