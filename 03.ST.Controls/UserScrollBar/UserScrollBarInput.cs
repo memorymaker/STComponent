@@ -226,10 +226,5 @@ namespace ST.Controls
                 Value = Value + point;
             }
         }
-
-        private enum MouseActionType
-        {
-            None, DecrementButton, EncrementButton, ScrollButton, DecrementArea, EncrementArea
-        }
     }
 }

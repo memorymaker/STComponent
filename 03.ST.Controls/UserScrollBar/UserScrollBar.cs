@@ -201,9 +201,4 @@ namespace ST.Controls
             Draw(e.Graphics);
         }
     }
-
-    public enum UserScrollBarType
-    {
-        Vertical, Horizontal
-    }
 }

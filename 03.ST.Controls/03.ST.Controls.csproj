@@ -183,6 +183,9 @@
     <Compile Include="UserScrollBar\UserScrollBarDraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UserScrollBar\UserScrollBarEnums.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserScrollBar\UserScrollBarEventArgs.cs" />
     <Compile Include="UserScrollBar\UserScrollBarInput.cs">
       <SubType>UserControl</SubType>
