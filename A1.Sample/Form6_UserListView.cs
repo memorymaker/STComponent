@@ -114,5 +114,11 @@ namespace Sample
             // UserListView의 배율을 -10% 감소 시킵니다.
             userListView.ScaleValue -= 0.1f;
         }
+
+        private void btToggleEnabled_Click(object sender, EventArgs e)
+        {
+            // 사용 가능 여부를 설정합니다.
+            userListView.Enabled = !userListView.Enabled;
+        }
     }
 }

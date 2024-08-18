@@ -33,7 +33,7 @@
             this.btScaleMinus = new ST.Controls.Modal.ModalButton();
             this.btScalePlus = new ST.Controls.Modal.ModalButton();
             this.btBindData = new ST.Controls.Modal.ModalButton();
-            this.modalButton1 = new ST.Controls.Modal.ModalButton();
+            this.btToggleEnabled = new ST.Controls.Modal.ModalButton();
             this.btSetStyle = new ST.Controls.Modal.ModalButton();
             this.btClear = new ST.Controls.Modal.ModalButton();
             this.btAddColumn = new ST.Controls.Modal.ModalButton();
@@ -63,7 +63,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btScaleMinus);
             this.splitContainer1.Panel2.Controls.Add(this.btScalePlus);
             this.splitContainer1.Panel2.Controls.Add(this.btBindData);
-            this.splitContainer1.Panel2.Controls.Add(this.modalButton1);
+            this.splitContainer1.Panel2.Controls.Add(this.btToggleEnabled);
             this.splitContainer1.Panel2.Controls.Add(this.btSetStyle);
             this.splitContainer1.Panel2.Controls.Add(this.btClear);
             this.splitContainer1.Panel2.Controls.Add(this.btAddColumn);
@@ -71,7 +71,7 @@
             this.splitContainer1.SplitterDistance = 495;
             this.splitContainer1.TabIndex = 4;
             // 
-            // userListView1
+            // userListView
             // 
             this.userListView.AllowDrop = true;
             this.userListView.AutoSizeType = ST.Controls.UserListAutoSizeType.None;
@@ -85,7 +85,7 @@
             this.userListView.ItemVerticalDistanceColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.userListView.Location = new System.Drawing.Point(12, 12);
             this.userListView.MinimapColor = System.Drawing.Color.Blue;
-            this.userListView.Name = "userListView1";
+            this.userListView.Name = "userListView";
             this.userListView.OriginalHeight = 0;
             this.userListView.OriginalLeft = 0;
             this.userListView.OriginalTop = 0;
@@ -142,19 +142,20 @@
             this.btBindData.UseVisualStyleBackColor = false;
             this.btBindData.Click += new System.EventHandler(this.btBindData_Click);
             // 
-            // modalButton1
+            // btToggleEnabled
             // 
-            this.modalButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
-            this.modalButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modalButton1.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.modalButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.modalButton1.Location = new System.Drawing.Point(692, 8);
-            this.modalButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.modalButton1.Name = "modalButton1";
-            this.modalButton1.Size = new System.Drawing.Size(108, 26);
-            this.modalButton1.TabIndex = 7;
-            this.modalButton1.Text = "...";
-            this.modalButton1.UseVisualStyleBackColor = false;
+            this.btToggleEnabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(122)))), ((int)(((byte)(182)))));
+            this.btToggleEnabled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btToggleEnabled.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.btToggleEnabled.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btToggleEnabled.Location = new System.Drawing.Point(692, 8);
+            this.btToggleEnabled.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btToggleEnabled.Name = "btToggleEnabled";
+            this.btToggleEnabled.Size = new System.Drawing.Size(108, 26);
+            this.btToggleEnabled.TabIndex = 7;
+            this.btToggleEnabled.Text = "Toggle Enabled";
+            this.btToggleEnabled.UseVisualStyleBackColor = false;
+            this.btToggleEnabled.Click += new System.EventHandler(this.btToggleEnabled_Click);
             // 
             // btSetStyle
             // 
@@ -228,6 +229,6 @@
         private ST.Controls.Modal.ModalButton btClear;
         private ST.Controls.Modal.ModalButton btAddColumn;
         private ST.Controls.UserListView userListView;
-        private ST.Controls.Modal.ModalButton modalButton1;
+        private ST.Controls.Modal.ModalButton btToggleEnabled;
     }
 }

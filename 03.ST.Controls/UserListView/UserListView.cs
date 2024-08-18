@@ -287,6 +287,10 @@ namespace ST.Controls
         }
         private UserListAutoSizeType _AutoSizingType = UserListAutoSizeType.LeftFirst;
 
+        /// <summary>
+        /// 컨트롤이 사용자 상호 작용에 응답할 수 있는지를 나타내는 값을 가져오거나 설정합니다.
+        /// </summary>
+        /// <returns>컨트롤이 사용자 상호 작용에 응답할 수 있으면 <see langword="true"/>이고, 그렇지 않으면 <see langword="false"/>입니다. 기본값은 <see langword="true"/>입니다.</returns>
         new public bool Enabled
         {
             get
