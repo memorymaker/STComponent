@@ -28,16 +28,19 @@ namespace Sample
 
         private void btClear_Click(object sender, EventArgs e)
         {
-            // UserList의 모든 항목을 삭제합니다.
+            // UserListView의 모든 항목을 삭제합니다.
             userListView.Clear();
 
-            // UserList의 모든 컬럼을 삭제합니다.
+            // UserListView의 모든 컬럼을 삭제합니다.
             userListView.Columns.Clear();
+
+            // UserListView를 다시 그립니다.
+            userListView.Refresh();
         }
 
         private void btAddColumn_Click(object sender, EventArgs e)
         {
-            // UserList의 모든 컬럼을 삭제합니다.
+            // UserListView의 모든 컬럼을 삭제합니다.
             userListView.Columns.Clear();
 
             // 컬럼을 추가합니다.

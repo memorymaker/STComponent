@@ -145,7 +145,6 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserListView\UserListViewItem.cs" />
-    <Compile Include="UserListView\UserListViewUI.cs" />
     <Compile Include="Interface\IMouseActionTarget.cs" />
     <Compile Include="UserEditor\UserEditorAutoComplete.cs">
       <SubType>UserControl</SubType>
