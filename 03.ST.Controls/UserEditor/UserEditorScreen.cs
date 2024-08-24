@@ -160,6 +160,7 @@ namespace ST.Controls
             VScroll.Width = DefaultVScrollWidth;
             VScroll.BackColor = SystemColors.Control;
             VScroll.TabStop = false;
+            VScroll.DisableBrightnessColorPoint = -0.1f;
             Controls.Add(VScroll);
             VScroll.BringToFront();
             VScroll.BlockDrawing = false;
@@ -175,6 +176,7 @@ namespace ST.Controls
             HScroll.Height = DefaultHScrollHeight;
             HScroll.BackColor = SystemColors.Control;
             HScroll.TabStop = false;
+            HScroll.DisableBrightnessColorPoint = -0.1f;
             Controls.Add(HScroll);
             HScroll.BringToFront();
             HScroll.BlockDrawing = false;

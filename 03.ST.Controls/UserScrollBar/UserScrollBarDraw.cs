@@ -17,9 +17,12 @@ namespace ST.Controls
         public bool BlockDrawing = false;
 
         // Options
-        public float DisableBrightnessColorPoint = -0.1f;
+        public float DisableBrightnessColorPoint = 0;
 
         // Buttons
+        /// <summary>
+        /// 감소 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color DecrementButtonColor
         {
             get
@@ -34,6 +37,9 @@ namespace ST.Controls
         }
         private Color _DecrementButtonColor = Color.FromArgb(134, 137, 153);
 
+        /// <summary>
+        /// 증가 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color EncrementButtonColor
         {
             get
@@ -48,6 +54,9 @@ namespace ST.Controls
         }
         private Color _EncrementButtonColor = Color.FromArgb(134, 137, 153);
 
+        /// <summary>
+        /// 스크롤 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color ScrollButtonColor
         {
             get
@@ -63,6 +72,9 @@ namespace ST.Controls
         private Color _ScrollButtonColor = Color.FromArgb(194, 195, 201);
 
         // Buttons Over
+        /// <summary>
+        /// 마우스 커서가 감소 버튼 위에 있을 때 해당 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color DecrementButtonOverColor
         {
             get
@@ -77,6 +89,9 @@ namespace ST.Controls
         }
         private Color _DecrementButtonOverColor = Color.FromArgb(73, 113, 185);
 
+        /// <summary>
+        /// 마우스 커서가 증가 버튼 위에 있을 때 해당 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color EncrementButtonOverColor
         {
             get
@@ -91,6 +106,9 @@ namespace ST.Controls
         }
         private Color _EncrementButtonOverColor = Color.FromArgb(73, 113, 185);
 
+        /// <summary>
+        /// 마우스 커서가 스크롤 버튼 위에 있을 때 해당 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color ScrollButtonOverColor
         {
             get
@@ -106,6 +124,9 @@ namespace ST.Controls
         private Color _ScrollButtonOverColor = Color.FromArgb(104, 104, 104);
 
         // Buttons MouseDown
+        /// <summary>
+        /// 감소 버튼에서 마우스를 좌클릭 했을 때 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color DecrementButtonMouseDownColor
         {
             get
@@ -120,6 +141,9 @@ namespace ST.Controls
         }
         private Color _DecrementButtonMouseDownColor = Color.FromArgb(30, 79, 151);
 
+        /// <summary>
+        /// 증가 버튼에서 마우스를 좌클릭 했을 때 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color EncrementButtonMouseDownColor
         {
             get
@@ -134,6 +158,9 @@ namespace ST.Controls
         }
         private Color _EncrementButtonMouseDownColor = Color.FromArgb(30, 79, 151);
 
+        /// <summary>
+        /// 스크롤 버튼에서 마우스를 좌클릭 했을 때 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color ScrollButtonMouseDownColor
         {
             get
@@ -149,6 +176,9 @@ namespace ST.Controls
         private Color _ScrollButtonMouseDownColor = Color.FromArgb(91, 91, 91);
 
         // Buttons Disabled
+        /// <summary>
+        /// 스크롤 컨트롤의 Enabled 값이 false 일 때의 감소 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color DecrementButtonDisabledColor
         {
             get
@@ -163,6 +193,9 @@ namespace ST.Controls
         }
         private Color _DecrementButtonDisabledColor = Color.FromArgb(190, 192, 201);
 
+        /// <summary>
+        /// 스크롤 컨트롤의 Enabled 값이 false 일 때의 증가 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color EncrementButtonDisabledColor
         {
             get
@@ -177,6 +210,9 @@ namespace ST.Controls
         }
         private Color _EncrementButtonDisabledColor = Color.FromArgb(190, 192, 201);
 
+        /// <summary>
+        /// 스크롤 컨트롤의 Enabled 값이 false 일 때의 스크롤 버튼의 색상을 가져오거나 설정합니다.
+        /// </summary>
         public Color ScrollButtonDisabledColor
         {
             get
@@ -189,7 +225,7 @@ namespace ST.Controls
                 Draw();
             }
         }
-        private Color _ScrollButtonDisabledColor = Color.FromArgb(220, 221, 224);
+        private Color _ScrollButtonDisabledColor = Color.FromArgb(211, 212, 218);
 
         public void Draw(Color scrollBarColor = default)
         {
@@ -210,7 +246,7 @@ namespace ST.Controls
 
                 Color backColor = Parent == null
                     ? BackColor
-                    : BackColor.GetColor(!Parent.Enabled, DisableBrightnessColorPoint);
+                    : BackColor.GetColor(!Parent.Enabled || !Enabled, DisableBrightnessColorPoint);
                 g.Clear(backColor);
 
                 if (_IncreaseDecreaseButtonVisible)
@@ -235,7 +271,13 @@ namespace ST.Controls
             // ▲ Or ◀
             // Get Brush
             Brush brush;
-            if (Maximum - Minimum > 0)
+            if (!Enabled)
+            {
+                brush = new SolidBrush(DisableBrightnessColorPoint != 0
+                        ? DecrementButtonColor
+                        : DecrementButtonDisabledColor);
+            }
+            else if (Maximum - Minimum > 0)
             {
                 if (IsMouseDown)
                 {
@@ -291,7 +333,13 @@ namespace ST.Controls
             // ▼ Or ▶
             // Get Brush
             Brush brush;
-            if (Maximum - Minimum > 0)
+            if (!Enabled)
+            {
+                brush = new SolidBrush(DisableBrightnessColorPoint != 0
+                        ? EncrementButtonColor
+                        : EncrementButtonDisabledColor);
+            }
+            else if (Maximum - Minimum > 0)
             {
                 if (IsMouseDown)
                 {
@@ -349,7 +397,13 @@ namespace ST.Controls
             {
                 // Get Brush
                 Brush brush;
-                if (IsMouseDown)
+                if (!Enabled)
+                {
+                    brush = new SolidBrush(DisableBrightnessColorPoint != 0
+                        ? ScrollButtonColor
+                        : ScrollButtonDisabledColor);
+                }
+                else if (IsMouseDown)
                 {
                     brush = new SolidBrush(ActionType == MouseActionType.ScrollButton
                         ? ScrollButtonMouseDownColor

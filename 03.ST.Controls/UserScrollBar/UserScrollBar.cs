@@ -17,6 +17,9 @@ namespace ST.Controls
     public partial class UserScrollBar : UserControl
     {
         public delegate void UserScrollBarEventHandler(object sender, UserScrollBarEventArgs e);
+        /// <summary>
+        /// UserScrollBar.Value 값이 이벤트나 프로그래밍 방식으로 변경될 때 발생합니다.
+        /// </summary>
         public event UserScrollBarEventHandler ValueChanged;
 
         public UserScrollBarType Type { 
@@ -35,6 +38,9 @@ namespace ST.Controls
         }
         private UserScrollBarType _Type = UserScrollBarType.Vertical;
 
+        /// <summary>
+        /// 스크롤할 수 있는 범위의 상한 값을 가져오거나 설장합니다.
+        /// </summary>
         public int Maximum
         {
             get
@@ -61,8 +67,11 @@ namespace ST.Controls
                 }
             }
         }
-        private int _Maximum = 100; 
+        private int _Maximum = 100;
 
+        /// <summary>
+        /// 스크롤할 수 있는 범위의 하한 값을 가져오거나 설장합니다.
+        /// </summary>
         public int Minimum
         {
             get
@@ -92,6 +101,9 @@ namespace ST.Controls
         }
         private int _Minimum = 0;
 
+        /// <summary>
+        /// 스크롤 상자를 많이 이동시킬 때 UserScrollBar.Value 속성에서 증가되거나 감소되는 값을 가져오거나 설정합니다.
+        /// </summary>
         public int LargeChange
         {
             get
@@ -110,6 +122,9 @@ namespace ST.Controls
         }
         private int _LargeChange = 10;
 
+        /// <summary>
+        /// 스크롤 상자를 조금 움직일 때 UserScrollBar.Value 속성에서 추가하거나 뺄 값을 가져오거나 설정합니다.
+        /// </summary>
         public int SmallChange
         {
             get
@@ -128,6 +143,9 @@ namespace ST.Controls
         }
         private int _SmallChange = 1;
 
+        /// <summary>
+        /// UserScrollBar 컨트롤에 있는 스크롤 상자의 현재 위치를 나타내는 숫자 값을 가져오거나 설정합니다.
+        /// </summary>
         public int Value
         {
             get
@@ -149,6 +167,10 @@ namespace ST.Controls
         }
         private int _Value = 0;
 
+        /// <summary>
+        /// 컨트롤이 사용자 상호 작용에 응답할 수 있는지를 나타내는 값을 가져오거나 설정합니다.
+        /// </summary>
+        /// <returns>컨트롤이 사용자 상호 작용에 응답할 수 있으면 <see langword="true"/>이고, 그렇지 않으면 <see langword="false"/>입니다. 기본값은 <see langword="true"/>입니다.</returns>
         new public bool Enabled
         {
             get

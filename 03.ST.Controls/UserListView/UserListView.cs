@@ -377,6 +377,7 @@ namespace ST.Controls
             ScrollBarVertical.Dock = DockStyle.Right;
             ScrollBarVertical.SmallChange = ItemHeight + ItemVerticalDistance;
             ScrollBarVertical.BackColor = Color.FromArgb(245, 245, 245);
+            ScrollBarVertical.DisableBrightnessColorPoint = -0.1f;
             Controls.Add(ScrollBarVertical);
             ScrollBarVertical.BlockDrawing = false;
 
